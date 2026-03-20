@@ -9,6 +9,7 @@
 <meta property="og:title" content="Is Your Marketing Actually Working? Free 5-Minute Audit">
 <meta property="og:description" content="20 quick yes or no questions. Instant personalised results. Free consultation offer from Tulivo Digital.">
 <meta property="og:image" content="https://tulivo.digital/audit-preview.jpg">
+<link rel="canonical" href="https://tulivo.digital/audit">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -43,7 +44,8 @@
 
   .page { max-width: 620px; margin: 0 auto; padding: 2rem 1rem 4rem; }
   .screen { display: none; }
-  .screen.active { display: block; }
+  .screen.active { display: block; animation: fadeIn 0.3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   .card {
     background: #fff;
@@ -105,6 +107,8 @@
   }
   .btn-primary:hover { background: #1E293B; }
   .btn-primary:active { transform: scale(0.98); }
+  .btn-primary:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
 
   .privacy { font-size: 12px; color: #9CA3AF; text-align: center; margin-top: 10px; line-height: 1.6; }
 
@@ -153,6 +157,7 @@
     cursor: pointer; transition: all 0.15s;
   }
   .btn-yn:hover { background: #F8FAFC; }
+  .btn-yn:focus-visible { outline: 2px solid #2563EB; outline-offset: 2px; }
   .btn-yes.on { background: #DBEAFE; border-color: #2563EB; color: #1D4ED8; }
   .btn-no.on { background: #FEE2E2; border-color: #DC2626; color: #B91C1C; }
 
@@ -253,18 +258,18 @@
 </head>
 <body>
 
-<nav>
-  <a href="https://tulivo.digital" class="nav-logo">
-    <div class="nav-dot">T</div>
+<nav role="navigation" aria-label="Main navigation">
+  <a href="https://tulivo.digital" class="nav-logo" aria-label="Tulivo Digital homepage">
+    <div class="nav-dot" aria-hidden="true">T</div>
     <span class="nav-name">Tulivo Digital</span>
   </a>
   <a href="https://tulivo.digital" class="nav-link">Visit our website</a>
 </nav>
 
-<div class="page">
+<main class="page" role="main">
 
   <!-- SCREEN 1: OPT-IN -->
-  <div class="screen active" id="s1">
+  <div class="screen active" id="s1" aria-label="Registration form" tabindex="-1">
     <div class="card">
       <span class="badge">Free 5-minute audit</span>
       <h1>Is your marketing actually working?</h1>
@@ -292,15 +297,15 @@
       <div class="form-row">
         <div>
           <label for="fname">First name</label>
-          <input type="text" id="fname" placeholder="Sarah">
+          <input type="text" id="fname" placeholder="Sarah" required autocomplete="given-name">
         </div>
         <div>
           <label for="bname">Business name</label>
-          <input type="text" id="bname" placeholder="Bloom Beauty">
+          <input type="text" id="bname" placeholder="Bloom Beauty" required autocomplete="organization">
         </div>
       </div>
       <label for="email">Email address</label>
-      <input type="email" id="email" placeholder="you@yourbusiness.com">
+      <input type="email" id="email" placeholder="you@yourbusiness.com" required autocomplete="email">
       <p class="err" id="err1">Please fill in all fields with a valid email address.</p>
       <button class="btn-primary" onclick="startAudit()">Start my free audit &rarr;</button>
       <p class="privacy">No spam. Ever. Your details are used only to send your results and occasional helpful tips from Tulivo Digital. Unsubscribe any time.</p>
@@ -308,14 +313,14 @@
   </div>
 
   <!-- SCREEN 2: AUDIT -->
-  <div class="screen" id="s2">
+  <div class="screen" id="s2" aria-label="Audit questions" tabindex="-1">
     <div class="card" style="padding:1.25rem">
       <div class="progress-wrap">
         <div class="progress-top">
           <span class="progress-greeting" id="greeting">Answer yes or no to each question</span>
           <span class="progress-count"><span id="prog-count">0</span>/20</span>
         </div>
-        <div class="progress-track">
+        <div class="progress-track" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="20" aria-label="Audit progress" id="prog-track">
           <div class="progress-fill" id="prog" style="width:0%"></div>
         </div>
       </div>
@@ -324,7 +329,7 @@
   </div>
 
   <!-- SCREEN 3: RESULTS -->
-  <div class="screen" id="s3">
+  <div class="screen" id="s3" aria-label="Audit results" tabindex="-1">
     <div class="card">
       <div class="result-header">
         <div class="score-big" id="score-num">0<span class="score-denom">/20</span></div>
@@ -341,18 +346,26 @@
       <div id="focus-areas"></div>
       <div class="advice-section" id="advice-section"></div>
       <div id="cta-area"></div>
-      <button class="reset-btn" onclick="resetAll()">Start the audit again</button>
+      <button class="reset-btn" onclick="resetAll()" aria-label="Reset and start the audit again">Start the audit again</button>
     </div>
   </div>
 
-</div>
+</main>
 
 <footer>
-  <p>&copy; 2025 <a href="https://tulivo.digital">Tulivo Digital</a>. All rights reserved.</p>
+  <p>&copy; 2026 <a href="https://tulivo.digital">Tulivo Digital</a>. All rights reserved.</p>
   <p><a href="https://tulivo.digital">tulivo.digital</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@tulivo.digital">hello@tulivo.digital</a></p>
 </footer>
 
 <script>
+"use strict";
+
+function escapeHtml(str) {
+  const div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
 const SECTIONS = [
   {
     title: "Website and online presence", color: "#0F172A", tc: "#fff", icon: "🌐",
@@ -499,8 +512,9 @@ function startAudit() {
   userName = fn;
   bizName = bn;
   buildAudit();
-  document.getElementById("greeting").textContent = "Hi " + fn + " — answer yes or no to each question below";
+  document.getElementById("greeting").textContent = "Hi " + escapeHtml(fn) + " — answer yes or no to each question below";
   show("s2");
+  document.getElementById("s2").focus();
 }
 
 function buildAudit() {
@@ -518,10 +532,10 @@ function buildAudit() {
       const key = `${si}-${qi}`;
       const row = document.createElement("div");
       row.className = "q-row";
-      row.innerHTML = `<span class="q-text">${qi + 1 + si * 5}. ${q}</span>
-        <div class="btn-group">
-          <button class="btn-yn btn-yes" onclick="ans('${key}',true,this)">Yes</button>
-          <button class="btn-yn btn-no" onclick="ans('${key}',false,this)">No</button>
+      row.innerHTML = `<span class="q-text" id="q-${key}">${qi + 1 + si * 5}. ${q}</span>
+        <div class="btn-group" role="group" aria-labelledby="q-${key}">
+          <button class="btn-yn btn-yes" onclick="ans('${key}',true,this)" aria-pressed="false">Yes</button>
+          <button class="btn-yn btn-no" onclick="ans('${key}',false,this)" aria-pressed="false">No</button>
         </div>`;
       card.appendChild(row);
     });
@@ -536,9 +550,12 @@ function ans(key, val, btn) {
   const btns = btn.parentNode.querySelectorAll(".btn-yn");
   btns[0].className = "btn-yn btn-yes" + (val === true ? " on" : "");
   btns[1].className = "btn-yn btn-no" + (val === false ? " on" : "");
+  btns[0].setAttribute("aria-pressed", val === true);
+  btns[1].setAttribute("aria-pressed", val === false);
   if (!already) totalAnswered++;
   document.getElementById("prog").style.width = (totalAnswered / 20 * 100) + "%";
   document.getElementById("prog-count").textContent = totalAnswered;
+  document.getElementById("prog-track").setAttribute("aria-valuenow", totalAnswered);
   const si = key.split("-")[0];
   let c = 0;
   for (let qi = 0; qi < 5; qi++) { if (answers[`${si}-${qi}`] === true) c++; }
@@ -550,7 +567,7 @@ function showResults() {
   const yeses = Object.values(answers).filter(v => v === true).length;
   const pct = Math.round(yeses / 20 * 100);
   document.getElementById("score-num").innerHTML = yeses + '<span class="score-denom">/20</span>';
-  document.getElementById("res-name").textContent = userName + " — " + bizName;
+  document.getElementById("res-name").textContent = escapeHtml(userName) + " — " + escapeHtml(bizName);
 
   const tier = TIERS.find(t => yeses >= t.min);
   document.getElementById("score-fill").style.width = pct + "%";
@@ -694,7 +711,9 @@ function showResults() {
 
 function show(id) {
   document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  const target = document.getElementById(id);
+  target.classList.add("active");
+  target.focus();
 }
 
 function resetAll() {
@@ -706,6 +725,7 @@ function resetAll() {
   document.getElementById("email").value = "";
   document.getElementById("prog").style.width = "0%";
   document.getElementById("prog-count").textContent = "0";
+  document.getElementById("prog-track").setAttribute("aria-valuenow", 0);
   show("s1");
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
