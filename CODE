@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Free Marketing Audit — Tulivo Digital</title>
+<meta name="description" content="Take the free 5-minute small business marketing audit from Tulivo Digital. Find out exactly what is holding your business back online and what to fix first.">
+<meta property="og:title" content="Is Your Marketing Actually Working? Free 5-Minute Audit">
+<meta property="og:description" content="20 quick yes or no questions. Instant personalised results. Free consultation offer from Tulivo Digital.">
+<meta property="og:image" content="https://tulivo.digital/audit-preview.jpg">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: #F8FAFC;
+    color: #111827;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  nav {
+    background: #0F172A;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+  .nav-dot {
+    width: 34px; height: 34px; border-radius: 8px;
+    background: #0EA5E9; display: flex; align-items: center;
+    justify-content: center; font-weight: 700; font-size: 15px; color: #fff;
+  }
+  .nav-name { font-size: 15px; font-weight: 600; color: #fff; }
+  .nav-link {
+    font-size: 13px; color: #94A3B8; text-decoration: none;
+    border: 0.5px solid #334155; border-radius: 6px;
+    padding: 6px 14px; transition: all 0.15s;
+  }
+  .nav-link:hover { color: #fff; border-color: #64748B; }
+
+  .page { max-width: 620px; margin: 0 auto; padding: 2rem 1rem 4rem; }
+  .screen { display: none; }
+  .screen.active { display: block; }
+
+  .card {
+    background: #fff;
+    border: 1px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #DBEAFE; color: #1D4ED8;
+    font-size: 11px; font-weight: 600;
+    padding: 4px 12px; border-radius: 999px;
+    letter-spacing: 0.04em; text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  h1 { font-size: 26px; font-weight: 700; color: #0F172A; margin-bottom: 10px; line-height: 1.25; }
+  h2 { font-size: 18px; font-weight: 700; color: #0F172A; margin-bottom: 8px; }
+  .sub { font-size: 15px; color: #4B5563; margin-bottom: 1.5rem; line-height: 1.7; }
+
+  .benefits { list-style: none; margin-bottom: 1.75rem; }
+  .benefits li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 14px; color: #374151; margin-bottom: 10px; line-height: 1.5;
+  }
+  .tick {
+    width: 20px; height: 20px; min-width: 20px;
+    border-radius: 50%; background: #DBEAFE;
+    display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .tick svg { width: 10px; height: 10px; }
+
+  .divider { border: none; border-top: 1px solid #F1F5F9; margin: 1.5rem 0; }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media(max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+  label { display: block; font-size: 13px; font-weight: 600; color: #374151; margin-bottom: 5px; }
+  input[type=text], input[type=email] {
+    width: 100%; padding: 11px 14px;
+    border: 1.5px solid #E2E8F0; border-radius: 10px;
+    font-size: 14px; color: #111827; background: #fff;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    margin-bottom: 14px;
+  }
+  input:focus {
+    outline: none; border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37,99,235,0.12);
+  }
+  .err { font-size: 13px; color: #DC2626; margin-bottom: 10px; display: none; }
+
+  .btn-primary {
+    display: block; width: 100%; padding: 14px;
+    background: #0F172A; color: #fff;
+    border: none; border-radius: 10px;
+    font-size: 15px; font-weight: 600; cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+    text-align: center; text-decoration: none;
+  }
+  .btn-primary:hover { background: #1E293B; }
+  .btn-primary:active { transform: scale(0.98); }
+
+  .privacy { font-size: 12px; color: #9CA3AF; text-align: center; margin-top: 10px; line-height: 1.6; }
+
+  .progress-wrap { margin-bottom: 1rem; }
+  .progress-top {
+    display: flex; align-items: center;
+    justify-content: space-between; margin-bottom: 6px;
+  }
+  .progress-greeting { font-size: 14px; font-weight: 600; color: #0F172A; }
+  .progress-count { font-size: 13px; color: #6B7280; }
+  .progress-track { background: #F1F5F9; border-radius: 999px; height: 8px; overflow: hidden; }
+  .progress-fill {
+    height: 8px; border-radius: 999px;
+    background: linear-gradient(90deg, #2563EB, #0EA5E9);
+    transition: width 0.35s ease;
+  }
+
+  .section-card {
+    background: #fff; border: 1px solid #E2E8F0;
+    border-radius: 14px; margin-bottom: 12px; overflow: hidden;
+  }
+  .sec-head { padding: 12px 18px; display: flex; align-items: center; gap: 10px; }
+  .sec-icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: rgba(255,255,255,0.2);
+    display: flex; align-items: center; justify-content: center; font-size: 14px;
+  }
+  .sec-label { font-size: 13px; font-weight: 600; }
+  .sec-score {
+    margin-left: auto; font-size: 12px; font-weight: 600;
+    background: rgba(255,255,255,0.25); padding: 3px 10px; border-radius: 999px;
+  }
+
+  .q-row {
+    display: flex; align-items: center;
+    justify-content: space-between; gap: 14px;
+    padding: 12px 18px; border-top: 1px solid #F1F5F9;
+  }
+  .q-text { font-size: 13px; color: #374151; line-height: 1.5; flex: 1; }
+  .btn-group { display: flex; gap: 6px; flex-shrink: 0; }
+  .btn-yn {
+    font-size: 12px; font-weight: 600;
+    padding: 6px 16px; border-radius: 8px;
+    border: 1.5px solid #E2E8F0;
+    background: transparent; color: #9CA3AF;
+    cursor: pointer; transition: all 0.15s;
+  }
+  .btn-yn:hover { background: #F8FAFC; }
+  .btn-yes.on { background: #DBEAFE; border-color: #2563EB; color: #1D4ED8; }
+  .btn-no.on { background: #FEE2E2; border-color: #DC2626; color: #B91C1C; }
+
+  .result-header { text-align: center; margin-bottom: 1.5rem; }
+  .score-big { font-size: 64px; font-weight: 700; color: #0F172A; line-height: 1; }
+  .score-denom { font-size: 18px; color: #9CA3AF; font-weight: 400; }
+  .score-lbl { font-size: 14px; color: #6B7280; margin-top: 4px; }
+  .score-track { background: #F1F5F9; border-radius: 999px; height: 12px; overflow: hidden; margin: 1.25rem 0; }
+  .score-fill { height: 12px; border-radius: 999px; transition: width 0.7s ease; }
+
+  .result-box { border-radius: 12px; padding: 1.25rem; margin-bottom: 1rem; }
+  .result-title { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .result-body { font-size: 13px; line-height: 1.7; }
+
+  .focus-title { font-size: 14px; font-weight: 600; color: #0F172A; margin: 1rem 0 8px; }
+  .focus-row {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 14px; border-radius: 10px;
+    background: #F8FAFC; margin-bottom: 6px;
+  }
+  .focus-name { font-size: 13px; color: #374151; flex: 1; }
+  .focus-score { font-size: 12px; font-weight: 600; color: #DC2626; }
+
+  .advice-section { margin: 1rem 0; }
+  .advice-card {
+    border-radius: 12px; overflow: hidden;
+    border: 1px solid #E2E8F0; margin-bottom: 12px;
+  }
+  .advice-header {
+    display: flex; align-items: center; gap: 10px;
+    padding: 10px 16px; font-size: 13px; font-weight: 700;
+  }
+  .advice-body { padding: 14px 16px; background: #fff; }
+  .advice-body p { font-size: 13px; color: #374151; line-height: 1.7; margin-bottom: 10px; }
+  .advice-body p:last-child { margin-bottom: 0; }
+  .advice-steps { list-style: none; margin: 8px 0; }
+  .advice-steps li {
+    display: flex; align-items: flex-start; gap: 8px;
+    font-size: 13px; color: #374151; margin-bottom: 8px; line-height: 1.5;
+  }
+  .step-num {
+    min-width: 20px; height: 20px; border-radius: 50%;
+    background: #F1F5F9; display: flex; align-items: center;
+    justify-content: center; font-size: 11px; font-weight: 700;
+    color: #6B7280; margin-top: 1px;
+  }
+  .tulivo-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #EFF6FF; color: #1D4ED8;
+    font-size: 11px; font-weight: 600; padding: 3px 10px;
+    border-radius: 999px; margin-top: 8px;
+    border: 1px solid #BFDBFE;
+  }
+  .info-pill {
+    display: inline-flex; align-items: center; gap: 5px;
+    background: #F0FDF4; color: #166534;
+    font-size: 11px; font-weight: 600; padding: 3px 10px;
+    border-radius: 999px; margin-top: 8px;
+    border: 1px solid #BBF7D0;
+  }
+
+  .cta-box {
+    background: #0F172A; border-radius: 14px;
+    padding: 1.5rem; text-align: center; margin-top: 1.25rem;
+  }
+  .cta-box h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+  .cta-box p { font-size: 13px; color: #94A3B8; margin-bottom: 1.25rem; line-height: 1.6; }
+  .cta-box a {
+    display: inline-block; padding: 12px 28px;
+    background: #0EA5E9; color: #fff;
+    border-radius: 10px; text-decoration: none;
+    font-size: 14px; font-weight: 600; transition: background 0.15s;
+  }
+  .cta-box a:hover { background: #0284C7; }
+
+  .no-website-box {
+    background: #FFF7ED; border: 1px solid #FED7AA;
+    border-radius: 12px; padding: 1.25rem; margin: 1rem 0;
+  }
+  .no-website-box h3 { font-size: 14px; font-weight: 700; color: #9A3412; margin-bottom: 6px; }
+  .no-website-box p { font-size: 13px; color: #7C2D12; line-height: 1.7; margin-bottom: 8px; }
+  .no-website-box p:last-child { margin-bottom: 0; }
+
+  .reset-btn {
+    display: block; text-align: center; margin-top: 1rem;
+    font-size: 13px; color: #9CA3AF; background: none;
+    border: none; cursor: pointer; text-decoration: underline;
+  }
+
+  footer {
+    background: #0F172A; padding: 2rem 1rem;
+    text-align: center; margin-top: 3rem;
+  }
+  footer p { font-size: 13px; color: #64748B; margin-bottom: 4px; }
+  footer a { color: #0EA5E9; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="https://tulivo.digital" class="nav-logo">
+    <div class="nav-dot">T</div>
+    <span class="nav-name">Tulivo Digital</span>
+  </a>
+  <a href="https://tulivo.digital" class="nav-link">Visit our website</a>
+</nav>
+
+<div class="page">
+
+  <!-- SCREEN 1: OPT-IN -->
+  <div class="screen active" id="s1">
+    <div class="card">
+      <span class="badge">Free 5-minute audit</span>
+      <h1>Is your marketing actually working?</h1>
+      <p class="sub">Answer 20 quick yes or no questions and find out exactly what is holding your small business back online — and what to focus on first.</p>
+      <ul class="benefits">
+        <li>
+          <div class="tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          20 questions across 4 key marketing areas
+        </li>
+        <li>
+          <div class="tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Your score calculates in real time as you go
+        </li>
+        <li>
+          <div class="tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Personalised advice for your weakest areas
+        </li>
+        <li>
+          <div class="tick"><svg viewBox="0 0 10 10" fill="none"><path d="M2 5l2.5 2.5L8 3" stroke="#2563EB" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          Free consultation offer from Tulivo Digital for every participant
+        </li>
+      </ul>
+      <hr class="divider">
+      <label style="font-size:15px;font-weight:700;color:#0F172A;margin-bottom:12px;display:block">Enter your details to get started</label>
+      <div class="form-row">
+        <div>
+          <label for="fname">First name</label>
+          <input type="text" id="fname" placeholder="Sarah">
+        </div>
+        <div>
+          <label for="bname">Business name</label>
+          <input type="text" id="bname" placeholder="Bloom Beauty">
+        </div>
+      </div>
+      <label for="email">Email address</label>
+      <input type="email" id="email" placeholder="you@yourbusiness.com">
+      <p class="err" id="err1">Please fill in all fields with a valid email address.</p>
+      <button class="btn-primary" onclick="startAudit()">Start my free audit &rarr;</button>
+      <p class="privacy">No spam. Ever. Your details are used only to send your results and occasional helpful tips from Tulivo Digital. Unsubscribe any time.</p>
+    </div>
+  </div>
+
+  <!-- SCREEN 2: AUDIT -->
+  <div class="screen" id="s2">
+    <div class="card" style="padding:1.25rem">
+      <div class="progress-wrap">
+        <div class="progress-top">
+          <span class="progress-greeting" id="greeting">Answer yes or no to each question</span>
+          <span class="progress-count"><span id="prog-count">0</span>/20</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="prog" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+    <div id="audit-wrap"></div>
+  </div>
+
+  <!-- SCREEN 3: RESULTS -->
+  <div class="screen" id="s3">
+    <div class="card">
+      <div class="result-header">
+        <div class="score-big" id="score-num">0<span class="score-denom">/20</span></div>
+        <div class="score-lbl" id="res-name">Your marketing score</div>
+      </div>
+      <div class="score-track">
+        <div class="score-fill" id="score-fill"></div>
+      </div>
+      <div class="result-box" id="result-box">
+        <div class="result-title" id="result-title"></div>
+        <div class="result-body" id="result-body"></div>
+      </div>
+      <div id="no-website-msg"></div>
+      <div id="focus-areas"></div>
+      <div class="advice-section" id="advice-section"></div>
+      <div id="cta-area"></div>
+      <button class="reset-btn" onclick="resetAll()">Start the audit again</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 <a href="https://tulivo.digital">Tulivo Digital</a>. All rights reserved.</p>
+  <p><a href="https://tulivo.digital">tulivo.digital</a> &nbsp;&middot;&nbsp; <a href="mailto:hello@tulivo.digital">hello@tulivo.digital</a></p>
+</footer>
+
+<script>
+const SECTIONS = [
+  {
+    title: "Website and online presence", color: "#0F172A", tc: "#fff", icon: "🌐",
+    qs: [
+      "Do you have a professional website for your business?",
+      "Does your homepage clearly explain what you do, who you help and what to do next — in one sentence?",
+      "Does your website load in under 3 seconds on a mobile device?",
+      "Does every key page on your website have a clear, visible call to action?",
+      "Do you have customer reviews or testimonials visible on your website?"
+    ]
+  },
+  {
+    title: "Search and content", color: "#0EA5E9", tc: "#fff", icon: "🔍",
+    qs: [
+      "Does your business appear on Google when someone searches for your service in your local area?",
+      "Are your page titles, headings and descriptions written to include keywords your customers search for?",
+      "Do you have a Google Business Profile that is fully completed and regularly updated?",
+      "Do you publish blog posts or content that answers questions your ideal customers are searching for?",
+      "Do you have at least 10 genuine customer reviews on Google or another public platform?"
+    ]
+  },
+  {
+    title: "Social media", color: "#2563EB", tc: "#fff", icon: "📱",
+    qs: [
+      "Do you post on social media at least 3 times per week on a consistent basis?",
+      "Does your social media bio clearly state what your business does and include a call to action?",
+      "Do your posts mix educational, promotional and behind-the-scenes content rather than just selling?",
+      "Do you use video content such as Reels, TikToks or Stories at least once per week?",
+      "Do you respond to every comment and direct message within 24 hours?"
+    ]
+  },
+  {
+    title: "Lead capture and follow-up", color: "#F59E0B", tc: "#78350F", icon: "⚡",
+    qs: [
+      "Do you have a way to capture visitor details on your website — such as a contact form, booking link or free offer?",
+      "Do new inquiries receive an automatic response within minutes — not hours?",
+      "Do you have an automated follow-up sequence that nurtures leads who did not convert immediately?",
+      "Do you track where your inquiries and new customers are coming from each month?",
+      "Do you have a clear process that takes a new lead from first contact to paying customer without relying on memory or manual effort?"
+    ]
+  }
+];
+
+const TIERS = [
+  {
+    min: 17, color: "#059669", label: "Strong foundations",
+    text: "Your marketing is in a solid place. You are doing the core things right and your business has real online visibility. The next step is optimising what is already working — tightening your messaging, improving your conversion rates and making sure your systems are doing as much work as possible automatically."
+  },
+  {
+    min: 12, color: "#2563EB", label: "Good progress",
+    text: "You have solid foundations in place but there are clear gaps that are costing you customers. A few focused improvements in your weakest areas could make a significant difference to how many people find you, contact you and buy from you."
+  },
+  {
+    min: 7, color: "#F59E0B", label: "Room to grow",
+    text: "Your marketing has real potential but it needs more structure and consistency. The good news is that fixing the basics will have an immediate impact. Small businesses at this stage often see the biggest gains fastest because the fundamentals are missing and they are quick to put in place."
+  },
+  {
+    min: 0, color: "#DC2626", label: "Time to take action",
+    text: "Your marketing needs attention — and that is completely normal for a small business owner doing everything yourself. Most of our clients start exactly here. The important thing is you now know exactly where you stand and what needs to change."
+  }
+];
+
+const SECTION_ADVICE = {
+
+  "Website and online presence": {
+    color: "#0F172A", textColor: "#fff", icon: "🌐",
+    hasWebsite: {
+      intro: "Your website is the foundation of everything else. Every post you share, every ad you run and every referral you receive eventually leads someone to your website — and if it does not immediately communicate what you do, load quickly or make it easy to take action, you lose that customer. A website that works hard for you is the single highest-return investment a small business can make.",
+      steps: [
+        "Your homepage headline should answer three questions in one sentence: what you do, who you help and what makes you worth choosing. If a visitor cannot work it out in 5 seconds, they leave.",
+        "Place your primary call to action above the fold on every key page. Do not make visitors scroll before they know how to contact you, book or inquire.",
+        "Test your website on a mobile phone right now. More than 60% of small business website visitors arrive on mobile and a slow or broken mobile experience costs you inquiries every single day.",
+        "Add genuine customer reviews or testimonials to your homepage and service pages. Social proof reduces hesitation and is one of the most effective conversion tools available to a small business at no cost."
+      ],
+      tulivo: "At Tulivo Digital we design and build websites for small businesses that are fast, clear and built to turn visitors into inquiries. If your current site is underperforming, we can rebuild it or redesign the key pages that are costing you the most.",
+      showTulivo: true
+    },
+    noWebsite: {
+      intro: "Not having a website is one of the single biggest reasons small businesses lose customers to their competitors. Most people search online before they buy or book — even for local, word-of-mouth services. Without a website your business simply does not exist to that search.",
+      steps: [
+        "A professional website does not need to be complex. A clear homepage, a services page, contact details, a call to action and a handful of genuine reviews is enough to start winning inquiries online.",
+        "Set up a free Google Business Profile immediately so your business appears in local search results and on Google Maps while you work towards a full website.",
+        "Social media bios and link-in-bio pages are not a substitute for a real website. You do not own them, you cannot control them and they do not rank on Google.",
+        "Invest in a professionally built website rather than a DIY option. A poorly built site can actively damage your credibility and is often harder to fix than starting fresh."
+      ],
+      tulivo: "At Tulivo Digital we build websites for small businesses from scratch — professional, fast and designed to convert visitors into real inquiries. Book a free consultation and we will show you exactly what is possible for your business and your budget.",
+      showTulivo: true
+    }
+  },
+
+  "Search and content": {
+    color: "#0EA5E9", textColor: "#fff", icon: "🔍",
+    intro: "Being found on Google is the most cost-effective way a small business can consistently attract new customers. Unlike social media posts that disappear in 24 hours, a well-optimised website page or blog post can bring you qualified traffic every single day for years — at no ongoing cost. Most small businesses underinvest here and rely on word of mouth instead, which is unpredictable and impossible to scale.",
+    steps: [
+      "Check whether you appear in Google when someone searches for your service in your local area. Type the most obvious search term your customer would use and see where you rank. If you are not on page one, your competitors are taking those customers.",
+      "Every page on your website should have a clear title tag and meta description written to include the keywords your customers actually search for — not just your business name.",
+      "Complete your Google Business Profile fully — add photos, your services, opening hours, your website link and actively request reviews from every satisfied customer. This is the fastest free route to local search visibility.",
+      "Publish blog content that answers the specific questions your ideal customers are searching for. Each article is a permanent asset that brings in organic traffic long after it is published."
+    ],
+    tulivo: "At Tulivo Digital we optimise existing websites for search engines, write SEO-focused blog content for small businesses and set up Google Business Profiles correctly so you start appearing in local search results. If you are invisible on Google right now, this is where we start.",
+    showTulivo: true
+  },
+
+  "Social media": {
+    color: "#2563EB", textColor: "#fff", icon: "📱",
+    intro: "Social media is one of the most powerful awareness tools available to a small business — but only when it is consistent, purposeful and targeted at the right audience. The businesses that grow on social are not the ones with the biggest budgets. They are the ones that show up regularly, speak directly to their ideal customer and give people a clear reason to follow, engage and ultimately inquire.",
+    steps: [
+      "Focus on two platforms where your ideal customers actually spend time. Showing up consistently on two platforms is always more effective than posting sporadically across five.",
+      "Rewrite your bio so it clearly states what you do, who you serve and what to do next. Your bio is your first impression and most small business bios waste it with a generic description.",
+      "Every post should have a purpose. Mix educational content that builds trust, behind-the-scenes content that builds connection and promotional content that drives action. Avoid posting only when you have something to sell.",
+      "Consistency beats perfection every time. One post a day that is good enough will always outperform one perfect post a week. Batch your content at the start of each week to stay ahead."
+    ],
+    showTulivo: false
+  },
+
+  "Lead capture and follow-up": {
+    color: "#F59E0B", textColor: "#78350F", icon: "⚡",
+    intro: "Attracting visitors to your website and followers to your social media is only the first step. If you have no system to capture their details, respond to them immediately and follow up automatically, the majority of potential customers will slip through the gap. Most small businesses lose inquiries not because their service is wrong but because their follow-up process is slow, inconsistent or non-existent. Speed and automation are the fix.",
+    steps: [
+      "Every page of your website should offer a clear and easy way for a visitor to take action — a contact form, a booking link or an irresistible free offer that captures their email address in exchange for something valuable.",
+      "The business that responds first almost always wins the inquiry. Studies consistently show that responding to a new lead within 5 minutes increases your chance of conversion by over 80%. This needs to happen automatically, not manually.",
+      "Most customers need more than one touchpoint before they are ready to commit. A simple automated sequence of 2 to 3 follow-up messages sent over the days after an initial inquiry can dramatically increase your conversion rate without any additional effort on your part.",
+      "Track where your inquiries are coming from every month — which platform, which page, which campaign. Without this data you are spending time and money based on guesswork rather than evidence."
+    ],
+    tulivo: "At Tulivo Digital we build complete marketing funnels for small businesses — from the website page that captures the lead to the automated follow-up sequence that converts them into a customer. We also set up instant lead response systems so that every inquiry receives a professional reply within minutes, whether you are available or not.",
+    showTulivo: true
+  }
+};
+
+const answers = {};
+let totalAnswered = 0;
+let userName = "";
+let bizName = "";
+let hasWebsite = true;
+
+function startAudit() {
+  const fn = document.getElementById("fname").value.trim();
+  const bn = document.getElementById("bname").value.trim();
+  const em = document.getElementById("email").value.trim();
+  const err = document.getElementById("err1");
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+  if (!fn || !bn || !em || !emailOk) { err.style.display = "block"; return; }
+  err.style.display = "none";
+  userName = fn;
+  bizName = bn;
+  buildAudit();
+  document.getElementById("greeting").textContent = "Hi " + fn + " — answer yes or no to each question below";
+  show("s2");
+}
+
+function buildAudit() {
+  const wrap = document.getElementById("audit-wrap");
+  wrap.innerHTML = "";
+  SECTIONS.forEach((s, si) => {
+    const card = document.createElement("div");
+    card.className = "section-card";
+    card.innerHTML = `<div class="sec-head" style="background:${s.color}">
+      <div class="sec-icon">${s.icon}</div>
+      <span class="sec-label" style="color:${s.tc}">${s.title}</span>
+      <span class="sec-score" id="ss${si}" style="color:${s.tc}">0/5</span>
+    </div>`;
+    s.qs.forEach((q, qi) => {
+      const key = `${si}-${qi}`;
+      const row = document.createElement("div");
+      row.className = "q-row";
+      row.innerHTML = `<span class="q-text">${qi + 1 + si * 5}. ${q}</span>
+        <div class="btn-group">
+          <button class="btn-yn btn-yes" onclick="ans('${key}',true,this)">Yes</button>
+          <button class="btn-yn btn-no" onclick="ans('${key}',false,this)">No</button>
+        </div>`;
+      card.appendChild(row);
+    });
+    wrap.appendChild(card);
+  });
+}
+
+function ans(key, val, btn) {
+  const already = key in answers;
+  answers[key] = val;
+  if (key === "0-0") hasWebsite = val;
+  const btns = btn.parentNode.querySelectorAll(".btn-yn");
+  btns[0].className = "btn-yn btn-yes" + (val === true ? " on" : "");
+  btns[1].className = "btn-yn btn-no" + (val === false ? " on" : "");
+  if (!already) totalAnswered++;
+  document.getElementById("prog").style.width = (totalAnswered / 20 * 100) + "%";
+  document.getElementById("prog-count").textContent = totalAnswered;
+  const si = key.split("-")[0];
+  let c = 0;
+  for (let qi = 0; qi < 5; qi++) { if (answers[`${si}-${qi}`] === true) c++; }
+  document.getElementById("ss" + si).textContent = c + "/5";
+  if (totalAnswered === 20) setTimeout(showResults, 500);
+}
+
+function showResults() {
+  const yeses = Object.values(answers).filter(v => v === true).length;
+  const pct = Math.round(yeses / 20 * 100);
+  document.getElementById("score-num").innerHTML = yeses + '<span class="score-denom">/20</span>';
+  document.getElementById("res-name").textContent = userName + " — " + bizName;
+
+  const tier = TIERS.find(t => yeses >= t.min);
+  document.getElementById("score-fill").style.width = pct + "%";
+  document.getElementById("score-fill").style.background = tier.color;
+  document.getElementById("result-title").textContent = tier.label;
+  document.getElementById("result-body").textContent = tier.text;
+  const rb = document.getElementById("result-box");
+  rb.style.background = tier.color + "15";
+  rb.style.borderLeft = "4px solid " + tier.color;
+
+  // No website message
+  const nwMsg = document.getElementById("no-website-msg");
+  if (!hasWebsite) {
+    nwMsg.innerHTML = `<div class="no-website-box">
+      <h3>You answered no to having a website</h3>
+      <p>That is completely okay — many small businesses start without one. But a website is the single biggest thing you can do to make your business findable and credible online. It does not need to be expensive or complicated to be effective.</p>
+      <p>At Tulivo Digital we build websites for small businesses from scratch. <a href="https://tulivo.digital" style="color:#9A3412;font-weight:600">Book a free consultation</a> and we will show you exactly what is possible for your business and your budget — no pressure, no jargon.</p>
+    </div>`;
+  } else {
+    nwMsg.innerHTML = "";
+  }
+
+  // Focus areas
+  const weakAreas = [];
+  SECTIONS.forEach((s, si) => {
+    let c = 0;
+    for (let qi = 0; qi < 5; qi++) { if (answers[`${si}-${qi}`] === true) c++; }
+    if (c <= 2) weakAreas.push({ title: s.title, score: c, icon: s.icon, si });
+  });
+
+  const fa = document.getElementById("focus-areas");
+  if (weakAreas.length) {
+    fa.innerHTML = `<p class="focus-title">Your focus areas</p>` +
+      weakAreas.map(w => `<div class="focus-row">
+        <span style="font-size:16px">${w.icon}</span>
+        <span class="focus-name">${w.title}</span>
+        <span class="focus-score">${w.score}/5 yes</span>
+      </div>`).join("") +
+      `<p style="font-size:12px;color:#9CA3AF;margin-top:6px;margin-bottom:4px">Personalised advice for each area is below.</p>`;
+  } else {
+    fa.innerHTML = "";
+  }
+
+  // Detailed advice
+  const adviceSection = document.getElementById("advice-section");
+  const areasToAdvise = weakAreas.length > 0 ? weakAreas : SECTIONS.map((s, si) => ({ title: s.title, si }));
+
+  let adviceHtml = "";
+  if (weakAreas.length > 0) {
+    adviceHtml += `<h2 style="margin:1.25rem 0 0.75rem;font-size:15px;color:#0F172A">Your personalised recommendations</h2>`;
+  }
+
+  areasToAdvise.forEach(area => {
+    const advice = SECTION_ADVICE[area.title];
+    if (!advice) return;
+
+    const isWebsiteSection = area.title === "Website and online presence";
+    const useNoWebsite = isWebsiteSection && !hasWebsite;
+    const content = isWebsiteSection
+      ? (useNoWebsite ? advice.noWebsite : advice.hasWebsite)
+      : advice;
+
+    const stepsHtml = content.steps.map((step, i) =>
+      `<li><div class="step-num">${i + 1}</div><span>${step}</span></li>`
+    ).join("");
+
+    // Determine if we show a Tulivo pill for this section
+    const showTulivo = isWebsiteSection ? content.showTulivo : advice.showTulivo;
+    const tulivoText = isWebsiteSection ? content.tulivo : advice.tulivo;
+
+    // For social media: show a generic "get advice" pill instead
+    const isSocial = area.title === "Social media";
+
+    adviceHtml += `
+      <div class="advice-card">
+        <div class="advice-header" style="background:${advice.color};color:${advice.textColor}">
+          <span>${advice.icon}</span>
+          <span>${area.title}</span>
+        </div>
+        <div class="advice-body">
+          <p>${content.intro}</p>
+          <ul class="advice-steps">${stepsHtml}</ul>
+          ${isSocial ? `
+            <div class="info-pill">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4.5" stroke="#166534" stroke-width="1"/><path d="M5 3v2.5M5 7v.5" stroke="#166534" stroke-width="1.2" stroke-linecap="round"/></svg>
+              Want specific advice for your social media?
+            </div>
+            <p style="margin-top:8px;font-size:12px;color:#6B7280;font-style:italic">If you have questions about your social media strategy, content or platforms, get in touch and we are happy to point you in the right direction.</p>
+          ` : showTulivo ? `
+            <div class="tulivo-pill">
+              <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><circle cx="5" cy="5" r="4.5" stroke="#2563EB" stroke-width="1"/><path d="M5 3v2l1 1" stroke="#2563EB" stroke-width="1" stroke-linecap="round"/></svg>
+              Tulivo Digital can help with this
+            </div>
+            <p style="margin-top:8px;font-size:12px;color:#6B7280;font-style:italic">${tulivoText}</p>
+          ` : ''}
+        </div>
+      </div>`;
+  });
+
+  adviceSection.innerHTML = adviceHtml;
+
+  // CTA — adapt based on situation
+  const ctaArea = document.getElementById("cta-area");
+  const hasWebsiteIssue = weakAreas.some(w => w.title === "Website and online presence");
+  const hasContentIssue = weakAreas.some(w => w.title === "Search and content");
+  const hasSalesIssue = weakAreas.some(w => w.title === "Lead capture and follow-up");
+
+  let ctaTitle, ctaBody, ctaBtn;
+
+  if (!hasWebsite) {
+    ctaTitle = "Ready to get your business online properly?";
+    ctaBody = "Tulivo Digital builds professional websites for small businesses — fast, clear and designed to convert visitors into real inquiries. Book a free consultation today. No obligation, no jargon, just honest advice.";
+    ctaBtn = "Book a free website consultation";
+  } else if (hasWebsiteIssue) {
+    ctaTitle = "Your website needs attention — we can help.";
+    ctaBody = "Tulivo Digital designs and builds websites for small businesses that are fast, clear and built to convert. We also write SEO content and set up automated lead follow-up so your site works hard for you 24 hours a day.";
+    ctaBtn = "Book my free website review";
+  } else if (hasContentIssue) {
+    ctaTitle = "Let's get your business found on Google.";
+    ctaBody = "Tulivo Digital optimises websites for search engines and writes SEO-focused blog content that brings in qualified traffic consistently — without paid ads. Book a free consultation and we will show you exactly where the opportunities are.";
+    ctaBtn = "Book a free SEO consultation";
+  } else if (hasSalesIssue) {
+    ctaTitle = "Let's automate your lead follow-up.";
+    ctaBody = "Tulivo Digital builds marketing funnels and automated lead response systems for small businesses — so every inquiry gets a fast, professional reply and a follow-up sequence that converts, whether you are at your desk or not.";
+    ctaBtn = "Book a free consultation";
+  } else {
+    ctaTitle = "Your marketing foundations are strong — let's build on them.";
+    ctaBody = "Book a free consultation with Tulivo Digital. We specialise in websites, SEO content, marketing funnels and automated lead systems for small businesses. We will identify the highest-impact next steps for your specific business.";
+    ctaBtn = "Book a free consultation";
+  }
+
+  ctaArea.innerHTML = `<div class="cta-box">
+    <h3>${ctaTitle}</h3>
+    <p>${ctaBody}</p>
+    <a href="https://tulivo.digital">${ctaBtn}</a>
+  </div>`;
+
+  show("s3");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function show(id) {
+  document.querySelectorAll(".screen").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+}
+
+function resetAll() {
+  Object.keys(answers).forEach(k => delete answers[k]);
+  totalAnswered = 0;
+  hasWebsite = true;
+  document.getElementById("fname").value = "";
+  document.getElementById("bname").value = "";
+  document.getElementById("email").value = "";
+  document.getElementById("prog").style.width = "0%";
+  document.getElementById("prog-count").textContent = "0";
+  show("s1");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+</script>
+
+</body>
+</html>
