@@ -97,6 +97,9 @@ SELECT p.id, 7, 'A Peace That Remains',
   'Thank You, Jesus, for a peace that the world can''t give and can''t take away. Let it guard my heart today and always. I receive it. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
--- NOTE: Additional pathway day inserts for the remaining 6 pathways follow the same pattern.
--- The full seed data for all pathways is available in src/data/seed/ as TypeScript files.
--- Use the seed script (npm run seed) to populate all pathways programmatically.
+-- ============================================================
+-- REMAINING PATHWAY DAYS
+-- For the complete set of all 49 pathway days (all 7 pathways),
+-- run: supabase/seed-pathway-days.sql
+-- That file contains INSERT statements for ALL pathways.
+-- ============================================================
