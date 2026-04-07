@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import AppHeader from '@/components/layout/AppHeader';
+import AudioPlayer from '@/components/ui/AudioPlayer';
 import Card from '@/components/ui/Card';
 import Tag from '@/components/ui/Tag';
 import Button from '@/components/ui/Button';
@@ -141,22 +142,12 @@ export default function HomePage() {
         <div className="space-y-4">
           {/* Audio player — shown for listen/both preference */}
           {(profile?.preferred_format === 'listen' || profile?.preferred_format === 'both') && (
-            <Card variant="soft" className="border-lavender/30">
-              <div className="flex items-center gap-4">
-                <button className="w-12 h-12 rounded-full bg-sage flex items-center justify-center flex-shrink-0 hover:bg-sage-dark transition-colors">
-                  <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </button>
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-charcoal">Listen to today&apos;s reflection</p>
-                  <p className="text-xs text-stone-light mt-0.5">Audio coming soon — read below for now</p>
-                  <div className="w-full h-1 bg-cream-dark rounded-full mt-2">
-                    <div className="w-0 h-full bg-sage rounded-full" />
-                  </div>
-                </div>
-              </div>
-            </Card>
+            <AudioPlayer
+              reflection={response.reflection}
+              verse={response.bible_verse}
+              verseReference={response.bible_reference}
+              prayer={response.prayer}
+            />
           )}
 
           {/* Reflection */}

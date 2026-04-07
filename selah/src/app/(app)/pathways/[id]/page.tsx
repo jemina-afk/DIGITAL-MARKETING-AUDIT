@@ -8,6 +8,7 @@ import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import ProgressBar from '@/components/ui/ProgressBar';
 import Disclaimer from '@/components/ui/Disclaimer';
+import AudioPlayer from '@/components/ui/AudioPlayer';
 import { trackEvent } from '@/lib/analytics';
 import type { Pathway, PathwayDay, UserPathwayProgress } from '@/types/database';
 
@@ -193,6 +194,14 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
             <h3 className="text-lg text-charcoal mb-1">{activeDay.theme}</h3>
             <p className="text-xs text-stone-light">Day {activeDay.day_number}</p>
           </Card>
+
+          {/* Audio player for pathway day */}
+          <AudioPlayer
+            reflection={activeDay.reflection}
+            verse={activeDay.scripture_text}
+            verseReference={activeDay.scripture_reference}
+            prayer={activeDay.prayer_prompt}
+          />
 
           <Card variant="soft">
             <blockquote className="text-center">
