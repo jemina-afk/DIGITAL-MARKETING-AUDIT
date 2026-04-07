@@ -11,412 +11,524 @@ DELETE FROM public.pathway_days;
 -- ANXIETY AND PEACE (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Acknowledging the burden of anxiety',
-  'Cast all your anxiety on him because he cares for you.', '1 Peter 5:7 (NIV)',
-  'Anxiety tells you that if you stop worrying, everything will fall apart. It disguises itself as responsibility, as care, as preparation. But the truth is quieter: you were never designed to carry it all. God doesn''t ask you to hand over your concerns because they''re trivial — He asks because they matter deeply, and He is the only one strong enough to hold them without breaking. Today is not about fixing the worry. It''s about naming it honestly and placing it in hands that won''t drop it. You are not failing by feeling anxious. You are human. And God meets you exactly there.',
-  'Write down every worry circling your mind right now — no editing, no shame. Then beside each one, write: "This is too heavy for me. God, I place it in Your hands."',
-  'Father, I bring You the weight I''ve been carrying alone. The named fears and the unnamed ones. I don''t fully understand why I feel this way, but You do. Take what I cannot hold. Remind me that releasing control is not the same as being careless — it is trust. Amen.'
+SELECT p.id, 1, 'Acknowledging the burden — like Martha',
+  'Martha, Martha, you are worried and upset about many things, but few things are needed — or indeed only one. Mary has chosen what is better, and it will not be taken away from her.', 'Luke 10:41-42 (NIV)',
+  'Martha wasn''t doing anything wrong. She was serving, preparing, hosting — all good things. But Jesus saw something she couldn''t: her worry was consuming her. She was so busy doing things for God that she forgot to be with God.
+
+Many of us are Martha. We carry the mental load of everything — work, relationships, health, future plans — and call it responsibility. But Jesus gently names it: you are worried and upset about many things. Not because those things don''t matter, but because they were never meant to be carried without Him. Today, you don''t need to do more. You need to sit at His feet, even for five minutes, and let Him carry what you''ve been gripping.',
+  'Where are you being Martha right now — so busy serving, managing, or worrying that you''ve forgotten to simply be with God? What is the "one thing needed" for you today?',
+  'Jesus, I''m Martha today. Worried about many things, running from task to task, carrying more than I should. Slow me down. Help me choose the better thing — Your presence over my productivity. I don''t want to miss You while I''m busy working for You. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'Redirecting anxious thoughts toward prayer',
-  'Do not be anxious about anything, but in every situation, by prayer and petition, with thanksgiving, present your requests to God. And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.', 'Philippians 4:6-7 (NIV)',
-  'Paul doesn''t say "stop feeling anxious" — he says redirect. Every anxious thought is an unopened conversation with God. When your mind starts spiralling — the what-ifs, the worst cases, the replaying — try this: turn each spiral into a sentence that begins with "God, I''m worried about..." and end with something true that you''re thankful for. This isn''t positive thinking. It''s re-routing. Gratitude doesn''t deny pain — it reminds you that pain isn''t the whole story. The peace Paul describes isn''t the absence of problems. It''s a guard. A steady presence that holds the door of your heart while the storm rages outside.',
-  'List 3 anxious thoughts that have been circling this week. Rewrite each one as a prayer, ending with one genuine "thank You" — even a small one.',
-  'Lord, I bring my spiralling thoughts to You. Not polished, not tidy — just honest. I thank You for [name one real thing]. Let gratitude untangle what worry has knotted. Guard my heart with a peace I cannot manufacture on my own. Amen.'
+SELECT p.id, 2, 'Elijah''s breakdown after victory',
+  'Elijah was afraid and ran for his life... He came to a broom bush, sat down under it and prayed that he might die. "I have had enough, Lord," he said.', '1 Kings 19:3-4 (NIV)',
+  'Elijah had just called down fire from heaven. He had stood alone against 450 prophets of Baal and won. He was on the mountaintop — literally. And then, one threat from Jezebel, and he collapsed. Ran. Hid. Wished he was dead.
+
+This is one of the most honest portraits of anxiety in the Bible. It shows us that faithfulness doesn''t make you immune to fear. You can have a powerful week and still fall apart on Friday. You can know God is real and still feel terrified. And God''s response to Elijah wasn''t a lecture. It was bread, water, and sleep. He met Elijah''s anxiety with tenderness, not theology. He will do the same for you.',
+  'Have you ever had an "Elijah moment" — felt spiritually strong one day and completely overwhelmed the next? What happened? How did God meet you in it?',
+  'Lord, I feel like Elijah under the broom tree. Tired. Afraid. Done. You didn''t scold him — You fed him and let him rest. Do the same for me. I don''t need a sermon right now. I need Your gentle care. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Finding God''s presence in difficulty',
-  'When you pass through the waters, I will be with you; and when you pass through the rivers, they will not sweep over you.', 'Isaiah 43:2 (NIV)',
-  'Read that promise carefully. God says "when," not "if." He does not promise a life without deep water. He promises companionship inside it. This is the difference between a God who removes every storm and a God who enters every storm. Yours is the second kind — the kind who gets in the boat, who walks on the waves, who holds you in the undertow. Your circumstances may not change today. But you are not navigating them alone. The river is real. The current is strong. But His word over you is also real: you will not be swept away.',
-  'Describe a past season that felt like deep water. Looking back, where was God in it? What did you learn about His presence that you couldn''t have learned on dry ground?',
-  'God, I feel the current pulling. I don''t ask You to remove the storm — I ask You to remind me You are in it. Be close in the way I need today. Not just theologically close. Present. Tangible. Near. Amen.'
+SELECT p.id, 3, 'Hagar — seen in the wilderness',
+  'She gave this name to the Lord who spoke to her: "You are the God who sees me," for she said, "I have now seen the One who sees me."', 'Genesis 16:13 (NIV)',
+  'Hagar was a slave, pregnant, rejected, and running into the desert to die. She had no status, no power, no options. She was invisible to the world. But God found her. Not in a temple or a palace — in a wilderness. And He didn''t just see her circumstances. He saw her.
+
+Anxiety often makes you feel invisible — like no one truly understands the weight you carry, the thoughts you can''t shut off, the fear you hide behind a smile. But the God who found Hagar in the desert finds you in your anxiety. He is El Roi — the God who sees. Not just your situation. You. The real, messy, frightened, struggling you. And He doesn''t look away.',
+  'Where do you feel unseen right now — in your anxiety, your struggles, your real feelings? Write honestly to the God who sees you. What do you want Him to know?',
+  'El Roi, God who sees me — You see the anxiety I hide from everyone else. You see the panic behind the calm face. You see me in my desert. I don''t need to pretend with You. See me. Stay with me. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Practising stillness as an act of trust',
-  'Be still, and know that I am God.', 'Psalm 46:10 (NIV)',
-  'Stillness is counterintuitive when every nerve tells you to do something — fix it, plan it, control it. But this command is not about passivity. It is about posture. "Be still" is the hardest kind of action: the action of deliberately releasing your grip. Knowing God is God means accepting that you are not. You don''t have to hold the universe together. You don''t have to anticipate every outcome. You don''t have to earn your safety through hypervigilance. Today, stillness is not laziness. It is the most radical act of faith available to you: the decision to stop striving and start trusting the character of the God who never sleeps.',
-  'What would genuine stillness look like for you today — not just physical rest, but mental and spiritual exhale? What are you afraid will happen if you stop striving?',
-  'Lord, quiet the noise inside me — the urgency, the false deadlines, the need to fix. Teach me that being still is not failing. It is falling into You. I choose to trust Your sovereignty over my own control. Amen.'
+SELECT p.id, 4, 'David''s honest prayers of distress',
+  'How long, Lord? Will you forget me forever? How long will you hide your face from me? How long must I wrestle with my thoughts and day after day have sorrow in my heart?', 'Psalm 13:1-2 (NIV)',
+  'David didn''t write polished prayers. He wrote raw ones. "How long?" "Are you even listening?" "I''m wrestling with my own thoughts." This is the man God called "a man after my own heart" — and he was anxious, sad, angry, and scared. Regularly.
+
+The Psalms give you permission to bring your real emotions to God. Not the cleaned-up version. Not the "I should be more grateful" version. The real one. David screamed, wept, and questioned God — and God never once withdrew His presence. Your honest, messy prayers are not disrespectful. They are the deepest form of trust: believing God can handle the truth of how you feel.',
+  'Write your own psalm today. Start with how you honestly feel (even if it''s angry, afraid, or confused). End with one thing you know to be true about God, even if you don''t feel it.',
+  'God, like David, I come to You unfiltered. I''m wrestling with my own thoughts. Some days feel endless. But I choose to trust that You hear every word — the desperate ones and the doubting ones. You are still God, even when I am still afraid. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Renewing the anxious mind with truth',
-  'Finally, brothers and sisters, whatever is true, whatever is noble, whatever is right, whatever is pure, whatever is lovely, whatever is admirable — if anything is excellent or praiseworthy — think about such things.', 'Philippians 4:8 (NIV)',
-  'Your mind is not a democracy where every thought gets an equal vote. Some thoughts lie. Some catastrophise. Some replay old wounds on a loop and call it "being realistic." Paul gives you a filter — not to suppress honest pain, but to distinguish between truth and noise. Ask every thought: Is this true, or is this fear wearing a mask? Is this real, or is this a story I''m telling myself? You have more authority over your thought life than anxiety wants you to believe. You cannot control which thoughts arrive, but you can decide which ones stay for dinner.',
-  'What recurring anxious thought feels most "true" right now? Examine it honestly: is it actually true, or is it a fear disguised as fact? Write the truth beside it.',
-  'Holy Spirit, I need Your help sorting truth from fear. When my mind replays worst-case scenarios, interrupt with what is real. Teach me to take thoughts captive instead of being held captive by them. Amen.'
+SELECT p.id, 5, 'The Israelites and daily manna',
+  'Then the Lord said to Moses, "I will rain down bread from heaven for you. The people are to go out each day and gather enough for that day."', 'Exodus 16:4 (NIV)',
+  'God gave the Israelites manna — but only enough for one day. When they tried to stockpile it, it rotted. This was not cruelty. It was training. God was teaching them to trust Him daily, not weekly, not yearly — daily.
+
+Anxiety is often the attempt to stockpile grace for tomorrow. You try to solve next week''s problems with today''s energy. You rehearse conversations that haven''t happened yet. You plan for worst-case scenarios that may never arrive. But God''s economy works differently: you receive what you need when you need it. Not before. The manna principle is this: today''s grace is sufficient for today. Tomorrow''s grace will arrive tomorrow. You cannot carry both.',
+  'What "tomorrow problem" are you trying to solve with today''s energy? Can you name it and consciously release it to God''s tomorrow-provision?',
+  'Father, teach me the manna lesson. I have been hoarding worry, trying to prepare for every possible future. But You only give grace for today. Help me gather just enough for now — and trust that tomorrow''s bread will be there when I wake. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'Releasing the future to God',
-  'Therefore do not worry about tomorrow, for tomorrow will worry about itself. Each day has enough trouble of its own.', 'Matthew 6:34 (NIV)',
-  'Most anxiety lives in the future — a place you have never been and cannot control. You are borrowing trouble from a day that hasn''t arrived, spending energy on problems that may never exist. Jesus isn''t minimising your pain. He''s saying: you were given grace for today. Not yesterday''s grace recycled, not tomorrow''s grace in advance. Fresh, sufficient, today-sized grace. When tomorrow comes, its own grace will be waiting. But for now, you have exactly what you need for the next 24 hours. Can you trust that? Can you let tomorrow belong to God while you tend to what is right in front of you?',
-  'What future scenario are you spending the most mental energy on? Name it. Then write: "I was not given grace for this moment yet — and when it comes, grace will be there."',
-  'Jesus, I release tomorrow. I release next month and next year. I have been living in a future that hasn''t happened yet, and it''s exhausting. Give me eyes to see only today. Give me grace sized exactly for now. Amen.'
+SELECT p.id, 6, 'Jesus sleeping in the boat',
+  'Jesus was in the stern, sleeping on a cushion. The disciples woke him and said to him, "Teacher, don''t you care if we drown?" He got up, rebuked the wind and said to the waves, "Quiet! Be still."', 'Mark 4:38-39 (NIV)',
+  'The disciples were experienced fishermen. They knew the sea. And they were terrified. Meanwhile, Jesus — God in human skin — was asleep. On a cushion. In a storm.
+
+This wasn''t carelessness. It was complete peace. Jesus could sleep in the storm because He knew who He was and who His Father was. The disciples'' question reveals the heart of anxiety: "Don''t you care?" That''s what we ask God in our panic — don''t You see this? Don''t You care that I''m drowning? And Jesus'' response is to stand up and speak directly to the chaos: "Be still." He speaks to your storm today with the same authority. Not always to remove it — but to be present in it with a peace that defies the waves.',
+  'When have you asked God, "Don''t You care?" What was the situation? Looking back, can you see evidence that He was in the boat with you?',
+  'Jesus, I feel like the disciples — waves crashing, panicking, wondering if You''re even awake. Speak to my storm today. Not necessarily to remove it, but to remind me You are in this boat with me. Be still in me. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Receiving the peace of Christ as a permanent gift',
-  'Peace I leave with you; my peace I give you. I do not give to you as the world gives. Do not let your hearts be troubled and do not be afraid.', 'John 14:27 (NIV)',
-  'The world''s peace is conditional — it lasts as long as circumstances cooperate. But Christ''s peace is different in kind, not just degree. It doesn''t depend on the outcome of your situation. It isn''t a feeling you have to generate. It is a gift already given. Jesus said "I leave" and "I give" — past tense, present reality. This peace is already yours. It was purchased at a cross and sealed by a resurrection. Your job is not to manufacture it. Your job is to receive it, over and over, in the moments when your heart tries to be troubled again. This is the end of this pathway, but not the end of this peace. Carry it forward. Return to it often. It will not run out.',
-  'Reflect on this week. What has shifted in how you relate to anxiety? What one truth will you carry forward as an anchor when worry returns?',
-  'Thank You, Jesus, for peace that is not like the world''s. It doesn''t break when life does. I receive it now — not as a one-time gift, but as a daily inheritance. When my heart tries to be troubled, remind me: this peace is already mine. Amen.'
+SELECT p.id, 7, 'Paul''s impossible peace in prison',
+  'And the peace of God, which transcends all understanding, will guard your hearts and your minds in Christ Jesus.', 'Philippians 4:7 (NIV)',
+  'Paul wrote these words about peace from a Roman prison. Not from a retreat centre. Not after a promotion. From a cell. That detail matters — because it means this peace is not dependent on good circumstances. It "transcends understanding," meaning people around you won''t understand how you''re calm. You might not even understand it yourself.
+
+Paul experienced a peace that defied logic because it came from a source beyond logic — the presence of God Himself. As you close this pathway, know this: the peace available to you is not a feeling you generate. It is a guard posted at the door of your heart by God Himself. When anxiety knocks — and it will — the guard is already there. You don''t have to fight alone. You never did.',
+  'Reflect on this entire week. What has shifted in how you relate to your anxiety? What truth about God will you carry forward when worry returns?',
+  'God, I don''t fully understand this peace — and that''s the point. It transcends my understanding. Post it as a guard over my heart and my mind. When anxiety returns, let this peace meet it at the door. Thank You for this week. Thank You for not leaving me to face it alone. Amen.'
 FROM public.pathways p WHERE p.slug = 'anxiety-and-peace';
 
 -- ============================================================
 -- IDENTITY IN CHRIST (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Your identity begins with God''s deliberate choice',
-  'You did not choose me, but I chose you and appointed you so that you might go and bear fruit — fruit that will last.', 'John 15:16 (NIV)',
-  'Before you had a resume. Before you had a reputation, a body you judged, a relationship status, a follower count. Before any of it — God chose you. Not reluctantly. Not as a backup. Specifically, deliberately, knowing everything. He chose you knowing the worst Wednesday of your life. He chose you knowing the thing you''re most ashamed of. He chose you knowing you would doubt Him, stray from Him, and question whether He even sees you. And He chose you anyway. Not because you''d earn it. Because He wanted to. This is where identity starts — not with what you bring to the table, but with the fact that God pulled out a chair for you before you even walked into the room.',
-  'When was the last time you felt genuinely chosen — by a friend, a partner, an opportunity? How does it reshape things to know God''s choice came before all of that?',
-  'God, I have spent so long trying to earn what You''ve already given. You chose me. Before I did anything to deserve it, before I could disqualify myself — You chose me. Help me live today from that truth, not toward it. Amen.'
+SELECT p.id, 1, 'Gideon — the insecure hero',
+  'The Lord turned to him and said, "Go in the strength you have and save Israel out of Midian''s hand. Am I not sending you?" "Pardon me, my lord," Gideon replied, "but how can I save Israel? My clan is the weakest in Manasseh, and I am the least in my family."', 'Judges 6:14-15 (NIV)',
+  'When God came to Gideon, He called him "mighty warrior." At the time, Gideon was hiding in a wine press, threshing wheat in secret because he was terrified of the enemy. He was the opposite of mighty. But God wasn''t describing Gideon''s present — He was declaring Gideon''s identity.
+
+God does the same with you. He doesn''t call you by your fears, your failures, or your family history. He calls you by what He placed inside you before the world had a say. Gideon said "I''m the least." God said "I''m sending you." Your smallness is not disqualifying. It''s the exact canvas God chooses to paint His strength on.',
+  'What is your version of "I am the least"? What do you tell yourself that disqualifies you? Now write what God might be calling you instead.',
+  'God, like Gideon, I feel small. Unqualified. The least likely. But You called him "mighty warrior" when he was hiding. What are You calling me that I haven''t believed yet? Open my ears to hear my real name — the one You gave me. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'Releasing the labels others placed on you',
-  'See what great love the Father has lavished on us, that we should be called children of God! And that is what we are!', '1 John 3:1 (NIV)',
-  'Words stick. The offhand comment from a parent. The cruel thing someone said in the breakup. The label a teacher gave you. The way you were spoken about — or never spoken about at all. Over time, those words became wallpaper in your mind. You stopped noticing them, but they shaped every room you walked into. Here is the truth that outranks every other name: you are a child of God. Not metaphorically. Not aspirationally. Actually. John doesn''t whisper it. He marvels at it — "See what great love." The word "lavished" means poured out extravagantly, without restraint. That is how God loves you. Whatever name the world gave you, it doesn''t fit. You belong to a Father who named you Beloved.',
-  'What label or name from your past still shapes how you see yourself? Write it down. Then cross it out and write above it: "Child of God. That is what I am."',
-  'Father, I have been wearing names that were never mine. Names born from someone else''s pain, someone else''s opinion, someone else''s limitation. Today I take them off. You call me Yours. That is my name. Help me answer to no other. Amen.'
+SELECT p.id, 2, 'Leah — the unwanted wife God saw',
+  'When the Lord saw that Leah was not loved, he enabled her to conceive.', 'Genesis 29:31 (NIV)',
+  'Leah was the wife no one wanted. Jacob worked seven years for her sister Rachel and got Leah through deception. She lived her whole marriage knowing she was second choice. She named her sons things like "Surely my husband will love me now."
+
+But here''s what most people miss: Leah is in the lineage of Jesus. The overlooked, unloved, second-choice woman is in the direct bloodline of the Savior. God didn''t just see Leah — He chose her for something no one expected. If you have ever felt like the one not picked, the one people settle for — God sees you the way He saw Leah. He has placed you in a story bigger than anyone''s rejection.',
+  'Where have you felt like Leah — unchosen, second place, not preferred? How does it change things to know God saw her and placed her in the lineage of Christ?',
+  'Lord, I have felt like Leah — unseen, not the first choice. But You saw her when no one else did. You wove her into the most important story ever told. See me the same way. My worth is not determined by who chooses me. It is determined by the God who already has. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Understanding your purposeful design',
-  'For we are God''s handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do.', 'Ephesians 2:10 (NIV)',
-  'The Greek word for "handiwork" is poiema — it''s where we get the word "poem." You are not a mass-produced product. You are a poem. Crafted with intention, rhythm, and meaning that unfolds over time. Your particular combination of gifts, wounds, passions, and quirks is not accidental. God wove you together knowing exactly what the world would need from your specific life. The good works He prepared aren''t just big, visible things. They''re the conversation only you could have. The kindness only you could extend. The perspective only you could bring. You are not interchangeable. There is no one else with your exact design.',
-  'What are three things about your personality, story, or gifting that feel uniquely yours? How might God be using those specific qualities on purpose?',
-  'Creator God, thank You for making me with intention — not on an assembly line but as a poem. Open my eyes to the good works You prepared specifically for someone like me. Help me stop wishing I were a different poem. Amen.'
+SELECT p.id, 3, 'Moses — "I am slow of speech"',
+  'Moses said to the Lord, "Pardon your servant, Lord. I have never been eloquent... I am slow of speech and tongue." The Lord said to him, "Who gave human beings their mouths?... Now go; I will help you speak."', 'Exodus 4:10-12 (NIV)',
+  'Moses had a list of reasons why God picked the wrong person. He wasn''t a good speaker. He had a criminal past. He''d been hiding in the desert for 40 years.
+
+But God''s calling is not based on your résumé. When Moses said "I can''t speak," God didn''t say "You''re right, I''ll find someone else." He said "Who made your mouth?" Your weaknesses don''t surprise God. He designed you — all of you, including the parts you wish were different. He doesn''t work despite your limitations. He often works through them.',
+  'What is your "I am slow of speech" — the thing you believe disqualifies you? Write God''s response to Moses and apply it to yourself.',
+  'God, I have my own list of disqualifications. But You didn''t accept Moses'' excuses, and You don''t accept mine. You made me. Help me trust that You knew what You were doing. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Resting in sufficiency of grace, not self',
-  'But he said to me, "My grace is sufficient for you, for my power is made perfect in weakness."', '2 Corinthians 12:9 (NIV)',
-  'The tyranny of "enough" is exhausting. Not smart enough. Not spiritual enough. Not productive, thin, successful, healed, or together enough. But here''s the gospel plot twist: you were never supposed to be enough. God''s design is not a self-sufficient woman who doesn''t need Him. His design is a woman who is held by a grace that fills every gap she cannot fill herself. Your weakness is not disqualifying — it is the exact location where His power does its best work. Stop trying to arrive at "enough." You''re already standing in grace, and grace is sufficient. Not barely sufficient. Abundantly, lavishly, more-than-you-need sufficient.',
-  'Where does "not enough" hit you hardest right now — your career, your body, your faith, your relationships? Write it down, then write God''s response from today''s verse.',
-  'Lord, I''m exhausted from trying to be enough. I lay down the performance. I lay down the striving. Your grace is sufficient — and today I choose to believe it covers exactly where I fall short. Let Your power rest on my weakness. Amen.'
+SELECT p.id, 4, 'The Samaritan woman — shame into testimony',
+  'Then, leaving her water jar, the woman went back to the town and said to the people, "Come, see a man who told me everything I ever did. Could this be the Messiah?"', 'John 4:28-29 (NIV)',
+  'She came to the well at noon to avoid the other women. Five failed marriages. She was the town scandal. And Jesus chose her for the longest recorded conversation with any individual in the Gospels.
+
+He didn''t pretend her past didn''t exist. He named it. And in the naming, He freed her. She left her water jar — the thing she came for — because she found something better: an identity not defined by her history. She ran back to the very people she''d been hiding from and said "Come see." Your past is not your identity. It is the backdrop against which God writes your redemption story.',
+  'What "water jar" are you still carrying — what old identity or shame do you keep returning to? What would it look like to leave it at the well?',
+  'Jesus, You met the Samaritan woman at her worst and gave her a new story. Meet me at my well today. I''m tired of being defined by my past. Speak my real name — the one that has nothing to do with my mistakes. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Freedom from measuring yourself against others',
-  'I praise you because I am fearfully and wonderfully made; your works are wonderful, I know that full well.', 'Psalm 139:14 (NIV)',
-  'Comparison is a silent thief. It takes what should be a celebration — someone else''s gift, beauty, success, or joy — and turns it into evidence of your inadequacy. But comparison only works if you believe God made a mistake with you. If you were "wonderfully made," then so was she — and her wonderful doesn''t diminish yours. The psalmist says "I know that full well." This is not a tentative hope. It is a settled knowing. You are not a rough draft of someone better. You are a finished work. Not perfect — finished in the sense that God''s design for you is complete and intentional. Her lane is not your lane. Run yours.',
-  'Who do you compare yourself to most? What specifically triggers it? Now write one thing about your own design that you genuinely value — and don''t qualify it.',
-  'God, forgive me for looking at Your creation in me and calling it less-than. I am wonderfully made. Help me know it full well — not as a verse I quote but as a truth I live from. Free me from measuring my design against anyone else''s. Amen.'
+SELECT p.id, 5, 'David''s wonder at being known by God',
+  'For you created my inmost being; you knit me together in my mother''s womb. I praise you because I am fearfully and wonderfully made; your works are wonderful, I know that full well.', 'Psalm 139:13-14 (NIV)',
+  'David wrote this not in confidence but in awe. He was overwhelmed by how intimately God knew him — every thought, every movement, every unformed day.
+
+"Fearfully and wonderfully made" isn''t a motivational quote. It''s a theological declaration. The God who engineered the nervous system, who designed the way light hits water, who encoded DNA — that God gave the same creative attention to you. Your body, your mind, your personality, your specific combination of gifts and quirks — none of it is accidental. Comparison says "I should be like her." God says "I already made you, and I don''t repeat My work."',
+  'What part of yourself do you struggle to call "wonderful"? Write a thank-you letter to God for that specific thing.',
+  'Creator, You knit me together on purpose. The things I criticise about myself — You designed them. Help me stop arguing with Your craftsmanship. I am fearfully and wonderfully made. Teach me to know that full well. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'The permanence of God''s love',
+SELECT p.id, 6, 'Paul''s unshakeable declaration from prison',
   'For I am convinced that neither death nor life, neither angels nor demons, neither the present nor the future, nor any powers, neither height nor depth, nor anything else in all creation, will be able to separate us from the love of God that is in Christ Jesus our Lord.', 'Romans 8:38-39 (NIV)',
-  'Paul makes a list — and it''s deliberately exhaustive. He covers every dimension: time (present, future), space (height, depth), power (angels, demons), and then throws in "anything else in all creation" just to close every loophole. Nothing. Not your worst sin. Not your longest struggle. Not the thing you''ve never told anyone. Not the relationship that fell apart. Not the faith that sometimes wavers. Nothing in all creation can separate you from this love. This isn''t a love that fluctuates with your performance. It was established at a cross and sealed by an empty tomb. You cannot earn it, which means you cannot lose it.',
-  'What do you secretly fear could disqualify you from God''s love? Name it honestly. Then read Romans 8:38-39 aloud over it, slowly.',
-  'Jesus, I name the thing I''m most afraid separates me from Your love: [name it silently]. And I hear You say: not even this. Nothing. Help me receive a love I cannot lose. Amen.'
+  'Paul wrote this from experience. He had been shipwrecked, beaten, imprisoned, and left for dead. He wasn''t theorising about God''s love from a comfortable study. He was declaring it from the battlefield.
+
+Read the list again: not death, not life, not the present, not the future, not any power. He covered every category of threat and said: none of it can separate you. This is not a love that fluctuates based on your behaviour. It''s an anchor-love, a covenant-love, tested by a cross and proven unbreakable. You are held. Permanently.',
+  'What do you fear could separate you from God''s love? Your sin? Your doubt? Write it down. Then read Romans 8:38-39 aloud over it.',
+  'God, nothing can separate me from Your love. Not my worst day, not my darkest thought, not my biggest failure. This love is unbreakable because it depends on You, not me. I rest in that today. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Walking forward as who you already are',
-  'Therefore, if anyone is in Christ, the new creation has come: The old has gone, the new is here!', '2 Corinthians 5:17 (NIV)',
-  'You are not becoming someone new. You already are someone new. The old labels, the old shame, the old striving to prove your worth — they belong to a story that has already ended. Christ didn''t give you a makeover. He gave you a new identity. The shift this week is from living for identity to living from identity. You don''t pray to become loved — you pray because you already are. You don''t serve to earn belonging — you serve because you already belong. You don''t strive for approval — you rest in an approval that was given, not earned. Walk forward today as who you truly are. Not who you used to be. Not who others said you were. Who God says you are. Right now. Already.',
-  'What is the single most important truth about your identity that you want to carry out of this week? Write it as a first-person declaration: "I am..."',
-  'God, I am new. The old stories, the old names, the old striving — they are finished. Help me walk in this truth daily. When the old identity tries to reclaim me, anchor me in who You say I am. I live from love now, not for it. Amen.'
+SELECT p.id, 7, 'Jesus'' baptism — beloved before doing anything',
+  'And a voice from heaven said, "This is my Son, whom I love; with him I am well pleased."', 'Matthew 3:17 (NIV)',
+  'This declaration came at Jesus'' baptism — before He performed a single miracle, preached a single sermon, or healed a single person. Before He did anything, the Father said: "You are My beloved. I am pleased with you."
+
+This is God''s order: identity first, then action. Not "do great things and I''ll love you." But "you are loved — now go." The world reverses this. It says perform, achieve, prove yourself, then maybe you''ll be enough. God says you are already enough, and from that security, you can do anything. You don''t work for love. You work from love.',
+  'What is one identity truth from this week that you want to carry forward? How will you remind yourself when the old voices return?',
+  'Father, like You spoke over Jesus, speak over me: "You are My child. I love you. I am pleased with you." Not because of what I''ve done — because of who I am to You. I will live from this identity, not for it. Amen.'
 FROM public.pathways p WHERE p.slug = 'identity-in-christ';
 
 -- ============================================================
 -- WAITING WELL (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Navigating divine silence without losing faith',
-  'Wait for the Lord; be strong and take heart and wait for the Lord.', 'Psalm 27:14 (NIV)',
-  'God''s silence is one of the most disorienting experiences of faith. You''ve prayed. You''ve obeyed. You''ve believed. And... nothing. The door didn''t open. The answer didn''t come. The season didn''t shift. It''s tempting to interpret silence as absence — to believe that God has moved on, forgotten, or simply doesn''t care. But silence in the spiritual life is not absence. It is often the space where God does His deepest work — the kind that requires quiet to take root. A seed doesn''t germinate in noise. The psalmist says "wait" twice, as if to say: I know you heard me the first time. I''m saying it again because you''ll need to hear it again tomorrow.',
-  'What are you waiting on God for right now? Be specific. Then write honestly: what does His silence feel like to you? What are you tempted to believe about Him because of it?',
-  'Lord, the silence is hard. I want to hear You. I want to see movement. But I choose to believe that Your quiet is not Your absence. Strengthen my heart for the wait. I will stay. Amen.'
+SELECT p.id, 1, 'Bringing your desperation to God without apology',
+  'In her deep anguish Hannah prayed to the Lord, weeping bitterly.', '1 Samuel 1:10 (NIV)',
+  'Hannah wanted a child so badly it wrecked her. Year after year she showed up at the temple with empty arms while Peninnah, her husband''s other wife, paraded her children like proof of God''s favour. The pain was relentless — and public. People even misread her desperate prayer as drunkenness.
+
+But notice what Hannah did with the ache: she didn''t swallow it. She didn''t perform composure. She poured it out before God in its raw, unedited form. Her prayer was messy and tear-soaked and probably hard to watch. And God received every syllable. If you are waiting for something that aches to name out loud, Hannah gives you permission to stop being polite about it. God is not offended by desperation. He is moved by it.',
+  'What are you waiting for that feels almost too painful to say out loud? Write it here — unfiltered, unedited, the way Hannah would have prayed it. Let this page hold what your composure cannot.',
+  'Lord, like Hannah, I am bringing You the ache I''ve been carrying quietly. I''m done editing my prayers to sound more together than I am. Here is the real request, the raw one. Receive it. I trust You with the mess of my wanting. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'Discovering purpose in the pause',
-  'But those who hope in the Lord will renew their strength. They will soar on wings like eagles; they will run and not grow weary, they will walk and not be faint.', 'Isaiah 40:31 (NIV)',
-  'The in-between feels like wasted time. Nothing is happening. Nothing is moving. You''re stuck in a holding pattern while life seems to fast-track everyone around you. But God doesn''t waste seasons. The waiting is doing something. It''s building patience you''d never develop in ease. It''s deepening roots you''ll need when the storm of answered prayer arrives — because answered prayer brings its own challenges. Renewed strength doesn''t come from activity. It comes from hope — the kind that holds on when holding on feels pointless. The soaring comes. But first comes the waiting. And the waiting is not the obstacle to the soaring. It is the preparation for it.',
-  'What is the waiting season building in you that ease never could? Name one quality — patience, empathy, depth, trust — that is growing precisely because of the pause.',
-  'Father, I don''t want to just survive this waiting — I want to be changed by it. Show me what You''re growing in the soil of this season. Renew my strength not through escape, but through hope that holds. Amen.'
+SELECT p.id, 2, 'Holding a promise that feels impossible',
+  'He took him outside and said, "Look up at the sky and count the stars — if indeed you can count them." Then he said to him, "So shall your offspring be."', 'Genesis 15:5 (NIV)',
+  'God told Abraham he would be the father of nations. Abraham was seventy-five. Sarah was sixty-five and barren. And then — nothing happened. For twenty-five years. A quarter of a century of looking at the stars and wondering if God had confused him with someone else.
+
+They stumbled during the wait. They improvised with Hagar. They laughed at the absurdity of it all. And honestly? Their doubt was understandable. But the promise outlasted every reasonable objection. Isaac arrived when Abraham was one hundred and Sarah was ninety — at an age so impossible it could only be God. If your promise feels laughable by now, you are in good company. God has always specialised in timelines that make no human sense.',
+  'What promise or deep hope have you been holding so long it''s starting to feel ridiculous? Write it down. Then ask yourself honestly: have I stopped believing, or have I just stopped understanding?',
+  'Father, like Abraham and Sarah, I am holding something that doesn''t make sense anymore. The math doesn''t work. The window feels closed. But You are the God of impossible timelines. Help me hold the promise without demanding the schedule. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Guarding your heart against comparison in waiting',
-  'Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.', 'Galatians 6:9 (NIV)',
-  'She got engaged. She got the promotion. She got pregnant. She got the breakthrough. And you''re genuinely happy for her — and simultaneously gutted. That dual emotion is not hypocrisy. It''s grief. Watching others receive what you''re still waiting for doesn''t make you bitter; it makes you human. But here is the distinction that will save you: her timing is not your rejection. God''s "yes" to someone else is not a "no" to you. Your proper time exists. It is real. It is appointed. And it will not miss you. The harvest is coming — not on her timeline, not on your preferred schedule, but at the proper time. Keep sowing.',
-  'Whose blessing has been hardest to celebrate because it mirrors what you''re still waiting for? Be honest. Then write a genuine prayer for them and a genuine prayer for your own heart.',
-  'God, guard my heart from bitterness disguised as disappointment. Help me celebrate others without interpreting their blessing as my rejection. I trust that my proper time is coming. I will not give up. Amen.'
+SELECT p.id, 3, 'Trusting God when life keeps getting worse before it gets better',
+  'The Lord was with Joseph so that he prospered, and he lived in the house of his Egyptian master.', 'Genesis 39:2 (NIV)',
+  'Joseph''s story is not a clean arc from struggle to success. It is a brutal thirteen-year descent that looked nothing like favour. Betrayed by his brothers. Sold into slavery. Falsely accused. Forgotten in prison. At every turn, the situation got worse — not better. If Joseph had been tracking God''s faithfulness by his circumstances, he would have had every reason to quit.
+
+But the text says something quietly staggering: "The Lord was with Joseph." Not after the pit. Not once he reached the palace. In the pit. In the prison. In the silence between the dream and its fulfilment. God''s presence is not contingent on your progress. He is with you in the chapter that makes no sense — the one you would skip if you could.',
+  'Where in your life does it feel like things are getting worse, not better? Write about that honestly. Then ask: is it possible God is with me here, even though "here" is not where I want to be?',
+  'God, I feel more like I''m in the pit than the palace right now. The dream You placed in me feels further away than ever. But if You were with Joseph in every terrible chapter, I choose to believe You are with me in mine. Don''t let me lose heart. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Choosing faith over understanding',
-  'Trust in the Lord with all your heart and lean not on your own understanding; in all your ways submit to him, and he will make your paths straight.', 'Proverbs 3:5-6 (NIV)',
-  'Your understanding has limits. It can only process what it can see, and in waiting seasons, you can''t see much. You can''t see why it''s taking this long. You can''t see what God is orchestrating. You can''t see the bigger picture that makes the delay make sense. And God doesn''t owe you that explanation — at least not yet. Trust is hardest when it''s most needed: in the gap between what you know about God''s character and what you can see with your eyes. The path is being made straight. You just can''t see around the bend. Today, choose to lean into His character rather than your comprehension.',
-  'What specifically are you struggling to understand about God''s timing right now? Name it. Then write one thing you know to be true about God''s character — and choose that over your understanding.',
-  'Lord, I don''t understand. I''m not pretending I do. But I know You are good, wise, and faithful. Today I lean on that instead of my need for answers. Make my path straight even when I can''t see where it leads. Amen.'
+SELECT p.id, 4, 'When God leads you through the wilderness on purpose',
+  'Remember how the Lord your God led you all the way in the wilderness these forty years, to humble and test you in order to know what was in your heart.', 'Deuteronomy 8:2 (NIV)',
+  'The distance from Egypt to the Promised Land was an eleven-day journey. God took Israel on a forty-year detour. Not because He was lost. Not because He was punishing them. Because there was something in the wilderness they could not learn anywhere else.
+
+The wilderness taught dependence — daily manna that couldn''t be stockpiled, water from rocks, shoes that never wore out. It stripped away every illusion of self-sufficiency. And that terrifies us, doesn''t it? We want the shortcut, the direct route, the efficient path. But God is after something deeper than your arrival. He is after your heart. The long way around is not a wrong turn. It is the curriculum.',
+  'What is your wilderness teaching you that comfort never could? Be specific. Where is God stripping away self-sufficiency and building something sturdier in its place?',
+  'Lord, I wanted the short road. You chose the long one — and I don''t always understand why. But if the wilderness is where You teach me to depend on You daily, then let me learn well. Don''t let me waste this detour. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Honouring God in unglamorous seasons',
-  'Whoever can be trusted with very little can also be trusted with much.', 'Luke 16:10 (NIV)',
-  'Waiting seasons are rarely cinematic. There''s no swelling soundtrack. No one is watching. The days are repetitive — work, sleep, pray, wonder if anything is happening, repeat. But faithfulness in the ordinary is the most overlooked form of worship. God sees the quiet obedience — the prayer you prayed when you didn''t feel like it, the kindness you showed when you were running on empty, the integrity you maintained when no one would have known the difference. These unseen acts of faithfulness are not filler between the big moments. They are the big moments. They are the proving ground for what comes next.',
-  'What small, faithful things have you been doing consistently even though no one notices? List them. Let this be your evidence that you are already being faithful with what you have.',
-  'God, see my quiet faithfulness. It doesn''t feel impressive, but I offer it to You — the small prayers, the steady showing up, the unglamorous obedience. Let my little become Your much. Amen.'
+SELECT p.id, 5, 'Faithfulness that outlasts your timeline',
+  'Sovereign Lord, as you have promised, you may now dismiss your servant in peace. For my eyes have seen your salvation.', 'Luke 2:29-30 (NIV)',
+  'Simeon waited his entire life for one moment. Scripture tells us the Holy Spirit had revealed to him that he would not die before seeing the Messiah. So he waited. Day after day, year after year, growing old in the temple, watching every baby brought through those doors and knowing: not this one. Not yet.
+
+And then — Mary and Joseph walked in with a six-week-old infant, and Simeon knew. He took Jesus in his arms and said, essentially, "I can die now. It was worth the whole wait." Some promises take a lifetime. That is not a failure of faith — it is the deepest expression of it. Simeon never grew cynical. He never stopped showing up. His waiting was not passive; it was the most active, expectant posture a life can hold.',
+  'If your waiting lasted longer than you ever imagined — even a lifetime — would you still trust that God is faithful? What would it take for you to say, like Simeon, "It was worth it"?',
+  'Father, give me Simeon-faith. The kind that shows up every single day expecting You to move, even when decades pass. Keep my heart soft and my eyes open. I don''t want to miss what You''re doing because I got tired of looking. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'Trusting the appointed time',
-  'For the revelation awaits an appointed time; it speaks of the end and will not prove false. Though it linger, wait for it; it will certainly come and will not delay.', 'Habakkuk 2:3 (NIV)',
-  'God operates on a timeline you cannot access. From your angle, it looks late. The promise looks forgotten. The prayer looks unanswered. But Habakkuk — who was wrestling with God about injustice and silence — receives this word: there is an appointed time. It is set. It is certain. And here''s the part that requires the most faith: "though it linger." God acknowledges the experience of lingering. He''s not dismissing your frustration. He''s saying: I know it feels slow. It isn''t. What I promised will come. Your calendar and God''s calendar run on different time zones. Trust the one that created time itself.',
-  'Think of a time something arrived "late" but turned out to be perfectly timed. What did God''s timing accomplish that your timing would have missed?',
-  'Father, Your clock is different from mine. What feels like delay to me is precision to You. I trust the appointed time. Even though it lingers, I will wait — because You have never been late with anything that truly mattered. Amen.'
+SELECT p.id, 6, 'The God who sees the woman the world has written off',
+  'But the angel said to him: "Do not be afraid, Zechariah; your prayer has been heard. Your wife Elizabeth will bear you a son, and you are to call him John."', 'Luke 1:13 (NIV)',
+  'Elizabeth had been barren her entire married life. In her culture, that wasn''t just painful — it was public shame, interpreted as divine disfavour. She had likely stopped praying for a child years ago. The window had closed. Biology had spoken. The world had moved on, and so, she assumed, had God.
+
+But the angel''s words to Zechariah reveal something breathtaking: "Your prayer has been heard." Not "is being heard" — has been heard. Past tense. God heard the prayer Elizabeth stopped praying. He held it when she couldn''t hold it anymore. And He answered it at an age that made everyone stare. If you have a prayer you gave up on, it may still be alive in God''s hands. He does not forget what you have stopped asking for.',
+  'Is there a prayer you stopped praying — not because you stopped wanting it, but because you stopped believing it was possible? Write it down again. You are not too late, and neither is God.',
+  'God, like Elizabeth, I have prayers I set down because the wait became too heavy. But You heard them then and You remember them now. If it is Your will, breathe life into what I assumed was finished. I open my hands again. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Choosing joy without requiring resolution',
-  'Consider it pure joy, my brothers and sisters, whenever you face trials of various kinds, because you know that the testing of your faith produces perseverance.', 'James 1:2-3 (NIV)',
-  'Joy in the waiting is not pretending the wait doesn''t hurt. It''s recognising that something is being produced that could not exist without this exact process. Perseverance — the deep, bone-level capacity to keep going when everything says stop — is only forged in the fire of waiting. It cannot be downloaded or shortcut. As you close this pathway, you may still be waiting. That''s okay. The waiting hasn''t ended, but perhaps something in you has shifted. You are not the same woman who started Day 1. You are stronger, steadier, more rooted. And the God who met you on Day 1 is the same God who meets you today — faithful, present, and already preparing what''s next.',
-  'How are you different today than when you started this pathway? What has shifted in your heart, your trust, or your understanding of God in the waiting?',
-  'Jesus, thank You for meeting me in the waiting. I don''t have the answer yet, but I have You — and today, that is enough. Produce perseverance in me that will outlast this season. I choose joy while I wait. Amen.'
+SELECT p.id, 7, 'Surrendering the outcome while staying honest about the cost',
+  'Father, if you are willing, take this cup from me; yet not my will, but yours be done.', 'Luke 22:42 (NIV)',
+  'In the garden of Gethsemane, Jesus sweat drops of blood. He asked His Father for another way. He was honest about the cost of obedience — brutally, physically honest. And then He surrendered. Not with detached calm, but with agonised trust. "Not my will, but yours."
+
+This is the prayer that holds every waiting season together. It does not pretend the wait is easy. It does not minimise what surrender costs. It holds two things at once: I want this to go differently, and I trust You more than I trust my preference. As you close this pathway, you may still be waiting. The answer may not have come. But you are not the same woman who started seven days ago. You have walked with Hannah, Abraham, Joseph, Israel, Simeon, and Elizabeth. You are held by the same God who held them. And He has never once looked away.',
+  'Write your own Gethsemane prayer. Name what you want. Name what it costs to wait. And then — only if you mean it — write: "Not my will, but yours." Let this be the most honest prayer you have ever prayed.',
+  'Jesus, You understand what it costs to surrender. You didn''t bypass the pain — You prayed through it. Give me the courage to want what I want and still release it into Your hands. Not my will, but Yours. I trust You with the outcome. Amen.'
 FROM public.pathways p WHERE p.slug = 'waiting-well';
 
 -- ============================================================
 -- HEALING AFTER HEARTBREAK (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Giving yourself permission to feel the full weight of loss',
-  'The Lord is close to the brokenhearted and saves those who are crushed in spirit.', 'Psalm 34:18 (NIV)',
-  'Before healing begins, there must be honesty about the wound. Not spiritual bypassing — "God has a plan." Not forced gratitude — "At least..." Not premature forgiveness — "I should be over this." Just honesty. This hurts. Something broke. And God, rather than standing at a distance waiting for you to compose yourself, moves closer. The verse says "close" — not eventually close, not close once you''ve processed correctly. Close right now, in the mess, in the tears, in the 2am ache. He is not uncomfortable with your grief. He is intimate with sorrow. He wept at a tomb even knowing He would reverse the death. Your grief is not weakness. It is the proof that you loved something real.',
-  'Write honestly about what happened and how it feels — without editing for spiritual correctness. Tell God the truth about the pain. He can handle your uncensored heart.',
-  'Lord, my heart is broken. I''m not going to dress it up. It hurts in ways I don''t have words for. Draw close — not with solutions, but with presence. Sit with me in this. I need You here. Amen.'
+SELECT p.id, 1, 'Giving yourself permission to name the pain honestly',
+  'Don''t call me Naomi. Call me Mara, because the Almighty has made my life very bitter. I went away full, but the Lord has brought me back empty.', 'Ruth 1:20-21 (NIV)',
+  'Naomi lost her husband. Then both of her sons. She left Bethlehem with a full life and came back with nothing but grief and a daughter-in-law who refused to leave. And when the old neighbors recognized her, she didn''t perform wellness. She said: call me Bitter. That''s who I am now.
+
+There is something holy about Naomi''s refusal to pretend. She didn''t offer a sanitized testimony. She told God exactly what it felt like — and Scripture recorded it without correction. Your pain deserves the same honesty. Before healing can begin, the wound has to be named. Not explained, not spiritualized, not minimized. Named. God is not threatened by your bitterness. He is close enough to hear every word of it.',
+  'If you renamed yourself based on how you actually feel right now — the way Naomi renamed herself Mara — what would your name be? Write it down. Then tell God why.',
+  'God, I''m not going to pretend this is fine. Like Naomi, I went away full and came back empty. I''m naming the pain today — not to push You away, but because You already see it. Meet me in the honesty. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'Countering the lie of abandonment',
-  'God has said, "Never will I leave you; never will I forsake you."', 'Hebrews 13:5 (NIV)',
-  'When someone leaves, part of you concludes: I wasn''t enough to stay for. And that conclusion quietly extends to God — if people leave me, maybe He will too. This is the deepest wound of heartbreak: not just the loss of a person, but the confirmation of a fear. But God uses the strongest negation available in the Greek language here. "Never, never, never will I leave. Never, never, never will I forsake." Five negatives stacked on top of each other. He is not someone who leaves. He is the one who stays when everyone else goes. Your pain is not evidence of His departure. It is the very place He has planted Himself most firmly.',
-  'Where do you feel most abandoned right now? Be specific. Then read today''s verse aloud to that specific ache. Let the repetition of "never" address the repetition of the fear.',
-  'God, someone I needed left. And part of me transferred that abandonment onto You. But You are not like them. You don''t leave. You don''t grow tired of me. Today I choose to trust the One who stays. Never, never, never will You leave. Amen.'
+SELECT p.id, 2, 'God finds you in the place of rejection',
+  'Then God opened her eyes and she saw a well of water. So she went and filled the skin with water and gave the boy a drink.', 'Genesis 21:19 (NIV)',
+  'Hagar was cast out. Not gently released — sent into the desert with bread and a skin of water, her child on her back, by a man who had once shared his bed with her. Abraham didn''t fight for her. Sarah demanded she go. And Hagar walked into the wilderness with nothing but the certainty that she had been discarded.
+
+When the water ran out, she set her son under a bush and sat a distance away because she could not bear to watch him die. That is the geography of rejection — a place so desolate you cannot even look at your own future. But God heard. God saw. God opened her eyes to a well that was already there. If you feel cast out today, know this: the God who names Himself "the One who sees me" has not lost sight of you.',
+  'Where do you feel cast out or discarded — like someone made a decision about your life without your consent? Tell God about the wilderness you''re sitting in right now.',
+  'God who sees me, I feel like Hagar — sent away, not chosen, wandering without a clear path. Open my eyes to the well You''ve already placed in this wilderness. I trust that rejection by people is not rejection by You. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Beginning the process without rushing the timeline',
-  'Bear with each other and forgive one another if any of you has a grievance against someone. Forgive as the Lord forgave you.', 'Colossians 3:13 (NIV)',
-  'Let''s be clear about what forgiveness is not. It is not saying what happened was okay. It is not reconciliation — some relationships should not be restored. It is not a feeling. It is not instant. Forgiveness is a decision to stop drinking poison and hoping the other person gets sick. It''s the refusal to let someone who already hurt you continue to control your inner life. And it is a process. You may need to forgive the same person for the same thing seventy times — not because you failed, but because layers of pain reveal themselves over time. Start where you can. Even "God, I''m willing to be willing" is a beginning.',
-  'Where are you in the forgiveness process — honestly? Not where you think you should be, but where you actually are. Write from there. It''s a valid starting point.',
-  'Lord, I''m not ready to fully forgive yet — and I trust You with that honesty. But I am willing to begin. Start the thaw in my heart. Free me from carrying what was done to me. I forgive as You forgave me — imperfectly, gradually, but genuinely. Amen.'
+SELECT p.id, 3, 'The strange grace of choosing to live after loss',
+  'Then David got up from the ground. After he had washed, put on lotions and changed his clothes, he went into the house of the Lord and worshiped.', '2 Samuel 12:20 (NIV)',
+  'David fasted. He lay on the ground. He pleaded with God for his dying child, and his servants were afraid to tell him when the boy was gone. But when David learned the truth, he did something his household did not expect: he got up. He washed. He ate. He worshiped.
+
+This was not denial. David had already done the agonizing work of grief while the child was sick. His rising was not a performance of strength — it was a decision to keep living after the worst had happened. Sometimes getting up from the floor is the bravest thing you will ever do. Not because the pain has ended, but because you have decided it will not be the final word. Worship after loss is not pretending the loss didn''t happen. It is telling God: You are still God, even here.',
+  'What does "getting up from the ground" look like for you in this season? It doesn''t have to be dramatic. What is one small act of choosing to keep living?',
+  'Lord, like David, I have been on the ground. I''ve pleaded. I''ve wept. And what I feared still happened. Give me the grace to rise — not because I''m over it, but because You are still worthy of worship even in this. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Embracing the messy reality of recovery',
-  'He heals the brokenhearted and binds up their wounds.', 'Psalm 147:3 (NIV)',
-  'You will have good days that make you think you''re healed, followed by days that feel like Day 1 all over again. A song, a scent, a memory — and the wound reopens. This is not failure. This is healing. Real healing is not a straight line up. It''s a spiral — you revisit the same pain, but each time from a slightly higher vantage point. You''re not going backward. You''re going deeper. God doesn''t heal with speed. He heals with thoroughness. He is binding your wounds — not with a quick bandage but with careful attention to every layer. The fact that it still hurts sometimes doesn''t mean He''s failed. It means He''s still working.',
-  'When did you last feel like you "went backward" in healing? Looking more closely, was it actually backward — or was it a deeper layer surfacing to be healed?',
-  'Healer, I trust Your pace. Even when the wound reopens and I feel like I''m starting over, I believe You are binding something deeper. Don''t let me rush this. Do the thorough work. I will be patient with myself as You are patient with me. Amen.'
+SELECT p.id, 4, 'When the pain has lasted so long you''ve almost stopped hoping',
+  'She had suffered a great deal under the care of many doctors and had spent all she had, yet instead of getting better she grew worse. When she heard about Jesus, she came up behind him in the crowd and touched his cloak.', 'Mark 5:26-27 (NIV)',
+  'Twelve years. She had tried every physician. Spent every coin. And the bleeding — which also meant religious exclusion, social isolation, the inability to be touched — only got worse. Twelve years of diminishing hope is enough to make anyone stop reaching.
+
+But she heard about Jesus. And something inside her that should have been dead by now — the capacity to hope — flickered one more time. She didn''t ask for an audience. She didn''t demand an explanation for twelve years of silence. She just reached. And that reach, trembling and desperate as it was, was enough. If your heartbreak has been a long one — months, years, the kind that people have stopped asking about — hear this: you are not too far gone. One more reach toward Jesus is not foolish. It is the kind of faith that stops Him in His tracks.',
+  'Where have you grown tired of hoping? What is the prayer you stopped praying because it hurt too much to keep asking? Write it one more time today.',
+  'Jesus, like the woman who bled for twelve years, I''m exhausted. I''ve tried so many things and nothing has worked. But I''m reaching for You one more time. I''m not asking You to explain the delay. I''m asking You to heal what no one else could. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Reconstructing your sense of self after loss',
-  'The Lord your God is with you, the Mighty Warrior who saves. He will take great delight in you; in his love he will no longer rebuke you, but will rejoice over you with singing.', 'Zephaniah 3:17 (NIV)',
-  'Heartbreak has a way of dismantling your self-concept. You start questioning everything: Was I not lovable enough? Was I too much? Am I fundamentally broken? The person who left took a piece of your confidence with them. But here is God''s response to your shattered self-image: He takes delight in you. Not past tense — present, active, ongoing delight. He doesn''t merely tolerate your existence. He rejoices over you with singing. Imagine that: the God of the universe, singing over you. Not the fixed-up version. Not the healed version. You, right now, with mascara tracks and a heart full of questions. He is singing.',
-  'How has heartbreak changed how you see yourself? List the things you''ve begun to doubt about your worth. Now read Zephaniah 3:17 and let God''s perspective challenge each one.',
-  'God, heartbreak made me small. It made me doubt things I used to know. Rebuild my sense of who I am — not based on who stayed or left, but based on Your delight. Sing over me until I believe it again. Amen.'
+SELECT p.id, 5, 'Holding onto God when nothing makes sense',
+  'Though he slay me, yet will I hope in him.', 'Job 13:15 (NIV)',
+  'Job lost his children, his wealth, his health, and then his friends became theologians who insisted he must have done something to deserve it. His wife told him to curse God and die. Every external voice said: let go.
+
+But Job held on. Not because he understood — he didn''t. Not because he felt God''s presence — he felt abandoned. He held on because something deeper than logic or feeling anchored him. "Though he slay me, yet will I hope." That "yet" carries the weight of the entire book. It is the hinge between despair and defiance. And in the end, God did not explain Himself. He revealed Himself. Job never got the "why." He got the "Who." Sometimes that is what faithfulness looks like: not understanding a single thing but refusing to let go of the only One who does.',
+  'What is your "yet"? Finish this sentence honestly: "Though __________, yet I will hope in God." Let the first blank hold your real pain. Let the second half hold your real defiance.',
+  'God, I don''t understand what happened. I may never understand. But like Job, I am choosing You anyway — not because it makes sense, but because You are the only solid ground I have left. You don''t owe me an explanation. But I need Your presence. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'Trusting God to redeem what was lost',
-  'He has sent me to bind up the brokenhearted... to bestow on them a crown of beauty instead of ashes, the oil of joy instead of mourning, and a garment of praise instead of a spirit of despair.', 'Isaiah 61:1,3 (NIV)',
-  'God is not just a healer. He is a redeemer. He doesn''t just fix what broke — He transforms it into something you could never have built on your own. Ashes become beauty. Mourning becomes joy. Despair becomes praise. This doesn''t mean the loss was worth it or that God caused it so He could fix it. It means that in God''s economy, nothing is beyond redemption. The worst chapters of your story can become the foundation for the most powerful ones. You don''t know yet what beauty God is creating from these ashes. But it''s coming. And it will be worth more than what burned.',
-  'What "ashes" are you holding right now — the remnants of what was lost? What would it look like for God to create beauty from this specific material? Dream with Him on paper.',
-  'Lord, take the ashes. I don''t want to hold them anymore. Create beauty I couldn''t imagine on my own. Oil of joy where there has been mourning. A garment of praise where despair has been my clothing. I trust Your redemptive power. Amen.'
+SELECT p.id, 6, 'Opening your heart after it has been broken',
+  'Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God.', 'Ruth 1:16 (NIV)',
+  'Ruth had every reason to go home. Her husband was dead. Her mother-in-law was bitter and heading to a foreign land with nothing. Orpah made the sensible choice and turned back. No one would have blamed Ruth for doing the same.
+
+But Ruth chose love again. Not romantic love — something arguably braver. She chose covenant loyalty to a grieving woman in a hopeless situation. She chose to attach her future to someone else''s pain. And in doing so, she walked straight into a story she could not have written for herself — provision in Boaz''s field, a new family, a place in the lineage of Jesus. Choosing to love again after loss is terrifying. Your heart knows what it costs now. But Ruth''s story whispers that the heart willing to risk again is the one God tends to surprise.',
+  'What has heartbreak made you afraid to try again — a relationship, a friendship, vulnerability, trust? What would it look like to take one small step back toward openness?',
+  'Lord, my heart is guarded for good reason. It knows what it costs to love and lose. But I don''t want to live behind walls forever. Give me Ruth''s courage — not reckless, but resolute. Teach me to love again without guarantees. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Opening your heart to what comes next',
-  'Forget the former things; do not dwell on the past. See, I am doing a new thing! Now it springs up; do you not perceive it? I am making a way in the wilderness and streams in the wasteland.', 'Isaiah 43:18-19 (NIV)',
-  'You may close this pathway still holding pieces of heartbreak. That is okay. Healing doesn''t have a graduation ceremony. But here is what you can carry forward: God is doing a new thing. Not will do — is doing. Right now, in the middle of your incompleteness. The wilderness is not your permanent address. The wasteland will not stay barren. Streams are coming where dryness has been. New growth is springing up even now — and it may be so small you almost miss it. Pay attention to the tiny green shoots. They are evidence that this is not the end. Your heart will love again, hope again, and be open again. Not because you forced it, but because the God of new beginnings is already at work.',
-  'What small "green shoots" of new life have you noticed — even barely? A laugh that surprised you, a moment of peace, a flicker of hope? Name them. They are evidence.',
-  'God, I''m not fully healed yet. But I''m not where I was. Thank You for meeting me in every day of this pathway. I open my heart — carefully, bravely — to whatever new thing You are doing. I will not miss it. Lead me forward. Amen.'
+SELECT p.id, 7, 'The tears of Jesus and the tenderness of God',
+  'When Jesus saw her weeping, and the Jews who had come along with her also weeping, he was deeply moved in spirit and troubled. Jesus wept.', 'John 11:33,35 (NIV)',
+  'Jesus knew He was about to raise Lazarus. He knew the ending. He knew the miracle was minutes away. And still — He wept. Not for show. The Greek says He was "deeply moved in spirit and troubled," language that suggests something closer to a groan, a shudder of grief that moved through His whole body.
+
+This changes everything about how God relates to your pain. He does not stand at a clinical distance, arms folded, waiting for you to reach the lesson. He enters the grief. He weeps at tombs He intends to open. Your tears are not falling alone. The God of the universe is not ashamed to cry with you — even when He already holds the resurrection in His hands. You are not too much for Him. Your sorrow does not exhaust His compassion. He is here, and He is weeping too.',
+  'Picture Jesus standing beside you in your specific grief — not fixing it yet, just present, just weeping with you. What do you want to say to Him? What do you imagine He says back?',
+  'Jesus, thank You for weeping. Thank You for not being above my pain. You could have rushed to the miracle, but You stopped to grieve first. Be that close to me now. I don''t need answers today. I just need to know You''re crying with me. Amen.'
 FROM public.pathways p WHERE p.slug = 'healing-after-heartbreak';
 
 -- ============================================================
 -- CONFIDENCE AND SELF WORTH (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Relocating confidence from performance to identity',
-  'Such confidence we have through Christ before God. Not that we are competent in ourselves to claim anything for ourselves, but our competence comes from God.', '2 Corinthians 3:4-5 (NIV)',
-  'The world''s confidence is built on a fragile foundation: what you''ve accomplished, how you look, what others think of you. It grows when things go well and collapses when they don''t. But there is a different kind of confidence — one that doesn''t fluctuate with your last performance review or the number on the scale. Paul calls it confidence "through Christ." It''s not self-confidence at all — it''s God-confidence that lives in you. This means your confidence doesn''t depend on your competence. It depends on His. And His has never failed. You don''t have to be the most capable person in the room. You just have to be connected to the most capable God in the universe.',
-  'Where does your confidence currently come from — honestly? Your appearance? Your achievements? Your relationships? Now imagine those were removed. What would be left? That''s where God wants to build.',
-  'God, I''ve been building confidence on things that shift. Today I want to relocate it. My competence comes from You. Not from my track record, not from other people''s opinions. From You. Make that real in my bones. Amen.'
+SELECT p.id, 1, 'Stepping into purpose when everything in you wants to hide',
+  'For if you remain silent at this time, relief and deliverance for the Jews will arise from another place, but you and your father''s family will perish. And who knows but that you have come to your royal position for such a time as this?', 'Esther 4:14 (NIV)',
+  'Esther had every reason to stay silent. Speaking up meant risking her life — not just her comfort, but her actual survival. She was a young woman in a system that did not reward female boldness. She could have hidden behind her crown, played it safe, and let someone else handle it.
+
+But Mordecai asked the question that still echoes: what if you are exactly where you are for exactly this reason? Not by accident. Not by luck. By design. Esther didn''t feel ready. She fasted for three days first — she was terrified. But she went anyway. Confidence isn''t the absence of fear. It''s the decision that your calling is bigger than your anxiety. You are not here by accident either. The room you''re afraid to walk into? You may have been placed there on purpose.',
+  'What situation in your life right now feels like a "for such a time as this" moment — something you''re being called to step into but fear is holding you back? What would Esther-level courage look like in that specific situation?',
+  'God, like Esther, I feel the weight of the moment and my own smallness in it. But You don''t place people by accident. If I am here for such a time as this, give me the courage to stop hiding and start speaking. I choose purpose over self-protection. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'Distinguishing condemnation from conviction',
-  'Therefore, there is now no condemnation for those who are in Christ Jesus.', 'Romans 8:1 (NIV)',
-  'The inner critic speaks in absolutes: you always mess up, you''ll never be enough, everyone sees through you. It sounds like wisdom but it''s condemnation wearing a disguise. God''s voice is different. He convicts with specificity and offers a path forward: "This specific thing didn''t align with who you are. Let''s address it together." Condemnation paralyses. Conviction mobilises. Condemnation says "you are the problem." Conviction says "there is a problem, and we can solve it." The inner critic has been playing God in your mind, and she''s terrible at the job. Today, fire her. There is no condemnation for you. Not because you''re perfect, but because you belong to Christ.',
-  'What does your inner critic say most often? Write her favourite lines. Then beside each one, write whether it''s condemnation (paralysing, identity-attacking) or conviction (specific, forward-moving). Cross out the condemnation.',
-  'Jesus, I renounce the voice of condemnation. It has impersonated You for too long. I am not condemned. Where I need correction, convict me gently. But where I''m being attacked, silence the lie. I belong to You. Amen.'
+SELECT p.id, 2, 'Owning authority without apology',
+  'Village life in Israel ceased, it ceased, until I, Deborah, arose, a mother in Israel.', 'Judges 5:7 (ESV)',
+  'Deborah didn''t wait for permission to lead. She was a prophet, a judge, and a military strategist — in an era when women held almost none of those roles. When Israel''s men were paralysed by fear and Barak refused to go into battle without her, she didn''t shrink from the ask. She rose.
+
+Notice her language: "until I, Deborah, arose." No false humility. No deflection. She named herself in the story because she understood that God had named her first. She led with authority because the authority wasn''t hers to give back — it was God''s, channelled through her willingness. If you''ve been told your confidence is "too much," consider the source. Deborah''s leadership saved a nation. Your voice, your vision, your decisions — they carry weight. Stop handing your authority to people who are too afraid to carry their own.',
+  'Where have you been waiting for permission to lead — at work, in your family, in your faith community? What would it look like to simply arise, like Deborah, and step into the role God has already given you?',
+  'Lord, You gave Deborah authority and she didn''t apologise for it. Forgive me for the times I''ve handed back what You placed in my hands because someone else was uncomfortable with it. I will lead where You''ve called me. Not with arrogance, but without apology. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Releasing the habit of making yourself small',
-  'For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline.', '2 Timothy 1:7 (NIV)',
-  'Notice the word "timid." The Greek is deilia — cowardice, fearfulness, the instinct to shrink. Paul says: that did not come from God. The Spirit you carry is not one that apologises for taking up space. It is not one that starts every sentence with "Sorry, but..." It is power — not aggression, but holy authority. It is love — the kind that serves from abundance, not from trying to earn belonging. It is self-discipline — the capacity to steward your life without being controlled by fear. You have been playing small, and it''s time to stop. Not because you''re arrogant. Because you''re obedient. God made you to take up space. Stop apologising for the room He prepared for you.',
-  'Where have you been making yourself small — in your voice, your opinions, your presence? What would it look like to stop shrinking without becoming aggressive? Write what holy boldness looks like for you.',
-  'Holy Spirit, replace my timidity with Your power. I have been shrinking into spaces too small for the person You made me to be. Give me boldness that serves rather than performs. I will stop apologising for who You created. Amen.'
+SELECT p.id, 3, 'Letting God redefine you after failure',
+  'When they had finished eating, Jesus said to Simon Peter, "Simon son of John, do you love me more than these?" "Yes, Lord," he said, "you know that I love you." Jesus said, "Feed my lambs."', 'John 21:15 (NIV)',
+  'Peter denied Jesus three times. Not in a moment of confusion — in a moment of raw cowardice. He swore he didn''t know the man he''d followed for three years. If anyone had reason to disqualify himself permanently, it was Peter. And yet.
+
+Jesus didn''t lecture him. He made breakfast. He sat with Peter on a beach and asked three questions — one for each denial — not to punish, but to restore. "Do you love me? Then feed my lambs." Jesus handed Peter back his calling while the ashes of his failure were still warm. Weeks later, that same Peter stood before thousands at Pentecost and preached with a boldness that shook a city. Your failure does not get the final word. Not because you pretend it didn''t happen, but because the God who restores is more creative than the shame that accuses.',
+  'What failure or mistake have you been carrying as a permanent identity marker — "I''m the person who..."? Write it down, then write beside it: "Jesus asked Peter to feed His lambs after the worst night of Peter''s life. What is He asking me to do next?"',
+  'Jesus, like Peter, I have failed in ways that still burn. But You didn''t disqualify him and You haven''t disqualified me. I bring my shame to the beach this morning. Ask me the question again. I love You. Show me what''s next. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Breaking the cycle of people-pleasing',
-  'Am I now trying to win the approval of human beings, or of God? Or am I trying to please people? If I were still trying to please people, I would not be a servant of Christ.', 'Galatians 1:10 (NIV)',
-  'People-pleasing looks like kindness, but underneath it''s often fear. Fear of rejection. Fear of conflict. Fear of being disliked. It keeps you hustling for approval that was never meant to be your fuel. The truth? You cannot pour into everyone''s cup without draining your own. And some cups are simply not yours to fill. Paul draws a clean line: you cannot serve God wholeheartedly while being enslaved to human opinion. This doesn''t mean you stop caring about people. It means you stop letting their potential disappointment dictate your decisions. You already have the only approval that cannot be revoked.',
-  'Whose approval do you work hardest to maintain? What has it cost you? What decision have you been avoiding because someone might disapprove? Write what you would do if their opinion didn''t matter.',
-  'Lord, I have been exhausted by the approval machine. I people-please because I''m afraid of being rejected. Free me from that cycle. Your approval is enough. Help me live for an audience of One. Amen.'
+SELECT p.id, 4, 'God uses unlikely people from unlikely places',
+  'By faith the prostitute Rahab, because she welcomed the spies, was not killed with those who were disobedient.', 'Hebrews 11:31 (NIV)',
+  'Rahab was a prostitute in a pagan city. She had no theological training. No respectable reputation. No seat at any table that mattered. And yet she is listed in Hebrews 11 alongside Abraham, Moses, and David — the "Hall of Faith" — because she acted on what she believed when it cost her everything.
+
+She hid the Israelite spies because she recognised something true about their God, and she gambled her life on it. She didn''t wait until her past was cleaned up. She didn''t wait until she was "worthy." She acted from where she was, with what she had. And God wove her into the genealogy of Jesus. Rahab is in the bloodline of the Messiah. If God can do that with her story, what makes you think yours is too messy for Him? Your background is not your disqualification. It might be the very thing that makes your faith extraordinary.',
+  'What part of your past or background do you believe disqualifies you from being used by God — your upbringing, your mistakes, your career, your reputation? Write it down. Then read Rahab''s story again and ask: does God agree with that assessment?',
+  'God, Rahab came from the margins and You placed her in the lineage of Your Son. I bring You the parts of my story I''ve been hiding — the chapters I thought disqualified me. Use all of it. Nothing in my past surprises You, and nothing is wasted. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Overcoming imposter syndrome with divine appointment',
-  'Have I not commanded you? Be strong and courageous. Do not be afraid; do not be discouraged, for the Lord your God will be with you wherever you go.', 'Joshua 1:9 (NIV)',
-  'Imposter syndrome says: you got here by mistake. You''re about to be found out. Everyone else belongs; you''re the exception. But Joshua heard something different before stepping into his God-given role: "Have I not commanded you?" God doesn''t ask politely. He commands courage because He knows you''ll doubt your place. Every room you''re in, every opportunity you''ve been given, every table you''re seated at — you didn''t get there by accident. Even if you can''t explain how you got there, God can. He is the one who opens doors no one can shut. You belong. Not because you''re flawless, but because you''re appointed.',
-  'Where does imposter syndrome hit you hardest — work, friendships, ministry, creative spaces? Write down the lie it tells you. Now write: "God commanded me to be courageous here because He placed me here."',
-  'Lord, when I feel like a fraud, remind me that You placed me where I am. I didn''t stumble into this room — You opened the door. Give me the courage to stand in it fully, without apology. Amen.'
+SELECT p.id, 5, 'Being bold enough to show up fully, even under criticism',
+  'Then he turned toward the woman and said to Simon, "Do you see this woman? I tell you, her many sins have been forgiven — as her great love has shown. But whoever has been forgiven little loves little."', 'Luke 7:44,47 (NIV)',
+  'She walked into a room full of men who despised her. A known sinner in the home of a Pharisee — every eye in the room calculated her unworthiness. She didn''t care. She broke open expensive perfume, wept at Jesus'' feet, and wiped them with her hair. It was excessive. It was public. It was the most vulnerable thing anyone in that room had ever witnessed.
+
+The host sneered. The disciples were uncomfortable. And Jesus turned the entire room on its head: "Do you see this woman?" He didn''t defend her reputation. He elevated her devotion. She didn''t wait until she was respectable enough to worship. She brought her whole self — mess, tears, perfume, and all — and Jesus called it love. Stop waiting until you''re cleaned up enough to show up. The critics in the room are not your audience. He is.',
+  'Where have you been holding back — in worship, in vulnerability, in expressing love — because you''re afraid of what people will think? What would it look like to break open the perfume anyway?',
+  'Jesus, I want the courage of the woman who walked into a hostile room and worshipped You anyway. I''m tired of editing myself for an audience that isn''t You. I bring my unfiltered heart. Let the critics talk. I came for You. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'Recognising worth as inherent, not earned',
-  'Are not five sparrows sold for two pennies? Yet not one of them is forgotten by God. Indeed, the very hairs of your head are all numbered. Don''t be afraid; you are worth more than many sparrows.', 'Luke 12:6-7 (NIV)',
-  'Your worth is not a variable. It doesn''t increase when you succeed or decrease when you fail. It doesn''t rise when someone loves you or fall when someone leaves. It was established before you drew breath, by a God who counts things as small as hairs on your head. If He pays that kind of attention to the details, imagine how He regards the whole of you. The world treats worth as a performance metric. God treats it as a birthright. You were worth dying for before you did a single worthwhile thing. Stop negotiating with a value that was never up for debate.',
-  'What has made you feel worthless recently — a comment, a comparison, a rejection, a failure? Now hold it against today''s verse. Does it change the maths? You are worth more than many sparrows.',
-  'Father, I have let circumstances negotiate my worth — and I always end up underselling myself. Today I return to Your original valuation: worth dying for, worth counting hairs, worth numbering. My worth is non-negotiable. Help me live like it. Amen.'
+SELECT p.id, 6, 'Trusting God with what you cannot control',
+  '"I am the Lord''s servant," Mary answered. "May your word to me be fulfilled." Then the angel left her.', 'Luke 1:38 (NIV)',
+  'Mary was young, unmarried, and living in a culture where her "yes" to God could get her stoned. The angel''s announcement wasn''t just miraculous — it was socially devastating. She would be misunderstood. Judged. Potentially abandoned by Joseph. And yet her response was not panic or negotiation. It was surrender.
+
+"Let it be to me according to your word." That is not passivity. That is the most radical confidence imaginable — the confidence that God''s plan, even when it wrecks yours, is worth trusting completely. Mary''s strength wasn''t in controlling her circumstances. It was in releasing them. Sometimes the boldest thing you can do is stop white-knuckling the outcome and open your hands. Surrender is not weakness dressed in spiritual language. It is confidence that has graduated from self-reliance to God-reliance.',
+  'What are you gripping tightly right now — a relationship, a timeline, a career plan, an outcome? What would your own "let it be" prayer sound like? Write it, even if your hands are still shaking.',
+  'Lord, like Mary, I say yes — even to the things I don''t understand. I release my grip on the outcomes I''ve been trying to control. Your plan is better than my anxiety. May it be to me according to Your word. I trust You with what I cannot manage. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Integrating confidence into daily life',
+SELECT p.id, 7, 'Finding God-confidence in your most constrained season',
   'I can do all this through him who gives me strength.', 'Philippians 4:13 (NIV)',
-  'This verse is not a blank cheque for any ambition. It''s a statement of empowerment for every assignment. Paul said this while in prison — not while conquering the world, but while enduring it. "I can do all this" means: whatever God asks of me, I have access to the strength to do it. Not my strength. His strength channelled through my willingness. As you leave this pathway, carry this: confidence is not a personality trait you either have or don''t. It is a spiritual practice. Every morning, you choose whose voice defines you. Choose the one that said "It is finished" — and walk like someone whose worth, belonging, and purpose were settled at a cross.',
-  'Write your confidence declaration — a 3-5 sentence statement of who you are based on what you''ve learned this week. Start each sentence with "I am" or "I can." Read it aloud.',
-  'God, I choose confidence rooted in You. Not arrogance — assurance. I am who You say I am. I can do what You call me to. I walk forward not in my strength, but in Yours. From this day on, I walk like I know who I am. Amen.'
+  'This verse gets printed on coffee mugs and gym walls, but Paul wrote it from a Roman prison cell. He was chained. Beaten. Abandoned by people he''d poured into. And from that place of total constraint, he wrote the most confident sentence in Scripture — not about his own ability, but about the strength flowing through him.
+
+"I can do all this" didn''t mean "I can achieve anything I dream of." It meant: in plenty or in want, in freedom or in chains, I have access to a strength that does not depend on my circumstances. That is the confidence this week has been building toward. Not the kind that needs everything to go right. The kind that holds steady when everything goes wrong. You don''t need a better situation to be confident. You need the God who met Paul in prison, Peter on the beach, Esther in the throne room, and Rahab on the wall. He is with you here. Walk like you know it.',
+  'Write your confidence declaration — a 3-5 sentence statement drawn from what you''ve learned this week. Include the character whose story spoke to you most. Start each sentence with "I am" or "I can." Read it aloud. Mean it.',
+  'God, Paul found strength in chains. Esther found courage in danger. Deborah found authority in chaos. Peter found restoration in failure. Rahab found purpose in the margins. I find You in all of it. I can do all things through You. From this day forward, I stop shrinking. Amen.'
 FROM public.pathways p WHERE p.slug = 'confidence-and-self-worth';
 
 -- ============================================================
 -- DISCIPLINE WITH GRACE (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Redefining discipline as a form of self-care',
-  'No discipline seems pleasant at the time, but painful. Later on, however, it produces a harvest of righteousness and peace for those who have been trained by it.', 'Hebrews 12:11 (NIV)',
-  'Somewhere along the way, discipline became a punishment word. It evokes images of gritted teeth, early alarms, and relentless willpower. But the root of "discipline" is "disciple" — a learner, a follower. Discipline is not about punishing yourself into a better version of you. It''s about training yourself to live in alignment with who you actually are. The harvest at the end is not perfection — it''s righteousness and peace. Two things you desperately need. Discipline is how you get them. Not through white-knuckling, but through small, steady, grace-held choices that compound over time. Today, you''re not starting a punishment. You''re starting a training programme designed by a kind God.',
-  'What is your honest relationship with discipline? Where did your beliefs about it come from — parents, culture, church, past failure? What would discipline look like if it were genuinely kind?',
-  'Father, rewrite my understanding of discipline. Remove the shame and the dread. Show me that structure is not a cage — it''s a trellis that helps me grow toward light. I want the harvest. Help me trust the training. Amen.'
+SELECT p.id, 1, 'Daniel — faithful habits in a hostile culture',
+  'Now when Daniel learned that the decree had been published, he went home to his upstairs room where the windows opened toward Jerusalem. Three times a day he got down on his knees and prayed, giving thanks to his God, just as he had done before.', 'Daniel 6:10 (NIV)',
+  'Daniel was surrounded by a culture that worshipped everything except his God. He served a foreign king in a foreign land with foreign rules. And when the law said praying could cost him his life, Daniel went upstairs, opened the window, and did exactly what he had always done.
+
+Notice: it says "just as he had done before." Daniel''s faithfulness in the crisis was built long before the crisis arrived. He didn''t suddenly become disciplined under pressure. His daily rhythm of prayer had already formed the shape of his life. That is what quiet, consistent devotion does — it prepares you for the moments you cannot prepare for.
+
+You are also living in a culture that pulls your attention in a thousand directions. You don''t need to be dramatic about it. You just need to open the window and pray — just as you have done before.',
+  'What are the "hostile" distractions in your daily life that pull you away from time with God? What would your version of Daniel''s three-times-a-day rhythm look like — something small, sustainable, and already woven into your existing routine?',
+  'Lord, give me Daniel''s steadiness. Not his perfection — his consistency. Help me build habits now that will hold me later. When the world gets loud, let my rhythm with You be the thing I return to without thinking. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'The gift of starting again without shame',
-  'The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning; great is your faithfulness.', 'Lamentations 3:22-23 (ESV)',
-  'You broke the streak. You missed the quiet time. You ate the thing. You scrolled instead of prayed. And the voice in your head says: see? You can''t do this. You always quit. But God''s economy runs on a different operating system. His mercies don''t recycle — they regenerate. Every morning is factory-new grace. Not because yesterday didn''t happen, but because yesterday''s failure is not today''s destiny. You don''t need a perfect track record to try again. You need a God whose faithfulness exceeds your inconsistency. And you have that. This morning. Right now. Mercies: new. Shame: irrelevant. Try again.',
-  'What habit or discipline have you abandoned because you "failed" at it? What would it mean to start again today without carrying yesterday''s guilt?',
-  'God, thank You for new mercies — genuinely new, not recycled. I don''t have to earn a fresh start. It''s already here. Today I start again, not because I''m disciplined enough, but because You are faithful enough. Amen.'
+SELECT p.id, 2, 'Mary of Bethany — stillness as holy discipline',
+  '"Martha, Martha," the Lord answered, "you are worried and upset about many things, but few things are needed — or indeed only one. Mary has chosen what is better, and it will not be taken away from her."', 'Luke 10:41-42 (NIV)',
+  'Martha gets a bad reputation, but let''s be honest — most of us are her. We equate busyness with faithfulness. We believe that doing more for God means being closer to God. And we quietly resent the people who seem to sit still while we run ourselves ragged.
+
+But Jesus didn''t rebuke Martha for serving. He gently named the real issue: she was worried and upset about many things. Her discipline of service had become a source of anxiety rather than worship. Meanwhile, Mary chose to sit. To listen. To be present. And Jesus called that "the better thing."
+
+Sometimes the most disciplined choice you can make is to stop doing and start being. Not because your work doesn''t matter, but because your presence with Jesus is the one thing that won''t be taken from you.',
+  'Are you more like Martha or Mary right now? What would it look like to choose "the better thing" today — not abandoning your responsibilities, but pausing long enough to sit with Jesus before you serve?',
+  'Jesus, I confess I have been Martha — busy, anxious, measuring my worth by my output. Teach me Mary''s discipline of presence. Help me believe that sitting at Your feet is not laziness. It is the better thing. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Faithfulness in tiny, consistent steps',
-  'Whoever can be trusted with very little can also be trusted with much.', 'Luke 16:10 (NIV)',
-  'We glorify the dramatic transformation. The before-and-after. The 5am routine that changed everything. But real, lasting change almost always looks boring. It''s 5 minutes, not 50. It''s one prayer, not an hour of worship. It''s showing up imperfectly rather than waiting for the motivation to show up perfectly. Small is not insignificant. Small is the seed. Small is the mustard grain that becomes the tree. When you do the tiny faithful thing — the 3-minute prayer, the single journal entry, the verse read slowly — you are telling God: "I trust that You multiply small offerings." And He does. He always has.',
-  'What small, daily practice could you maintain for 30 days? Not the ambitious version — the bare minimum version. The one you could do even on your worst day. Write it as a commitment.',
-  'Lord, I bring You my small offerings — the imperfect prayers, the half-formed habits, the barely-there consistency. Multiply what I bring. I trust that faithfulness in little leads to faithfulness in much. Amen.'
+SELECT p.id, 3, 'The early church — daily devoted rhythms',
+  'They devoted themselves to the apostles'' teaching and to fellowship, to the breaking of bread and to prayer. Everyone was filled with awe at the many wonders and signs performed by the apostles.', 'Acts 2:42-43 (NIV)',
+  'The early church didn''t have a ten-step discipleship programme or a morning routine optimised for spiritual productivity. They had four things: teaching, fellowship, breaking bread, and prayer. And they devoted themselves to these daily — not perfectly, but consistently.
+
+The word "devoted" here doesn''t mean they white-knuckled their way through spiritual disciplines. It means they kept returning. They showed up to the table, to the teaching, to each other. And something remarkable happened: awe filled the room. Wonders followed.
+
+Discipline in isolation is exhausting. But discipline in community — a friend who texts "did you pray today?", a small group that shares honestly, a table where bread is broken — that is sustainable. You were never meant to build holy habits alone. The early church knew this. They grew together, not just individually.',
+  'Which of the four devotions — teaching, fellowship, breaking bread, prayer — is most present in your life right now? Which is most absent? Who could you invite into a shared rhythm of faith?',
+  'Father, I don''t want to do this alone. Lead me to community that is honest, consistent, and devoted — not perfect, but faithful. Help me be the kind of friend who shows up and invites others to show up too. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Intentional time management rooted in rest',
-  'Teach us to number our days, that we may gain a heart of wisdom.', 'Psalm 90:12 (NIV)',
-  'There''s a difference between stewarding your time and worshipping your productivity. One leads to wisdom. The other leads to burnout. Numbering your days is not about cramming more into each one. It''s about recognising that time is finite and sacred — and choosing to spend it on things that actually matter. Not everything urgent is important. Not everything that fills your calendar fills your soul. Wisdom says: some things need to be done, some things need to be delegated, and some things need to be deleted entirely. You were not designed to optimise every minute. You were designed to live with intention — and intention includes margins, rest, and unhurried presence.',
-  'Audit your last 48 hours. What actually mattered? What was just noise? Where did you spend time on things that neither served God, nourished you, nor blessed others?',
-  'God, teach me to number my days — not to squeeze more out of them, but to spend them wisely. Give me courage to cut what doesn''t matter and margin for what does. Heart of wisdom, not heart of hustle. Amen.'
+SELECT p.id, 4, 'Jesus — withdrawing to pray as a regular practice',
+  'But Jesus often withdrew to lonely places and prayed.', 'Luke 5:16 (NIV)',
+  'The word "often" changes everything. Jesus didn''t withdraw to pray once, in a moment of desperation. He did it regularly, as a rhythm. The crowds were pressing in. The needs were endless. The ministry was growing. And in the middle of it all, Jesus left.
+
+This was not avoidance. It was the most important discipline of His ministry. He withdrew so He could return whole. He stepped away from the urgent so He could stay connected to the eternal. If the Son of God needed regular solitude to sustain His calling, what makes us think we can run on empty and call it faithfulness?
+
+Withdrawing is not selfish. It is how you protect the well that everyone else is drawing from. You cannot pour out what you have not first received in quiet.',
+  'When was the last time you truly withdrew — not collapsed from exhaustion, but intentionally stepped away to be with God? What keeps you from making solitude a regular rhythm instead of an emergency measure?',
+  'Jesus, You modelled what I struggle to do — stepping away when there was still more to give. Teach me to withdraw without guilt. Help me see that solitude is not abandoning my responsibilities. It is what makes me faithful to them. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Embracing rest as an act of obedience',
-  'By the seventh day God had finished the work he had been doing; so on the seventh day he rested from all his work.', 'Genesis 2:2 (NIV)',
-  'If the omnipotent God of the universe rested, what makes you think you shouldn''t? Rest is not the reward for finished work. It is woven into the rhythm of creation itself. God didn''t rest because He was tired — He rested because rest is good. It is part of the design. When you refuse to rest, you''re not being more faithful. You''re disagreeing with God''s design for sustainable, flourishing life. The most disciplined thing you can do today might be to stop. To close the laptop. To put down the to-do list. To sit in a chair and do absolutely nothing productive. That is not laziness. That is defiant trust in a God who keeps the world spinning while you sleep.',
-  'What is your relationship with rest — do you see it as earned or given? What would truly restful rest look like for you today? Not numbing or scrolling — actual rest.',
-  'Lord, I confess that I have treated rest as laziness and busyness as faithfulness. Forgive me. Teach me that stopping is holy. That margins are sacred. That rest is not weakness — it is worship. Amen.'
+SELECT p.id, 5, 'The Proverbs 31 woman — not perfection but purposeful living',
+  'She is clothed with strength and dignity; she can laugh at the days to come. She speaks with wisdom, and faithful instruction is on her tongue. Charm is deceptive, and beauty is fleeting; but a woman who fears the Lord is to be praised.', 'Proverbs 31:25-26, 30 (NIV)',
+  'The Proverbs 31 woman has been used as a weapon against women for centuries — an impossible standard of domestic perfection that leaves you feeling like you will never be enough. But read her again, slowly. She laughs at the days to come. She is not anxious about tomorrow. Her strength is not frantic productivity — it is the quiet confidence of a woman who fears the Lord.
+
+This passage was never meant to be a checklist. It is a portrait of a woman who lives with purpose, not perfection. She makes decisions rooted in wisdom, not approval. She works hard, yes — but notice what is praised at the end: not her output, not her efficiency, not her spotless home. Her fear of the Lord.
+
+You do not need to do everything she did. You need the posture she held: purposeful, steady, unafraid of the future because she knows who holds it.',
+  'How has the Proverbs 31 woman been presented to you — as inspiration or as pressure? What shifts when you read her not as a to-do list but as a woman at peace with her purpose?',
+  'Lord, free me from the lie that discipline means doing everything perfectly. Clothe me with strength and dignity — not performance and anxiety. I want to laugh at the days to come because I trust the One who holds them. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'Discipline that doesn''t depend on feeling like it',
-  'Let us not become weary in doing good, for at the proper time we will reap a harvest if we do not give up.', 'Galatians 6:9 (NIV)',
-  'Motivation is a spark. Discipline is the fire that keeps burning after the spark fades. Most people start strong — the new plan, the new routine, the fresh commitment. But by week three, the feelings are gone and the alarm clock feels like the enemy. This is the crossroads. Motivation says: I don''t feel like it, so I won''t. Discipline says: I don''t feel like it, and I''ll do it anyway — not from guilt, but from love. Love for the woman you''re becoming. Love for the God you''re walking with. Love for the harvest you can''t see yet. You don''t need to feel inspired to be faithful. You just need to not give up.',
-  'What discipline have you been maintaining only when you feel motivated? What would it look like to commit regardless of feelings — held by love instead of enthusiasm?',
-  'God, I don''t feel motivated today. But I show up anyway. Not because I''m performing for You, but because I love who I''m becoming through this process. When I want to quit, whisper: "The harvest is coming." Amen.'
+SELECT p.id, 6, 'Nehemiah — building with one hand, resting with the other',
+  'Those who carried materials did their work with one hand and held a weapon in the other, and each of the builders wore his sword at his side as he built.', 'Nehemiah 4:17-18 (NIV)',
+  'Nehemiah''s people were rebuilding the wall of Jerusalem while enemies threatened to attack from every side. The work was urgent. The opposition was real. And Nehemiah''s solution was not to work harder or sleep less. He stationed guards. He organised shifts. He told the people: work with one hand, and hold your defence with the other.
+
+There is profound wisdom here for every woman in a building season. You may be rebuilding your health, your habits, your spiritual life, your career — and the opposition is real. Discouragement, exhaustion, comparison, shame. The temptation is to pour everything into the building and leave nothing for your own protection.
+
+But Nehemiah knew that the wall would never be finished if the builders were destroyed in the process. Protect yourself while you build. Rest is not the opposite of progress. It is what makes progress survivable.',
+  'What are you building right now? And what is threatening it — not externally, but internally? Where have you been so focused on the work that you have forgotten to guard your own soul?',
+  'God, I am in a building season. The work feels urgent and the opposition feels constant. Help me build with one hand and rest with the other. I don''t want to finish the wall and lose myself in the process. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Sustainable growth rooted in God''s power',
-  'But grow in the grace and knowledge of our Lord and Savior Jesus Christ.', '2 Peter 3:18 (NIV)',
-  'The instruction is to grow in grace — not in spite of it, not apart from it. Grace is the soil of your growth, not the excuse for stagnation. There is a rhythm to grace-paced growth: it''s steady, not frantic. It celebrates progress without demanding perfection. It rests without quitting. It''s honest about failure without being defined by it. As you finish this pathway, here is your permission: grow at the pace of grace. Not at the pace of Instagram. Not at the pace of the woman next to you in church. Not at the pace of your own unrealistic expectations. Grow with God. He is patient, thorough, and not in a hurry. Match His pace, and you''ll never burn out.',
-  'What is one discipline or habit you''re committing to carry forward from this week? Write it simply, with grace built in: "I will ___ most days, and when I miss, I will start again without shame."',
-  'Jesus, I want to grow in Your grace — at Your pace. Not sprinting into burnout. Not crawling in defeat. Steady, held, sustainable growth. Thank You for this week. Carry what I''ve learned into the rhythm of my ordinary days. Amen.'
+SELECT p.id, 7, 'Paul — running the race with endurance',
+  'Therefore, since we are surrounded by such a great cloud of witnesses, let us throw off everything that hinders and the sin that so easily entangles. And let us run with perseverance the race marked out for us, fixing our eyes on Jesus, the pioneer and perfecter of faith.', 'Hebrews 12:1-2 (NIV)',
+  'The writer of Hebrews does not say "sprint the race." He says "run with perseverance." This is a long-distance word. A marathon word. A pace-yourself word. And the instruction that follows is not about running harder — it is about running lighter. Throw off what hinders. Release what entangles. Fix your eyes on Jesus.
+
+As you finish this pathway, here is the truth you need most: discipline is not about intensity. It is about direction. The question is not "how hard am I running?" but "who am I running toward?" When your eyes are on Jesus — the one who started your faith and will finish it — you can afford to run at a sustainable pace.
+
+You do not need to sprint into next week with a perfect plan. You need to keep going, keep looking at Him, and keep releasing what weighs you down. That is grace-held endurance. That is discipline that lasts.',
+  'What do you need to throw off — not a sin, but a weight? A standard, an expectation, a comparison, a pace that was never yours to run? What would your race look like if you ran it at the pace of grace?',
+  'Jesus, You are the pioneer and perfecter of my faith — not me. I fix my eyes on You. Help me throw off what hinders, release what entangles, and run the race You marked out for me, not anyone else''s. I will run with perseverance, not perfection. Amen.'
 FROM public.pathways p WHERE p.slug = 'discipline-with-grace';
 
 -- ============================================================
 -- CAREER AND CALLING (7 days)
 -- ============================================================
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 1, 'Separating calling from career',
-  'For we are God''s handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do.', 'Ephesians 2:10 (NIV)',
-  'Your calling is not your job title. Calling is broader, deeper, and more resilient than any single role. You were created — crafted with specificity — to do good works that God prepared before you were born. Some of those works happen at a desk. Some happen in a conversation no one overheard. Some happen in seasons of unemployment when you wonder if you''re contributing anything at all. Your work matters, but it doesn''t define you. The accountant who mentors a young woman is living her calling. The barista who brings genuine care to every interaction is living her calling. Calling is less about the what and more about the who — who you are becoming as you do whatever is in front of you today.',
-  'If calling is bigger than a job title, what do you think yours might be? Think about the themes that keep recurring in your life — the things people come to you for, the injustices that bother you, the activities that make you lose track of time.',
-  'God, show me the good works You prepared for me — not just the ones with impressive titles, but the hidden ones, the ordinary ones, the ones happening right now that I might be overlooking. My calling is You, lived through me. Help me see it clearly. Amen.'
+SELECT p.id, 1, 'Ruth — loyalty, risk, and a new path in a foreign land',
+  'But Ruth replied, "Don''t urge me to leave you or to turn back from you. Where you go I will go, and where you stay I will stay. Your people will be my people and your God my God."', 'Ruth 1:16 (NIV)',
+  'Ruth had every reason to go back to what was familiar. She was a widow with no income, no children, no status. The safe choice was obvious: return to Moab, remarry, rebuild on known ground. Instead she walked into a foreign country with nothing but loyalty and a willingness to work.
+
+Sometimes calling doesn''t begin with a vision. It begins with a step into the unknown because something in your spirit says "this is the way." Ruth didn''t have a five-year plan. She had faithfulness — to Naomi, to God, to the next right thing. She gleaned in fields that weren''t hers and trusted that provision would meet her there. Your new beginning doesn''t need to be glamorous. It just needs to be honest.',
+  'Where in your career or calling are you being asked to leave something familiar behind? What would it look like to take one faithful step forward, even without a clear destination?',
+  'God, give me Ruth''s courage — the willingness to start over without a guarantee. I don''t need to see the whole field. I just need to trust that You are in the land where You''re leading me. Help me glean faithfully wherever I am. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 2, 'Moving forward when you can''t see the full path',
-  'Your word is a lamp for my feet, a light on my path.', 'Psalm 119:105 (NIV)',
-  'A lamp for your feet, not a floodlight for the highway. God reveals enough for the next step — not the next decade. This feels insufficient when you''re trying to plan a career, choose a direction, or make a major decision. You want the five-year plan. God gives you Tuesday. But there is wisdom in the lamplight model: it forces you to stay close to the source. When you can only see one step ahead, you have to keep walking with the One who holds the lamp. Clarity doesn''t usually arrive in a single dramatic moment. It accumulates through small, faithful steps taken in the direction of the little light you have. Move toward what you know. The next step will appear.',
-  'What is one step that is illuminated for you right now — even if it''s small? An application to submit, a conversation to have, a skill to develop. Name it. That''s your lamp.',
-  'Lord, I want the floodlight but You''re giving me a lamp. Teach me to be okay with that. I will take the next step I can see. Light my path one step at a time and keep me close to You as I walk. Amen.'
+SELECT p.id, 2, 'Nehemiah — a burden that became a calling',
+  'They said to me, "Those who survived the exile and are back in the province are in great trouble and disgrace. The wall of Jerusalem is broken down, and its gates have been burned with fire." When I heard these things, I sat down and wept.', 'Nehemiah 1:3-4 (NIV)',
+  'Nehemiah had a comfortable position — cupbearer to the king. Good title, good access, good life. Then he heard about the broken walls of Jerusalem, and something cracked open inside him. He wept. He fasted. He prayed for days. The burden wouldn''t leave.
+
+Pay attention to what makes you weep. Not what annoys you or mildly bothers you — what wrecks you. Nehemiah didn''t go looking for a calling. The calling found him through a burden he couldn''t shake. He didn''t quit his job the next morning. He prayed, he planned, and when the time was right, he asked for permission to go and rebuild. Calling often starts not with excitement but with a holy heartbreak that refuses to stay quiet.',
+  'What breaks your heart in a way you can''t seem to move past? A problem in your community, your industry, your world? Could that burden be the beginning of a calling?',
+  'Lord, show me the walls that are broken down — the ones You want me to notice. If this burden I carry is from You, give me the courage of Nehemiah: to pray first, plan wisely, and move when You say go. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 3, 'Offering your career goals to God without killing them',
-  'Commit to the Lord whatever you do, and he will establish your plans.', 'Proverbs 16:3 (NIV)',
-  'Some women fear that surrendering their career to God means giving up their ambition entirely — as if the only godly option is passivity. But surrender is not the death of desire. It''s the purification of it. When you commit your work to God, you''re not saying "I don''t care what happens." You''re saying "I care deeply, and I trust You to shape the outcome." God doesn''t kill ambitious women. He refines them. He takes the gold of your drive and removes the dross of ego, fear, and comparison. What emerges is ambition with clean motives — ambition that serves rather than strives, that builds rather than competes, that glorifies God rather than merely advancing your brand.',
-  'What career goals are you holding most tightly? Write them down. Now write beside each one: "I commit this to You, God. Establish what should stand. Redirect what shouldn''t."',
-  'God, I bring You my ambition — not to bury it, but to surrender it. Purify my motives. Remove what comes from ego or fear. Establish the plans that align with Your purposes. I trust Your editing more than my original draft. Amen.'
+SELECT p.id, 3, 'Lydia — business and faith working together',
+  'One of those listening was a woman from the city of Thyatira named Lydia, a dealer in purple cloth. She was a worshiper of God. The Lord opened her heart to respond to Paul''s message.', 'Acts 16:14 (NIV)',
+  'Lydia was a businesswoman before she met Paul and a businesswoman after. Her conversion didn''t pull her out of the marketplace — it infused it with new purpose. She sold luxury fabric, managed trade networks, and ran a household large enough to host traveling missionaries. None of that stopped when she was baptized.
+
+Somewhere we absorbed the lie that sacred work happens in churches and secular work happens everywhere else. Lydia demolishes that. She worshiped God and dealt in purple cloth — in the same life, on the same days. Your career is not a distraction from your faith. It is one of the primary places your faith gets lived out. The boardroom, the studio, the classroom — these are not waiting rooms for your real calling. They are your calling.',
+  'Do you tend to separate your faith life from your work life? Where could you let them overlap more naturally, the way Lydia seemed to?',
+  'God, I don''t want a divided life — spiritual on Sundays and secular on Mondays. Like Lydia, let me be both a worshiper and a worker, fully integrated. Open my heart the way You opened hers, right in the middle of her ordinary workday. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 4, 'Transforming ordinary work into sacred offering',
-  'Whatever you do, work at it with all your heart, as working for the Lord, not for human masters.', 'Colossians 3:23 (NIV)',
-  'This changes everything. When your boss is difficult — you''re working for God. When the task is mundane — you''re working for God. When no one notices or thanks you — you''re working for God. This doesn''t make bad work environments acceptable. It means that even in imperfect circumstances, your work carries eternal weight because of who you''re doing it for. The spreadsheet is worship. The difficult conversation is worship. The caregiving, the teaching, the coding, the serving — all of it becomes sacred when it''s directed toward God. You don''t need a ministry job to have a ministry. Your Monday morning is holy ground.',
-  'How would your attitude toward work change if you genuinely believed you were working for God, not for a company or a manager? What specific task this week could you reframe as an offering?',
-  'Lord, I offer You my work — the parts I love and the parts I endure. Today I work for You, not for approval or applause. Transform my ordinary tasks into worship. Let my Monday be as sacred as my Sunday. Amen.'
+SELECT p.id, 4, 'Jeremiah — called before being born, reluctant prophet',
+  '"Before I formed you in the womb I knew you, before you were born I set you apart; I appointed you as a prophet to the nations." "Alas, Sovereign Lord," I said, "I do not know how to speak; I am too young."', 'Jeremiah 1:5-6 (NIV)',
+  'God told Jeremiah he was set apart before he existed, and Jeremiah''s immediate response was "I''m too young." It''s almost funny — God speaks eternal purpose, and Jeremiah answers with a résumé gap. We do the same thing. God stirs something in us and we respond with a list of reasons we''re not qualified yet.
+
+But notice: God didn''t wait for Jeremiah to feel ready. Readiness was never the requirement — willingness was. You may feel too young, too inexperienced, too uncertain. That''s not disqualifying. God''s calling was established before your doubts existed. He is not pacing heaven, worried about your imposter syndrome. He knew you before you were formed and appointed you anyway.',
+  'What is your version of "I am too young" — the thing you tell yourself that makes you feel unqualified for what God might be calling you to? Write it down, then write Jeremiah 1:5 underneath it.',
+  'Lord, You knew me before I was born and You set me apart. I don''t feel ready. I don''t feel qualified. But You didn''t ask me to feel ready — You asked me to be willing. Here I am. Speak, and help me stop disqualifying myself. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 5, 'Breaking free from career comparison',
-  'Each one should test their own actions. Then they can take pride in themselves alone, without comparing themselves to someone else, for each one should carry their own load.', 'Galatians 6:4-5 (NIV)',
-  'She launched the business. She got the viral post. She pivoted and it worked. And you''re still here, in the same role, with the same unanswered questions. Comparison in the career space is vicious because it feels like concrete proof that you''re behind. But Paul says: test your own actions. Your own faithfulness. Your own growth. Her load is not yours. Her timeline is not yours. Her success proves one thing — that God is generous. It proves nothing about your failure, your timing, or your potential. You have your own load to carry. Carry it well. That''s the metric that matters.',
-  'Who are you comparing your career to? Be specific. Now separate fact from story: what is actually happening in your career, and what narrative are you adding because of comparison?',
-  'God, free me from measuring my faithfulness against someone else''s results. Help me test my own actions, carry my own load, and trust that my path is mine. I refuse to interpret her blessing as my failure. Amen.'
+SELECT p.id, 5, 'The Parable of the Talents — stewardship of what you''re given',
+  '"His master replied, ''Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master''s happiness!''"', 'Matthew 25:21 (NIV)',
+  'The parable of the talents is not a productivity sermon. It''s a story about trust. The master gave each servant a different amount — not equally, but intentionally. The issue was never how much they had. It was whether they did something with it or buried it in the ground out of fear.
+
+The servant who buried his talent didn''t lose it to laziness. He lost it to fear. He was so afraid of getting it wrong that he did nothing at all. That is the real enemy of calling — not failure, but the paralysis that comes from being afraid to try. God is not asking you to produce a spectacular return. He is asking you to be faithful with what is already in your hands. Start there. That is enough.',
+  'What has God already placed in your hands — a skill, a relationship, an opportunity, a resource? Are you investing it or burying it? Be honest about what fear might be holding you back.',
+  'Father, I don''t want to bury what You''ve given me because I''m afraid of getting it wrong. Show me what''s already in my hands. Give me the courage to invest it faithfully, even imperfectly. I would rather try and stumble than hide and waste. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 6, 'Finding meaning in your current career chapter',
-  'There is a time for everything, and a season for every activity under the heavens.', 'Ecclesiastes 3:1 (NIV)',
-  'Not every season is a launching season. Some are planting seasons. Some are learning seasons. Some are pruning seasons — where God cuts back what looked productive but wasn''t actually bearing fruit. The career season you''re in right now has a purpose, even if it''s not the one you''d choose. The entry-level role is teaching you humility. The transition is building your resilience. The boredom is revealing what you actually care about. The failure is showing you what was built on the wrong foundation. Stop waiting for the "real" season to start. This one is real. And God is as present in the planting as He is in the harvest.',
-  'What career season are you in — planting, growing, pruning, harvesting, or waiting? What might God be specifically doing in this season that couldn''t happen in a different one?',
-  'Father, I stop resisting this season. If this is planting, help me plant well. If this is pruning, give me courage to let go. Show me the purpose in where I am, not just where I wish I were. Amen.'
+SELECT p.id, 6, 'Bezalel — called to create, gifted by the Spirit for craft',
+  '"See, I have chosen Bezalel son of Uri... and I have filled him with the Spirit of God, with wisdom, with understanding, with knowledge and with all kinds of skills — to make artistic designs for work in gold, silver and bronze, to cut and set stones, to work in wood, and to engage in all kinds of crafts."', 'Exodus 31:2-5 (NIV)',
+  'Bezalel is the first person in Scripture described as being filled with the Spirit of God. Not a prophet. Not a priest. A craftsman. God filled him with His Spirit specifically so he could make beautiful things with his hands — metalwork, stonework, woodwork. Skill and artistry as divine gifts.
+
+This reframes everything. Your talent for design, your eye for detail, your ability to build or write or organize or code — these are not lesser gifts because they''re not "ministry." The Spirit of God fills people for craft, not just for preaching. Whatever your skilled work is, it can be Spirit-led. You don''t need a pulpit to be anointed. You might just need your desk, your tools, and a willing heart.',
+  'What is your craft — the thing you do with skill that you might have dismissed as "not spiritual enough"? How does it change things to know that the first Spirit-filled person in the Bible was an artisan?',
+  'God, fill me with Your Spirit the way You filled Bezalel — not just for prayer, but for my craft. Give me wisdom, understanding, and skill in the work of my hands. Let my creativity and competence be an act of worship. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
 INSERT INTO public.pathway_days (pathway_id, day_number, theme, scripture_text, scripture_reference, reflection, journal_prompt, prayer_prompt)
-SELECT p.id, 7, 'Trusting God with the full arc of your career story',
-  'For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future.', 'Jeremiah 29:11 (NIV)',
-  'This verse was spoken to a people in exile — not on a mountaintop, not in a breakthrough. In exile. God''s promise of hope and a future came to people who felt stuck, displaced, and uncertain. Sound familiar? Your career story is still being written. The current chapter — confusing, mundane, frustrating, or exciting as it may be — is not the final one. God declares "I know the plans." Not "I''m figuring it out as I go." He knows. The setbacks are not plot holes. The delays are not wasted pages. The detours are not errors. The Author of your story knows how it ends, and He writes redemption better than anyone. Trust Him with the pen.',
-  'If your career story were a book, what chapter would you title this one? What do you hope the next chapter holds? Now write: "God, You are the Author. I trust Your narrative arc."',
-  'God, You know the plans. I don''t, and that scares me. But I trust the Author more than I trust my outline. Write my story with hope. Write it with purpose. And help me enjoy the chapter I''m in while trusting You with what comes next. Amen.'
+SELECT p.id, 7, 'Jesus at 12 — "I must be about my Father''s business"',
+  '"Why were you searching for me?" he asked. "Didn''t you know I had to be in my Father''s house?"', 'Luke 2:49 (NIV)',
+  'Jesus was twelve years old — not yet in public ministry, not yet performing miracles. He was a boy in a temple, and when His parents found Him after days of searching, He said something extraordinary: "I had to be in my Father''s house." Even before His career began, He knew whose business He was about.
+
+This is the anchor for every question about calling. Before the title, before the paycheck, before the platform — whose business are you about? When your career is rooted in your Father''s purposes, you can hold the specifics loosely. Jobs will change. Industries will shift. Roles will evolve. But if the foundation is "I am about my Father''s business," you will never be without a calling. The form changes. The foundation doesn''t.',
+  'If someone asked you today, "Whose business are you about?" — what would your honest answer be? Your own? Your employer''s? Your Father''s? What would need to shift for that answer to feel truer?',
+  'Father, I want to be about Your business — not my ambition, not my anxiety, not the world''s definition of success. Root my calling in You so deeply that when the specifics change, my foundation doesn''t. I am Yours. My work is Yours. Amen.'
 FROM public.pathways p WHERE p.slug = 'career-and-calling';
 
