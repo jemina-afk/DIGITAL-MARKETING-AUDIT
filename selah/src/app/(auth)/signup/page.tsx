@@ -14,6 +14,7 @@ export default function SignupPage() {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [emailSent, setEmailSent] = useState(false);
   const router = useRouter();
   const supabase = createClient();
 
@@ -33,7 +34,7 @@ export default function SignupPage() {
 
     setLoading(true);
 
-    const { error: authError } = await supabase.auth.signUp({
+    const { data, error: authError } = await supabase.auth.signUp({
       email,
       password,
       options: {
@@ -47,8 +48,51 @@ export default function SignupPage() {
       return;
     }
 
-    router.push('/onboarding');
-    router.refresh();
+    // If the user session exists immediately, email confirmation is disabled
+    // → go straight to onboarding
+    if (data.session) {
+      router.push('/onboarding');
+      router.refresh();
+      return;
+    }
+
+    // If no session, email confirmation is required → show confirmation message
+    setEmailSent(true);
+    setLoading(false);
+  }
+
+  // Email confirmation sent screen
+  if (emailSent) {
+    return (
+      <Card variant="elevated" className="animate-fade-in text-center">
+        <div className="py-4">
+          <p className="text-3xl mb-4">📬</p>
+          <h2 className="text-xl text-charcoal mb-2">Check your email</h2>
+          <p className="text-sm text-stone-light mb-2">
+            We sent a confirmation link to <strong className="text-charcoal">{email}</strong>.
+          </p>
+          <p className="text-sm text-stone-light mb-6">
+            Click the link in the email, then you&apos;ll be taken straight to set up your Selah experience.
+          </p>
+          <div className="space-y-3">
+            <Button variant="ghost" onClick={() => setEmailSent(false)} fullWidth>
+              Use a different email
+            </Button>
+            <p className="text-xs text-stone-light">
+              Didn&apos;t get it? Check your spam folder or{' '}
+              <button
+                onClick={async () => {
+                  await supabase.auth.resend({ type: 'signup', email });
+                }}
+                className="text-sage hover:text-sage-dark underline"
+              >
+                resend the email
+              </button>
+            </p>
+          </div>
+        </div>
+      </Card>
+    );
   }
 
   return (
