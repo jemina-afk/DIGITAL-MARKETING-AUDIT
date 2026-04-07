@@ -100,6 +100,7 @@ export default function HomePage() {
           struggle: profile?.top_struggle,
           season: profile?.season_of_life,
           length: profile?.devotional_length,
+          format: profile?.preferred_format,
         },
         checkinId: checkin?.id,
       }),
@@ -138,9 +139,29 @@ export default function HomePage() {
         <AppHeader greeting={greeting} title="Your word for today" />
 
         <div className="space-y-4">
+          {/* Audio player — shown for listen/both preference */}
+          {(profile?.preferred_format === 'listen' || profile?.preferred_format === 'both') && (
+            <Card variant="soft" className="border-lavender/30">
+              <div className="flex items-center gap-4">
+                <button className="w-12 h-12 rounded-full bg-sage flex items-center justify-center flex-shrink-0 hover:bg-sage-dark transition-colors">
+                  <svg className="w-5 h-5 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </button>
+                <div className="flex-1">
+                  <p className="text-sm font-medium text-charcoal">Listen to today&apos;s reflection</p>
+                  <p className="text-xs text-stone-light mt-0.5">Audio coming soon — read below for now</p>
+                  <div className="w-full h-1 bg-cream-dark rounded-full mt-2">
+                    <div className="w-0 h-full bg-sage rounded-full" />
+                  </div>
+                </div>
+              </div>
+            </Card>
+          )}
+
           {/* Reflection */}
           <Card variant="elevated">
-            <p className="text-sm text-charcoal leading-relaxed">
+            <p className="text-sm text-charcoal leading-relaxed whitespace-pre-line">
               {response.reflection}
             </p>
           </Card>
