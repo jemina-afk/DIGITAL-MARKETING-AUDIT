@@ -1,5 +1,7 @@
 import AppNav from '@/components/layout/AppNav';
 
+export const dynamic = 'force-dynamic';
+
 export default function AppLayout({
   children,
 }: {

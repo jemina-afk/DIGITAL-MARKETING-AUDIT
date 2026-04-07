@@ -1,0 +1,23 @@
+export const JOURNAL_PROMPTS_SEED = [
+  // Healing & Processing
+  { prompt_text: 'What is God teaching you in this season?', category: 'reflection', mood_context: ['reflective', 'peaceful'], sort_order: 1 },
+  { prompt_text: 'Write a letter to God about what you\'re carrying today.', category: 'prayer', mood_context: ['overwhelmed', 'anxious', 'weary'], sort_order: 2 },
+  { prompt_text: 'What are you grateful for, even in the hard things?', category: 'gratitude', mood_context: ['grateful', 'peaceful'], sort_order: 3 },
+  { prompt_text: 'Where have you seen God\'s faithfulness this week?', category: 'reflection', mood_context: ['hopeful', 'grateful'], sort_order: 4 },
+  { prompt_text: 'What truth do you need to speak over yourself today?', category: 'identity', mood_context: ['anxious', 'hurt', 'lonely'], sort_order: 5 },
+  { prompt_text: 'What fear do you need to surrender to God right now?', category: 'surrender', mood_context: ['anxious', 'overwhelmed', 'restless'], sort_order: 6 },
+  { prompt_text: 'How has God\'s grace surprised you recently?', category: 'gratitude', mood_context: ['grateful', 'joyful', 'hopeful'], sort_order: 7 },
+  { prompt_text: 'What does rest look like for your soul today?', category: 'rest', mood_context: ['weary', 'overwhelmed', 'restless'], sort_order: 8 },
+  { prompt_text: 'What would you say to your younger self about God\'s faithfulness?', category: 'reflection', mood_context: ['reflective', 'peaceful', 'hopeful'], sort_order: 9 },
+  { prompt_text: 'If you could ask God one question right now, what would it be?', category: 'prayer', mood_context: ['restless', 'lonely', 'hurt'], sort_order: 10 },
+  { prompt_text: 'What lie have you been believing about yourself? What does God say instead?', category: 'identity', mood_context: ['anxious', 'hurt', 'lonely'], sort_order: 11 },
+  { prompt_text: 'Describe a moment recently where you felt closest to God.', category: 'reflection', mood_context: ['peaceful', 'grateful', 'joyful'], sort_order: 12 },
+  { prompt_text: 'What is one area of your life where you\'re struggling to trust God?', category: 'surrender', mood_context: ['anxious', 'restless', 'overwhelmed'], sort_order: 13 },
+  { prompt_text: 'Write out a prayer for someone who is on your heart today.', category: 'prayer', mood_context: ['peaceful', 'grateful', 'confident'], sort_order: 14 },
+  { prompt_text: 'What does it mean to you that God calls you beloved?', category: 'identity', mood_context: ['lonely', 'hurt', 'reflective'], sort_order: 15 },
+  { prompt_text: 'What is one thing you need to let go of this week?', category: 'surrender', mood_context: ['overwhelmed', 'restless', 'weary'], sort_order: 16 },
+  { prompt_text: 'How can you be kind to yourself today in a way that honours God?', category: 'rest', mood_context: ['weary', 'hurt', 'anxious'], sort_order: 17 },
+  { prompt_text: 'Write down 5 things — big or small — that made you smile this week.', category: 'gratitude', mood_context: ['grateful', 'joyful', 'peaceful'], sort_order: 18 },
+  { prompt_text: 'What does "Be still, and know that I am God" mean for your life today?', category: 'reflection', mood_context: ['anxious', 'restless', 'overwhelmed'], sort_order: 19 },
+  { prompt_text: 'If God wrote you a letter today, what do you think He would say?', category: 'identity', mood_context: ['lonely', 'hurt', 'reflective'], sort_order: 20 },
+];
