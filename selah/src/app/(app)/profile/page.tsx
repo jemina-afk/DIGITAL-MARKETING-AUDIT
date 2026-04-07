@@ -164,9 +164,6 @@ export default function ProfilePage() {
                 {profile?.preferred_format && (
                   <ProfileRow label="Format" value={formatLabels[profile.preferred_format] || profile.preferred_format} />
                 )}
-                {profile?.denomination && (
-                  <ProfileRow label="Tradition" value={profile.denomination} />
-                )}
               </div>
               <Button variant="ghost" size="sm" onClick={() => setEditing(true)} className="mt-4">
                 Edit preferences

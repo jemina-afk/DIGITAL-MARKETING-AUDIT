@@ -15,7 +15,7 @@ import {
 } from '@/lib/constants';
 import type { AgeRange, SeasonOfLife, Struggle, DevotionalLength, PreferredFormat } from '@/types/database';
 
-const TOTAL_STEPS = 6;
+const TOTAL_STEPS = 5;
 
 export default function OnboardingPage() {
   const [step, setStep] = useState(1);
@@ -26,7 +26,6 @@ export default function OnboardingPage() {
   const [devotionalLength, setDevotionalLength] = useState<DevotionalLength>('medium');
   const [preferredFormat, setPreferredFormat] = useState<PreferredFormat>('read');
   const [prayerGoals, setPrayerGoals] = useState<string[]>([]);
-  const [denomination, setDenomination] = useState('');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const supabase = createClient();
@@ -52,7 +51,6 @@ export default function OnboardingPage() {
       devotional_length: devotionalLength,
       preferred_format: preferredFormat,
       prayer_goals: prayerGoals,
-      denomination: denomination || null,
       onboarding_completed: true,
     });
 
@@ -74,6 +72,7 @@ export default function OnboardingPage() {
         <ProgressBar value={step} max={TOTAL_STEPS} className="mb-8" />
 
         <div className="animate-fade-in" key={step}>
+          {/* Step 1: Name & Age */}
           {step === 1 && (
             <div className="space-y-6">
               <div>
@@ -108,6 +107,7 @@ export default function OnboardingPage() {
             </div>
           )}
 
+          {/* Step 2: Season of life */}
           {step === 2 && (
             <div className="space-y-6">
               <div>
@@ -133,6 +133,7 @@ export default function OnboardingPage() {
             </div>
           )}
 
+          {/* Step 3: Top struggle */}
           {step === 3 && (
             <div className="space-y-6">
               <div>
@@ -158,6 +159,7 @@ export default function OnboardingPage() {
             </div>
           )}
 
+          {/* Step 4: Devotional preferences */}
           {step === 4 && (
             <div className="space-y-6">
               <div>
@@ -168,9 +170,9 @@ export default function OnboardingPage() {
               </div>
               <div className="space-y-3">
                 {([
-                  { value: 'short', label: '2-3 minutes', desc: 'Quick and focused' },
-                  { value: 'medium', label: '5-7 minutes', desc: 'A gentle pause' },
-                  { value: 'long', label: '10-15 minutes', desc: 'A deeper dive' },
+                  { value: 'short', label: '2-3 minutes', desc: 'Quick and focused — a verse, a thought, a prayer' },
+                  { value: 'medium', label: '5-7 minutes', desc: 'A gentle pause — reflection, scripture, and a step for the day' },
+                  { value: 'long', label: '10-15 minutes', desc: 'A deeper dive — extended reflection, journaling prompts, and prayer' },
                 ] as const).map((opt) => (
                   <button
                     key={opt.value}
@@ -187,21 +189,32 @@ export default function OnboardingPage() {
                 ))}
               </div>
               <div>
-                <p className="text-sm font-medium text-charcoal-light mb-3">Format preference</p>
+                <p className="text-sm font-medium text-charcoal-light mb-3">How would you like to receive your devotional?</p>
                 <div className="flex gap-2">
                   {([
-                    { value: 'read', label: 'Read' },
-                    { value: 'listen', label: 'Listen' },
-                    { value: 'both', label: 'Both' },
+                    { value: 'read', label: 'Read', desc: 'Text on screen' },
+                    { value: 'listen', label: 'Listen', desc: 'Audio devotional' },
+                    { value: 'both', label: 'Both', desc: 'Read + audio' },
                   ] as const).map((opt) => (
-                    <Tag
+                    <button
                       key={opt.value}
-                      label={opt.label}
-                      selected={preferredFormat === opt.value}
                       onClick={() => setPreferredFormat(opt.value)}
-                    />
+                      className={`flex-1 text-center p-3 rounded-xl border-2 transition-all
+                        ${preferredFormat === opt.value
+                          ? 'border-sage bg-sage/5'
+                          : 'border-cream-dark bg-white hover:border-stone-light'
+                        }`}
+                    >
+                      <p className="text-sm font-medium text-charcoal">{opt.label}</p>
+                      <p className="text-[10px] text-stone-light">{opt.desc}</p>
+                    </button>
                   ))}
                 </div>
+                {(preferredFormat === 'listen' || preferredFormat === 'both') && (
+                  <p className="text-xs text-stone mt-2">
+                    Audio devotionals are coming soon. You&apos;ll start with text and get audio as it launches.
+                  </p>
+                )}
               </div>
               <div className="flex gap-3">
                 <Button variant="ghost" onClick={back}>Back</Button>
@@ -210,10 +223,11 @@ export default function OnboardingPage() {
             </div>
           )}
 
+          {/* Step 5: Prayer goals (final step) */}
           {step === 5 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl text-charcoal mb-2">Prayer goals</h2>
+                <h2 className="text-2xl text-charcoal mb-2">Your prayer life</h2>
                 <p className="text-sm text-stone-light">
                   What would you like to grow in? Select all that apply.
                 </p>
@@ -234,30 +248,9 @@ export default function OnboardingPage() {
                   />
                 ))}
               </div>
-              <div className="flex gap-3">
-                <Button variant="ghost" onClick={back}>Back</Button>
-                <Button onClick={next} fullWidth>Continue</Button>
-              </div>
-            </div>
-          )}
-
-          {step === 6 && (
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-2xl text-charcoal mb-2">Almost there</h2>
-                <p className="text-sm text-stone-light">
-                  One last thing — is there a church tradition you identify with? (Optional)
-                </p>
-              </div>
-              <Input
-                label="Denomination or tradition"
-                value={denomination}
-                onChange={(e) => setDenomination(e.target.value)}
-                placeholder="e.g. Non-denominational, Baptist, Catholic..."
-              />
               <div className="bg-cream-dark/50 rounded-xl p-4 text-xs text-stone leading-relaxed">
                 Selah provides devotional content rooted in broadly orthodox Christian scripture.
-                We respect all traditions and aim to bless, not divide.
+                Our reflections are meant to encourage, not replace, pastoral or professional support.
               </div>
               <div className="flex gap-3">
                 <Button variant="ghost" onClick={back}>Back</Button>
