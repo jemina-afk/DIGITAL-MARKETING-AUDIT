@@ -304,30 +304,197 @@ const RESPONSE_DATABASE: Record<string, {
   },
 };
 
+// ============================================================
+// SEASON-SPECIFIC CONTEXT
+// ============================================================
+const SEASON_CONTEXT: Record<string, { opener: string; prayerLine: string }> = {
+  student: {
+    opener: 'In this season of learning, growing, and figuring out who you\'re becoming',
+    prayerLine: 'as she navigates school, friendships, and the uncertainty of what comes next',
+  },
+  early_career: {
+    opener: 'As you pour yourself into building a career and finding your footing in the working world',
+    prayerLine: 'as she works hard and wonders if she\'s on the right path',
+  },
+  new_relationship: {
+    opener: 'In this season of new love, vulnerability, and learning to trust another person',
+    prayerLine: 'as she opens her heart and navigates the beauty and risk of new love',
+  },
+  engaged: {
+    opener: 'As you prepare for marriage — with all its joy, planning, and moments of overwhelm',
+    prayerLine: 'as she prepares for this new chapter and all it will ask of her',
+  },
+  newly_married: {
+    opener: 'In these early days of building a life with someone — the adjustments, the joys, the surprises',
+    prayerLine: 'as she learns what it means to share a life and grow alongside another person',
+  },
+  new_mom: {
+    opener: 'In these beautiful, exhausting, tender days of new motherhood — where sleep is scarce and love is overwhelming',
+    prayerLine: 'as she gives so much of herself to this tiny life and sometimes forgets she needs care too',
+  },
+  single_season: {
+    opener: 'In this season of singleness — which can feel like freedom and loneliness in the same breath',
+    prayerLine: 'as she walks this season and trusts that her completeness is not found in another person',
+  },
+  career_transition: {
+    opener: 'In this uncertain space between what was and what\'s next — where the ground beneath you feels unsteady',
+    prayerLine: 'as she steps into the unknown and trusts You with a future she can\'t yet see',
+  },
+  healing: {
+    opener: 'As you walk through this season of healing — some days forward, some days sideways, all days held',
+    prayerLine: 'as she heals at her own pace, not the world\'s timeline',
+  },
+  searching: {
+    opener: 'In this season of searching, questioning, and reaching for something you can\'t quite name',
+    prayerLine: 'as she looks for meaning, direction, and a deeper sense of who she is in You',
+  },
+};
+
+// ============================================================
+// STRUGGLE-SPECIFIC ADDITIONS
+// ============================================================
+const STRUGGLE_VERSES: Record<string, { text: string; reference: string }[]> = {
+  anxiety: [
+    { text: 'Cast all your anxiety on him because he cares for you.', reference: '1 Peter 5:7 (NIV)' },
+    { text: 'When anxiety was great within me, your consolation brought me joy.', reference: 'Psalm 94:19 (NIV)' },
+  ],
+  identity: [
+    { text: 'See what great love the Father has lavished on us, that we should be called children of God! And that is what we are!', reference: '1 John 3:1 (NIV)' },
+    { text: 'I praise you because I am fearfully and wonderfully made.', reference: 'Psalm 139:14 (NIV)' },
+  ],
+  waiting: [
+    { text: 'Wait for the Lord; be strong and take heart and wait for the Lord.', reference: 'Psalm 27:14 (NIV)' },
+    { text: 'But those who hope in the Lord will renew their strength.', reference: 'Isaiah 40:31 (NIV)' },
+  ],
+  heartbreak: [
+    { text: 'The Lord is close to the brokenhearted and saves those who are crushed in spirit.', reference: 'Psalm 34:18 (NIV)' },
+    { text: 'He heals the brokenhearted and binds up their wounds.', reference: 'Psalm 147:3 (NIV)' },
+  ],
+  confidence: [
+    { text: 'For the Spirit God gave us does not make us timid, but gives us power, love and self-discipline.', reference: '2 Timothy 1:7 (NIV)' },
+  ],
+  discipline: [
+    { text: 'The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning.', reference: 'Lamentations 3:22-23 (ESV)' },
+  ],
+  calling: [
+    { text: 'For we are God\'s handiwork, created in Christ Jesus to do good works, which God prepared in advance for us to do.', reference: 'Ephesians 2:10 (NIV)' },
+  ],
+  loneliness: [
+    { text: 'The Lord himself goes before you and will be with you; he will never leave you nor forsake you.', reference: 'Deuteronomy 31:8 (NIV)' },
+  ],
+  comparison: [
+    { text: 'Each one should test their own actions. Then they can take pride in themselves alone, without comparing themselves to someone else.', reference: 'Galatians 6:4 (NIV)' },
+  ],
+  burnout: [
+    { text: 'Come to me, all you who are weary and burdened, and I will give you rest.', reference: 'Matthew 11:28 (NIV)' },
+  ],
+};
+
+// ============================================================
+// FREE TEXT ACKNOWLEDGMENT
+// ============================================================
+function buildFreeTextAcknowledgment(name: string, freeText: string): string {
+  const text = freeText.trim().toLowerCase();
+  const nameStr = name || 'friend';
+
+  // Detect themes in what they wrote
+  if (text.match(/mom|baby|child|kid|parent|sleep|tired|exhaust/)) {
+    return `${nameStr}, what you shared about the demands of motherhood — that\'s real. God sees every sleepless night, every moment you pour out for your little one. He doesn\'t overlook the weariness behind your strength.`;
+  }
+  if (text.match(/boyfriend|girlfriend|relationship|dating|breakup|broke up|ex |him |he /)) {
+    return `${nameStr}, what you shared about your heart and this relationship — God holds that so tenderly. He is not distant from the ache of love, whether it\'s longing, loss, or confusion. He meets you right where the hurt is.`;
+  }
+  if (text.match(/work|job|boss|career|fired|laid off|interview|promotion/)) {
+    return `${nameStr}, what you wrote about your work situation — that weight is real. God cares about your career, your provision, and the dignity of how you spend your days. He doesn\'t separate "spiritual life" from "work life." It\'s all His.`;
+  }
+  if (text.match(/friend|lonely|alone|no one|nobody|isolated/)) {
+    return `${nameStr}, the loneliness you described — God doesn\'t dismiss it. He created you for connection, and when it\'s missing, the ache is real. You are not invisible to Him, even when you feel invisible to the world.`;
+  }
+  if (text.match(/sick|health|body|pain|doctor|diagnosis|hospital/)) {
+    return `${nameStr}, what you shared about your body and your health — God is close to you in this. He is not afraid of your pain, your questions, or your fear. He holds your body and your spirit with equal tenderness.`;
+  }
+  if (text.match(/anxious|worry|scared|afraid|panic|can\'t stop thinking/)) {
+    return `${nameStr}, the anxiety you described is not weakness — it\'s your heart signalling that it\'s carrying more than it was designed to hold alone. God doesn\'t judge your worry. He invites you to bring every last thought to Him.`;
+  }
+  if (text.match(/sad|cry|crying|depressed|hopeless|give up|done/)) {
+    return `${nameStr}, your honesty about how heavy things feel right now is brave. God is closest to the brokenhearted. He doesn\'t need you to be strong for Him — He is strong for you. If professional support would help, please reach out to a counselor or pastor.`;
+  }
+  if (text.match(/family|parent|mother|father|sister|brother|husband|wife/)) {
+    return `${nameStr}, what you shared about your family — God knows the complexity of the people we love most. Family can be our greatest comfort and our deepest wound, sometimes in the same day. He holds all of it.`;
+  }
+  if (text.match(/church|faith|God|pray|believe|doubt|question/)) {
+    return `${nameStr}, your honesty about where you are with God right now — He can handle it. He is not threatened by your questions or offended by your doubts. He would rather have your honest struggle than polished silence.`;
+  }
+  if (text.match(/future|what if|don\'t know|uncertain|confused|lost/)) {
+    return `${nameStr}, the uncertainty you described is one of the hardest things to sit with. Not knowing the next step, not having the answers — it takes real courage to stay present when the future feels blank. God holds what you cannot see.`;
+  }
+  // Generic but still personal
+  return `${nameStr}, thank you for sharing what\'s on your heart. What you wrote matters — to you and to God. He doesn\'t skim past your words. He reads between the lines of everything you\'re feeling.`;
+}
+
+// ============================================================
+// MAIN GENERATOR
+// ============================================================
 function pickRandom<T>(arr: T[]): T {
   return arr[Math.floor(Math.random() * arr.length)];
 }
 
-function generateResponse(feelings: string[], needs: string[], profile: {
-  firstName?: string;
-  struggle?: string;
-  season?: string;
-  length?: string;
-  format?: string;
-}) {
+function generateResponse(
+  feelings: string[],
+  needs: string[],
+  freeText: string | null,
+  profile: {
+    firstName?: string;
+    struggle?: string;
+    season?: string;
+    length?: string;
+    format?: string;
+  }
+) {
   const primaryFeeling = feelings[0] || 'default';
   const data = RESPONSE_DATABASE[primaryFeeling] || RESPONSE_DATABASE.default;
   const length = profile.length || 'medium';
+  const name = profile.firstName || 'friend';
 
-  // Pick reflection based on devotional length preference
+  // 1. Pick base reflection
   const reflectionPool = data.reflections[length as keyof typeof data.reflections] || data.reflections.medium;
-  const reflection = pickRandom(reflectionPool);
+  let reflection = pickRandom(reflectionPool);
 
-  // Pick prayer based on length (short stays short, medium/long get longer prayers)
+  // 2. Add season-specific opening if available
+  const seasonCtx = profile.season ? SEASON_CONTEXT[profile.season] : null;
+  if (seasonCtx && length !== 'short') {
+    reflection = `${seasonCtx.opener}, what you\'re feeling today makes sense.\n\n${reflection}`;
+  }
+
+  // 3. Add free text acknowledgment if provided
+  if (freeText && freeText.trim().length > 10) {
+    const ack = buildFreeTextAcknowledgment(name, freeText);
+    reflection = `${ack}\n\n${reflection}`;
+  } else if (length !== 'short') {
+    // Add name to the beginning even without free text
+    reflection = `${name}, ${reflection.charAt(0).toLowerCase()}${reflection.slice(1)}`;
+  }
+
+  // 4. Pick verse — prefer struggle-specific if available, with fallback to mood
+  let verse;
+  const struggleVerses = profile.struggle ? STRUGGLE_VERSES[profile.struggle] : null;
+  if (struggleVerses && Math.random() > 0.4) {
+    // 60% chance to use struggle-specific verse
+    verse = pickRandom(struggleVerses);
+  } else {
+    verse = pickRandom(data.verses);
+  }
+
+  // 5. Build personalised prayer
   const prayerPool = length === 'short' ? data.prayers.short : data.prayers.long;
-  const prayer = pickRandom(prayerPool);
+  let prayer = pickRandom(prayerPool);
 
-  const verse = pickRandom(data.verses);
+  // Add season-specific prayer line
+  if (seasonCtx) {
+    prayer = prayer.replace('Amen.', `Be with ${name} ${seasonCtx.prayerLine}. Amen.`);
+  }
+
+  // 6. Pick action
   const action = pickRandom(data.actions);
 
   return {
@@ -351,7 +518,7 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const responseContent = generateResponse(feelings, needs, userProfile);
+    const responseContent = generateResponse(feelings, needs, freeText, userProfile);
     const today = new Date().toISOString().split('T')[0];
 
     const { data: saved } = await supabase
