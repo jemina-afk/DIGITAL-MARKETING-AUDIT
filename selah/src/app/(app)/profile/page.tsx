@@ -286,6 +286,32 @@ export default function ProfilePage() {
           </div>
         </Card>
 
+        {/* Dev/testing toggle — remove before production */}
+        <Card variant="soft" padding="sm">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-xs font-medium text-stone">Testing mode</p>
+              <p className="text-[10px] text-stone-light">Toggle premium to preview all content</p>
+            </div>
+            <button
+              onClick={async () => {
+                const { data: { user } } = await supabase.auth.getUser();
+                if (!user) return;
+                const newTier = profile?.subscription_tier === 'premium' ? 'free' : 'premium';
+                await supabase.from('profiles').update({ subscription_tier: newTier }).eq('id', user.id);
+                setProfile(profile ? { ...profile, subscription_tier: newTier } : null);
+              }}
+              className={`relative w-11 h-6 rounded-full transition-colors ${
+                profile?.subscription_tier === 'premium' ? 'bg-sage' : 'bg-stone-light'
+              }`}
+            >
+              <span className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform shadow-sm ${
+                profile?.subscription_tier === 'premium' ? 'translate-x-5' : ''
+              }`} />
+            </button>
+          </div>
+        </Card>
+
         <Button variant="outline" onClick={handleSignOut} fullWidth>
           Sign out
         </Button>
