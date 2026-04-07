@@ -13,7 +13,20 @@ import { FEELING_TAGS, NEED_TAGS } from '@/lib/constants';
 import { trackEvent } from '@/lib/analytics';
 import type { Profile, DailyResponse } from '@/types/database';
 
-type Step = 'checkin' | 'loading' | 'response';
+type Step = 'checkin' | 'feelings' | 'needs' | 'heart' | 'loading' | 'response';
+
+const SEASON_GREETINGS: Record<string, string> = {
+  student: 'Between classes and deadlines, God has a word for you.',
+  early_career: 'Before the day pulls you in every direction — pause here.',
+  new_relationship: 'In this exciting, uncertain season of love — He is steady.',
+  engaged: 'As you prepare for a new chapter, He prepares your heart.',
+  newly_married: 'In the beautiful adjustment of building a life together.',
+  new_mom: 'In these tender, exhausting, miraculous days — you are not alone.',
+  single_season: 'In this season of learning who you are apart from anyone else.',
+  career_transition: 'Between what was and what\'s next, He holds both.',
+  healing: 'Healing isn\'t linear, but God meets you at every turn.',
+  searching: 'Even in the searching, you are already found.',
+};
 
 export default function HomePage() {
   const [profile, setProfile] = useState<Profile | null>(null);
@@ -23,6 +36,7 @@ export default function HomePage() {
   const [freeText, setFreeText] = useState('');
   const [response, setResponse] = useState<DailyResponse | null>(null);
   const [loading, setLoading] = useState(false);
+  const [loadingMessage, setLoadingMessage] = useState('');
   const supabase = createClient();
 
   useEffect(() => {
@@ -37,7 +51,6 @@ export default function HomePage() {
         .single();
       setProfile(profileData);
 
-      // Check if already checked in today
       const today = new Date().toISOString().split('T')[0];
       const { data: existingResponse } = await supabase
         .from('daily_responses')
@@ -65,12 +78,25 @@ export default function HomePage() {
     setLoading(true);
     setStep('loading');
 
+    // Animated loading messages
+    const messages = [
+      'Opening God\'s word for you...',
+      'Finding a verse that speaks to your heart...',
+      'Preparing a reflection just for you...',
+      'Writing a prayer with your name on it...',
+    ];
+    let i = 0;
+    setLoadingMessage(messages[0]);
+    const interval = setInterval(() => {
+      i = (i + 1) % messages.length;
+      setLoadingMessage(messages[i]);
+    }, 2000);
+
     const { data: { user } } = await supabase.auth.getUser();
-    if (!user) return;
+    if (!user) { clearInterval(interval); return; }
 
     const today = new Date().toISOString().split('T')[0];
 
-    // Save check-in
     const { data: checkin } = await supabase
       .from('daily_checkins')
       .upsert({
@@ -86,9 +112,9 @@ export default function HomePage() {
     await trackEvent('checkin_completed', {
       feelings: selectedFeelings,
       needs: selectedNeeds,
+      hasFreeText: !!freeText,
     });
 
-    // Generate response via API
     const res = await fetch('/api/daily-response', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -107,12 +133,12 @@ export default function HomePage() {
       }),
     });
 
+    clearInterval(interval);
     const responseData = await res.json();
     setResponse(responseData);
     setStep('response');
     setLoading(false);
 
-    // Update habit
     await supabase.from('habits').upsert({
       user_id: user.id,
       habit_date: today,
@@ -121,26 +147,50 @@ export default function HomePage() {
     }, { onConflict: 'user_id,habit_date' });
   }
 
-  const greeting = profile?.first_name
-    ? `Good ${getTimeOfDay()}, ${profile.first_name}`
-    : `Good ${getTimeOfDay()}`;
+  const firstName = profile?.first_name || 'friend';
+  const greeting = `Good ${getTimeOfDay()}, ${firstName}`;
+  const seasonNote = profile?.season_of_life
+    ? SEASON_GREETINGS[profile.season_of_life]
+    : undefined;
 
+  // ===== LOADING STATE =====
   if (step === 'loading') {
     return (
-      <div className="flex flex-col items-center justify-center min-h-[60vh] animate-fade-in">
-        <div className="w-12 h-12 rounded-full border-2 border-sage border-t-transparent animate-spin mb-6" />
-        <p className="text-stone text-sm">Preparing something just for you...</p>
+      <div className="flex flex-col items-center justify-center min-h-[70vh] animate-fade-in px-8">
+        {/* Animated breathing circle */}
+        <div className="relative mb-8">
+          <div className="w-20 h-20 rounded-full bg-sage/10 animate-pulse" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-12 h-12 rounded-full border-2 border-sage border-t-transparent animate-spin" />
+          </div>
+        </div>
+        <p className="text-charcoal text-center text-sm font-medium animate-fade-in" key={loadingMessage}>
+          {loadingMessage}
+        </p>
+        <p className="text-stone-light text-xs mt-2">This is just for you, {firstName}.</p>
       </div>
     );
   }
 
+  // ===== RESPONSE STATE =====
   if (step === 'response' && response) {
     return (
       <div className="animate-slide-up">
-        <AppHeader greeting={greeting} title="Your word for today" />
+        {/* Premium header card */}
+        <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sage/10 via-cream to-lavender/10 p-6 mb-6 border border-sage/10">
+          <div className="absolute top-0 right-0 w-32 h-32 bg-sage/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-24 h-24 bg-lavender/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+          <div className="relative">
+            <p className="text-xs tracking-widest text-sage uppercase mb-2">Your word for today</p>
+            <h1 className="text-2xl text-charcoal leading-tight">{greeting}</h1>
+            {seasonNote && (
+              <p className="text-sm text-stone mt-2 italic">{seasonNote}</p>
+            )}
+          </div>
+        </div>
 
-        <div className="space-y-4">
-          {/* Audio player — shown for listen/both preference */}
+        <div className="space-y-5">
+          {/* Audio player */}
           {(profile?.preferred_format === 'listen' || profile?.preferred_format === 'both') && (
             <AudioPlayer
               reflection={response.reflection}
@@ -150,42 +200,67 @@ export default function HomePage() {
             />
           )}
 
-          {/* Reflection */}
-          <Card variant="elevated">
-            <p className="text-sm text-charcoal leading-relaxed whitespace-pre-line">
+          {/* Reflection — premium card */}
+          <Card variant="elevated" padding="lg">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-1 h-6 bg-sage rounded-full" />
+              <h3 className="text-xs tracking-widest text-sage uppercase">Reflection</h3>
+            </div>
+            <p className="text-[15px] text-charcoal leading-[1.8] whitespace-pre-line">
               {response.reflection}
             </p>
           </Card>
 
-          {/* Scripture */}
-          <Card variant="soft">
-            <blockquote className="text-center">
-              <p className="text-charcoal italic leading-relaxed mb-3">
-                &ldquo;{response.bible_verse}&rdquo;
+          {/* Scripture — elegant centered card */}
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-cream-dark/30 to-cream p-8 border border-cream-dark">
+            <div className="absolute top-4 left-4 text-6xl text-sage/10 font-serif leading-none">&ldquo;</div>
+            <blockquote className="relative text-center pt-4">
+              <p className="text-charcoal italic leading-[1.8] text-[15px] mb-4">
+                {response.bible_verse}
               </p>
-              <cite className="text-sm text-sage-dark not-italic font-medium">
-                {response.bible_reference}
+              <cite className="text-sm text-sage-dark not-italic font-medium tracking-wide">
+                — {response.bible_reference}
               </cite>
             </blockquote>
-          </Card>
+          </div>
 
-          {/* Prayer */}
-          <Card>
-            <h3 className="text-sm font-medium text-sage-dark mb-2">A prayer for you</h3>
-            <p className="text-sm text-charcoal-light leading-relaxed italic">
+          {/* Prayer — warm card */}
+          <Card padding="lg">
+            <div className="flex items-center gap-2 mb-4">
+              <div className="w-1 h-6 bg-blush rounded-full" />
+              <h3 className="text-xs tracking-widest text-blush-dark uppercase">A prayer for you</h3>
+            </div>
+            <p className="text-[15px] text-charcoal-light leading-[1.8] italic">
               {response.prayer}
             </p>
           </Card>
 
-          {/* Faith action */}
-          <Card className="border-sage/20 bg-sage/5">
-            <h3 className="text-sm font-medium text-sage-dark mb-2">Your step today</h3>
-            <p className="text-sm text-charcoal leading-relaxed">
+          {/* Faith action — standout card */}
+          <div className="rounded-2xl bg-sage/5 border border-sage/15 p-6">
+            <div className="flex items-center gap-3 mb-3">
+              <div className="w-8 h-8 rounded-full bg-sage/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                </svg>
+              </div>
+              <h3 className="text-xs tracking-widest text-sage-dark uppercase">Your step today</h3>
+            </div>
+            <p className="text-[15px] text-charcoal leading-[1.7]">
               {response.faith_action}
             </p>
-          </Card>
+          </div>
 
-          <Disclaimer className="mt-6 text-center" />
+          {/* Suggested pathway based on struggle */}
+          {profile?.top_struggle && (
+            <div className="rounded-2xl bg-lavender/5 border border-lavender/15 p-5">
+              <p className="text-xs text-stone mb-2">Recommended for you</p>
+              <a href="/pathways" className="text-sm text-charcoal font-medium hover:text-sage transition-colors">
+                Explore pathways for {formatStruggle(profile.top_struggle)} &rarr;
+              </a>
+            </div>
+          )}
+
+          <Disclaimer className="mt-4 text-center" />
 
           <Button
             variant="ghost"
@@ -206,69 +281,101 @@ export default function HomePage() {
     );
   }
 
+  // ===== CHECK-IN STATE (multi-step) =====
   return (
     <div className="animate-fade-in">
-      <AppHeader greeting={greeting} title="How are you today?" />
+      {/* Greeting header */}
+      <div className="pt-6 pb-2 px-1">
+        <p className="text-sm text-stone mb-1">{greeting}</p>
+        <h1 className="text-2xl text-charcoal">How are you today?</h1>
+        {seasonNote && (
+          <p className="text-xs text-stone-light mt-2 italic">{seasonNote}</p>
+        )}
+      </div>
 
-      <div className="space-y-6">
-        {/* Feelings */}
-        <Card>
-          <h3 className="text-sm font-medium text-charcoal mb-3">
-            I&apos;m feeling...
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {FEELING_TAGS.map((tag) => (
-              <Tag
-                key={tag.value}
-                label={tag.label}
-                emoji={tag.emoji}
-                selected={selectedFeelings.includes(tag.value)}
-                onClick={() => toggleTag(tag.value, selectedFeelings, setSelectedFeelings)}
-                size="sm"
-              />
-            ))}
+      <div className="space-y-6 mt-4">
+        {/* Step 1: Feelings */}
+        <div className="animate-fade-in">
+          <Card>
+            <div className="flex items-center gap-2 mb-4">
+              <span className="w-6 h-6 rounded-full bg-sage/10 flex items-center justify-center text-xs font-medium text-sage">1</span>
+              <h3 className="text-sm font-medium text-charcoal">I&apos;m feeling...</h3>
+            </div>
+            <div className="flex flex-wrap gap-2">
+              {FEELING_TAGS.map((tag) => (
+                <Tag
+                  key={tag.value}
+                  label={tag.label}
+                  emoji={tag.emoji}
+                  selected={selectedFeelings.includes(tag.value)}
+                  onClick={() => toggleTag(tag.value, selectedFeelings, setSelectedFeelings)}
+                  size="sm"
+                />
+              ))}
+            </div>
+          </Card>
+        </div>
+
+        {/* Step 2: Needs — slides in after feelings selected */}
+        {selectedFeelings.length > 0 && (
+          <div className="animate-slide-up">
+            <Card>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-6 h-6 rounded-full bg-sage/10 flex items-center justify-center text-xs font-medium text-sage">2</span>
+                <h3 className="text-sm font-medium text-charcoal">What I need from God today...</h3>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {NEED_TAGS.map((tag) => (
+                  <Tag
+                    key={tag.value}
+                    label={tag.label}
+                    emoji={tag.emoji}
+                    selected={selectedNeeds.includes(tag.value)}
+                    onClick={() => toggleTag(tag.value, selectedNeeds, setSelectedNeeds)}
+                    size="sm"
+                  />
+                ))}
+              </div>
+            </Card>
           </div>
-        </Card>
+        )}
 
-        {/* Needs */}
-        <Card>
-          <h3 className="text-sm font-medium text-charcoal mb-3">
-            What I need from God today...
-          </h3>
-          <div className="flex flex-wrap gap-2">
-            {NEED_TAGS.map((tag) => (
-              <Tag
-                key={tag.value}
-                label={tag.label}
-                emoji={tag.emoji}
-                selected={selectedNeeds.includes(tag.value)}
-                onClick={() => toggleTag(tag.value, selectedNeeds, setSelectedNeeds)}
-                size="sm"
+        {/* Step 3: Free text — slides in after needs selected */}
+        {selectedNeeds.length > 0 && (
+          <div className="animate-slide-up">
+            <Card>
+              <div className="flex items-center gap-2 mb-4">
+                <span className="w-6 h-6 rounded-full bg-sage/10 flex items-center justify-center text-xs font-medium text-sage">3</span>
+                <h3 className="text-sm font-medium text-charcoal">What&apos;s on your heart?</h3>
+              </div>
+              <TextArea
+                value={freeText}
+                onChange={(e) => setFreeText(e.target.value)}
+                placeholder={getFreeTextPlaceholder(profile?.season_of_life, profile?.top_struggle)}
+                rows={4}
               />
-            ))}
+              <p className="text-xs text-stone-light mt-2">
+                Share as much or as little as you want. Your words help us personalise your devotional.
+              </p>
+            </Card>
           </div>
-        </Card>
+        )}
 
-        {/* Free text */}
-        <Card>
-          <TextArea
-            label="Anything else on your heart? (optional)"
-            value={freeText}
-            onChange={(e) => setFreeText(e.target.value)}
-            placeholder="Share whatever is on your mind..."
-            rows={3}
-          />
-        </Card>
-
-        <Button
-          onClick={handleCheckin}
-          fullWidth
-          size="lg"
-          loading={loading}
-          disabled={selectedFeelings.length === 0}
-        >
-          Receive my word for today
-        </Button>
+        {/* Submit button */}
+        {selectedFeelings.length > 0 && (
+          <div className="animate-slide-up">
+            <Button
+              onClick={handleCheckin}
+              fullWidth
+              size="lg"
+              loading={loading}
+            >
+              {freeText
+                ? 'Receive my personalised word'
+                : 'Receive my word for today'}
+            </Button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -279,4 +386,32 @@ function getTimeOfDay() {
   if (hour < 12) return 'morning';
   if (hour < 17) return 'afternoon';
   return 'evening';
+}
+
+function formatStruggle(struggle: string): string {
+  const map: Record<string, string> = {
+    anxiety: 'anxiety & peace',
+    identity: 'identity in Christ',
+    waiting: 'waiting well',
+    heartbreak: 'healing & heartbreak',
+    confidence: 'confidence & self-worth',
+    discipline: 'discipline with grace',
+    calling: 'career & calling',
+    loneliness: 'connection & community',
+    comparison: 'identity & self-worth',
+    burnout: 'rest & renewal',
+  };
+  return map[struggle] || struggle.replace('_', ' ');
+}
+
+function getFreeTextPlaceholder(season?: string | null, struggle?: string | null): string {
+  if (season === 'new_mom') return 'The baby kept me up all night... I\'m struggling with... I need God to...';
+  if (season === 'student') return 'Exams are stressing me out... I\'m worried about... I wish God would...';
+  if (season === 'single_season') return 'I\'m feeling lonely because... I wish... I need God to remind me...';
+  if (season === 'career_transition') return 'I don\'t know what\'s next... I\'m afraid of... I need clarity on...';
+  if (season === 'healing') return 'Today was hard because... I\'m processing... I need God to...';
+  if (struggle === 'heartbreak') return 'My heart is heavy because... I\'m struggling to let go of...';
+  if (struggle === 'anxiety') return 'I can\'t stop worrying about... My mind keeps going to...';
+  if (struggle === 'identity') return 'I\'ve been feeling like I\'m not enough because...';
+  return 'I\'ve been thinking about... I need God to... What\'s weighing on me is...';
 }
