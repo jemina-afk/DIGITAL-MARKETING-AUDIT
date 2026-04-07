@@ -44,7 +44,7 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
 
       if (daysData && daysData.length > 0) {
         const currentDay = progressData?.current_day || 1;
-        setActiveDay(daysData.find((d) => d.day_number === currentDay) || daysData[0]);
+        setActiveDay(daysData.find((d: PathwayDay) => d.day_number === currentDay) || daysData[0]);
       }
 
       setLoading(false);
