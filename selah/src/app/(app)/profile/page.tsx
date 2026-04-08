@@ -265,6 +265,22 @@ export default function ProfilePage() {
           )}
         </Card>
 
+        {/* Quick links */}
+        <div className="grid grid-cols-3 gap-3">
+          <a href="/prayers" className="rounded-xl bg-blush/5 border border-blush/15 p-4 text-center hover:border-blush/30 transition-colors">
+            <p className="text-lg mb-1">🙏</p>
+            <p className="text-xs font-medium text-charcoal">Prayers</p>
+          </a>
+          <a href="/insights" className="rounded-xl bg-sage/5 border border-sage/15 p-4 text-center hover:border-sage/30 transition-colors">
+            <p className="text-lg mb-1">📊</p>
+            <p className="text-xs font-medium text-charcoal">Insights</p>
+          </a>
+          <a href="/evening" className="rounded-xl bg-charcoal/5 border border-charcoal/10 p-4 text-center hover:border-charcoal/20 transition-colors">
+            <p className="text-lg mb-1">🌙</p>
+            <p className="text-xs font-medium text-charcoal">Evening</p>
+          </a>
+        </div>
+
         {/* Subscription */}
         <Card>
           <div className="flex items-center justify-between">

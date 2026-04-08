@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import AppHeader from '@/components/layout/AppHeader';
 import AudioPlayer from '@/components/ui/AudioPlayer';
+import ShareCard from '@/components/ui/ShareCard';
 import Card from '@/components/ui/Card';
 import Tag from '@/components/ui/Tag';
 import Button from '@/components/ui/Button';
@@ -248,6 +249,27 @@ export default function HomePage() {
             <p className="text-[15px] text-charcoal leading-[1.7]">
               {response.faith_action}
             </p>
+          </div>
+
+          {/* Shareable verse card */}
+          <div>
+            <p className="text-xs tracking-widest text-stone uppercase mb-3">Save & share</p>
+            <ShareCard
+              verse={response.bible_verse}
+              reference={response.bible_reference}
+            />
+          </div>
+
+          {/* Quick actions */}
+          <div className="grid grid-cols-2 gap-3">
+            <a href="/journal/new" className="rounded-xl bg-lavender/5 border border-lavender/15 p-4 text-center hover:border-lavender/30 transition-colors">
+              <p className="text-lg mb-1">📝</p>
+              <p className="text-xs font-medium text-charcoal">Journal this</p>
+            </a>
+            <a href="/evening" className="rounded-xl bg-charcoal/5 border border-charcoal/10 p-4 text-center hover:border-charcoal/20 transition-colors">
+              <p className="text-lg mb-1">🌙</p>
+              <p className="text-xs font-medium text-charcoal">Evening prayer</p>
+            </a>
           </div>
 
           {/* Suggested pathway based on struggle */}
