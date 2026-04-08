@@ -1,10 +1,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 import { createClient } from '@/lib/supabase/client';
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
-import type { DailyCheckin, Habit, JournalEntry } from '@/types/database';
+import Button from '@/components/ui/Button';
+import type { DailyCheckin, Habit, JournalEntry, Profile } from '@/types/database';
 
 const MOOD_COLORS: Record<string, string> = {
   peaceful: 'bg-sage/60',
@@ -25,6 +27,7 @@ export default function InsightsPage() {
   const [checkins, setCheckins] = useState<DailyCheckin[]>([]);
   const [habits, setHabits] = useState<Habit[]>([]);
   const [journals, setJournals] = useState<JournalEntry[]>([]);
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
 
@@ -46,6 +49,9 @@ export default function InsightsPage() {
           .gte('created_at', thirtyDaysAgo.toISOString()).order('created_at', { ascending: false }),
       ]);
 
+      const { data: profileData } = await supabase
+        .from('profiles').select('*').eq('id', user.id).single();
+      setProfile(profileData);
       setCheckins(c || []);
       setHabits(h || []);
       setJournals(j || []);
@@ -111,7 +117,22 @@ export default function InsightsPage() {
           <StatCard number={totalScripture} label="Days in scripture" icon="scripture" max={30} />
         </div>
 
-        {/* Mood map - last 30 days */}
+        {/* Premium gate for detailed insights */}
+        {profile?.subscription_tier !== 'premium' && (
+          <Card className="text-center border-sage/20 bg-sage/5">
+            <p className="text-sm font-medium text-charcoal mb-1">See your full spiritual story</p>
+            <p className="text-xs text-stone-light leading-relaxed mb-4">
+              Your mood patterns, most frequent needs, and 30-day journey map are part of Premium.
+            </p>
+            <Link href="/subscribe">
+              <Button size="sm">Start your 7-day free trial</Button>
+            </Link>
+          </Card>
+        )}
+
+        {/* Mood map - last 30 days (premium only) */}
+        {profile?.subscription_tier === 'premium' && (<>
+        {/* Mood map */}
         <Card>
           <h3 className="text-sm font-medium text-charcoal mb-4">Your mood over 30 days</h3>
           <div className="grid grid-cols-7 gap-1.5">
@@ -173,6 +194,8 @@ export default function InsightsPage() {
             </div>
           </Card>
         )}
+
+        </>)}
 
         {/* Gentle encouragement */}
         <Card variant="soft" className="text-center">

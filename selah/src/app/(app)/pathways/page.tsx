@@ -120,7 +120,7 @@ export default function PathwaysPage() {
               Premium pathways
               {!isPremium && (
                 <span className="text-xs text-warm ml-2">
-                  <Link href="/subscribe" className="underline">Upgrade to unlock</Link>
+                  <Link href="/subscribe" className="underline">Start free trial</Link>
                 </span>
               )}
             </h3>
@@ -148,30 +148,66 @@ function PathwayCard({
   progress?: UserPathwayProgress;
   locked: boolean;
 }) {
-  return (
-    <Link href={locked ? '/subscribe' : `/pathways/${pathway.id}`}>
-      <Card className={`hover:border-sage/30 transition-colors cursor-pointer mb-3 ${locked ? 'opacity-75' : ''}`}>
-        <div className="flex items-start gap-3">
-          <span className="w-10 h-10 flex items-center justify-center rounded-full bg-sage/10 flex-shrink-0"><PathwayIcon name={pathway.cover_emoji} className="text-sage" size={20} /></span>
-          <div className="flex-1">
-            <div className="flex items-center gap-2">
-              <p className="text-sm font-medium text-charcoal">{pathway.title}</p>
-              {locked && (
-                <span className="text-xs bg-warm-light text-warm px-2 py-0.5 rounded-full">
-                  Premium
-                </span>
-              )}
-            </div>
-            <p className="text-xs text-stone-light mt-1 line-clamp-2">
-              {pathway.description}
-            </p>
-            <p className="text-xs text-stone-light mt-2">
-              {pathway.total_days} days
-              {progress && ` · ${progress.completed_days.length} completed`}
-            </p>
+  const [showUpsell, setShowUpsell] = useState(false);
+
+  if (locked && showUpsell) {
+    return (
+      <Card className="mb-3 border-sage/20 animate-scale-in">
+        <div className="text-center py-2">
+          <div className="w-10 h-10 mx-auto mb-3 flex items-center justify-center rounded-full bg-sage/10">
+            <PathwayIcon name={pathway.cover_emoji} className="text-sage" size={20} />
           </div>
+          <h3 className="text-sm font-medium text-charcoal mb-1">{pathway.title}</h3>
+          <p className="text-xs text-stone-light leading-relaxed mb-4 px-2">
+            {pathway.description}
+          </p>
+          <p className="text-xs text-stone leading-relaxed mb-4">
+            This journey is part of Premium. Start your 7-day free trial to begin today.
+          </p>
+          <Link href="/subscribe">
+            <Button size="sm" fullWidth>Start free trial</Button>
+          </Link>
+          <button onClick={() => setShowUpsell(false)} className="text-xs text-stone-light mt-3 block mx-auto hover:text-stone">
+            Maybe later
+          </button>
         </div>
       </Card>
-    </Link>
+    );
+  }
+
+  return (
+    <div onClick={locked ? () => setShowUpsell(true) : undefined}>
+      <Link href={locked ? '#' : `/pathways/${pathway.id}`} onClick={locked ? (e) => e.preventDefault() : undefined}>
+        <Card className={`hover:border-sage/30 transition-colors cursor-pointer mb-3 ${locked ? 'opacity-80' : ''}`}>
+          <div className="flex items-start gap-3">
+            <span className="w-10 h-10 flex items-center justify-center rounded-full bg-sage/10 flex-shrink-0">
+              <PathwayIcon name={pathway.cover_emoji} className="text-sage" size={20} />
+            </span>
+            <div className="flex-1">
+              <div className="flex items-center gap-2">
+                <p className="text-sm font-medium text-charcoal">{pathway.title}</p>
+                {locked && (
+                  <span className="text-[10px] bg-warm/10 text-warm border border-warm/20 px-2 py-0.5 rounded-full font-medium">
+                    Premium
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-stone-light mt-1 line-clamp-2">
+                {pathway.description}
+              </p>
+              <p className="text-xs text-stone-light mt-2">
+                {pathway.total_days} days
+                {progress && ` · ${progress.completed_days.length} completed`}
+              </p>
+            </div>
+            {locked && (
+              <svg className="w-4 h-4 text-stone-light flex-shrink-0 mt-1" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            )}
+          </div>
+        </Card>
+      </Link>
+    </div>
   );
 }

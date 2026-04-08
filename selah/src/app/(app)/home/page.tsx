@@ -212,7 +212,7 @@ export default function HomePage() {
             </p>
           </Card>
 
-          {/* Scripture - shareable card (tap to change style, share button) */}
+          {/* Scripture - shareable for premium, beautiful display for free */}
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
@@ -220,10 +220,29 @@ export default function HomePage() {
                 <h3 className="text-xs tracking-widest text-stone uppercase">Scripture</h3>
               </div>
             </div>
-            <ShareCard
-              verse={response.bible_verse}
-              reference={response.bible_reference}
-            />
+            {profile?.subscription_tier === 'premium' ? (
+              <ShareCard
+                verse={response.bible_verse}
+                reference={response.bible_reference}
+              />
+            ) : (
+              <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sage/15 via-cream to-lavender/10 border border-sage/15 p-8 pb-6">
+                <div className="absolute top-3 left-5 text-7xl text-sage/15 font-serif leading-none select-none">&ldquo;</div>
+                <div className="relative text-center pt-6 pb-2">
+                  <p className="text-charcoal italic leading-[1.9] text-[15px] mb-5">
+                    {response.bible_verse}
+                  </p>
+                  <p className="text-sm text-sage-dark font-medium tracking-wide">
+                    - {response.bible_reference}
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-sage/10 text-center">
+                  <a href="/subscribe" className="text-xs text-sage hover:text-sage-dark transition-colors">
+                    Share beautiful verse cards with Premium
+                  </a>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Prayer - warm card */}
@@ -271,6 +290,21 @@ export default function HomePage() {
               <p className="text-xs font-medium text-charcoal">Evening prayer</p>
             </a>
           </div>
+
+          {/* Evening prayer teaser - shows after 6pm for all users */}
+          {new Date().getHours() >= 18 && profile?.subscription_tier !== 'premium' && (
+            <a href="/subscribe" className="block">
+              <div className="rounded-2xl bg-gradient-to-r from-charcoal to-charcoal-light p-5 text-center">
+                <div className="w-8 h-8 mx-auto mb-2 rounded-full bg-white/10 flex items-center justify-center">
+                  <svg className="w-4 h-4 text-cream/70" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                  </svg>
+                </div>
+                <p className="text-sm text-cream font-medium mb-1">Wind down with God tonight</p>
+                <p className="text-xs text-cream/50">Guided evening prayers - part of Premium</p>
+              </div>
+            </a>
+          )}
 
           {/* Suggested pathway based on struggle */}
           {profile?.top_struggle && (

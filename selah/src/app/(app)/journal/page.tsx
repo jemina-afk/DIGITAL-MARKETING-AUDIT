@@ -66,20 +66,32 @@ export default function JournalPage() {
 
       <div className="space-y-4">
         {isAtLimit ? (
-          <Card className="border-warm/30 bg-warm/5">
-            <p className="text-sm text-charcoal mb-3">
-              You&apos;ve reached the free journal limit. Upgrade to keep writing.
+          <Card className="border-sage/20 bg-sage/5 text-center">
+            <p className="text-sm text-charcoal mb-1">
+              You&apos;ve written {entries.length} entries - that&apos;s a real habit.
+            </p>
+            <p className="text-xs text-stone-light mb-4 leading-relaxed">
+              Don&apos;t stop now. With Premium, your journal has no limits - keep processing, keep praying, keep growing.
             </p>
             <Link href="/subscribe">
-              <Button variant="primary" size="sm">Unlock unlimited journaling</Button>
+              <Button variant="primary" size="sm">Start your 7-day free trial</Button>
             </Link>
           </Card>
         ) : (
-          <Link href="/journal/new">
-            <Button fullWidth size="lg">
-              New journal entry
-            </Button>
-          </Link>
+          <>
+            <Link href="/journal/new">
+              <Button fullWidth size="lg">
+                New journal entry
+              </Button>
+            </Link>
+            {/* Soft warning at 8-9 entries */}
+            {!isPremium && entries.length >= 8 && (
+              <p className="text-xs text-stone text-center">
+                {FREE_JOURNAL_LIMIT - entries.length} free {FREE_JOURNAL_LIMIT - entries.length === 1 ? 'entry' : 'entries'} remaining.{' '}
+                <Link href="/subscribe" className="text-sage underline">Go deeper with Premium</Link>
+              </p>
+            )}
+          </>
         )}
 
         {entries.length === 0 ? (

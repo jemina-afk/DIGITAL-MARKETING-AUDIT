@@ -294,25 +294,38 @@ export default function ProfilePage() {
         </div>
 
         {/* Subscription */}
-        <Card>
-          <div className="flex items-center justify-between">
-            <div>
-              <p className="text-sm font-medium text-charcoal">
-                {profile?.subscription_tier === 'premium' ? 'Premium' : 'Free plan'}
-              </p>
-              <p className="text-xs text-stone-light">
-                {profile?.subscription_tier === 'premium'
-                  ? 'Full access to all features'
-                  : 'Limited access'}
-              </p>
+        {profile?.subscription_tier === 'premium' ? (
+          <Card className="border-sage/20 bg-sage/5">
+            <div className="flex items-center gap-3 mb-2">
+              <div className="w-8 h-8 rounded-full bg-sage/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-sm font-medium text-charcoal">Selah Premium</p>
+                <p className="text-xs text-stone-light">Full access to all features</p>
+              </div>
             </div>
-            {profile?.subscription_tier !== 'premium' && (
+            <p className="text-xs text-sage-dark">Thank you for going deeper with Selah.</p>
+          </Card>
+        ) : (
+          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-sage/10 via-cream to-lavender/10 border border-sage/15 p-5">
+            <div className="absolute top-0 right-0 w-20 h-20 bg-sage/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="relative">
+              <p className="text-sm font-medium text-charcoal mb-1">Go deeper with Premium</p>
+              <ul className="space-y-1 mb-4">
+                <li className="text-xs text-stone-light">All 7 pathways and evening prayers</li>
+                <li className="text-xs text-stone-light">Unlimited journaling and saved prayers</li>
+                <li className="text-xs text-stone-light">Mood insights and shareable verse cards</li>
+              </ul>
+              <p className="text-[10px] text-stone mb-3">Less than a coffee a week. 7-day free trial.</p>
               <Link href="/subscribe">
-                <Button variant="primary" size="sm">Upgrade</Button>
+                <Button size="sm" fullWidth>Start your free trial</Button>
               </Link>
-            )}
+            </div>
           </div>
-        </Card>
+        )}
 
         {/* Dev/testing toggle - remove before production */}
         <Card variant="soft" padding="sm">
