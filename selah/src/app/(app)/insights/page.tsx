@@ -105,10 +105,10 @@ export default function InsightsPage() {
       <div className="space-y-5">
         {/* Monthly summary stats */}
         <div className="grid grid-cols-2 gap-3">
-          <StatCard number={totalCheckins} label="Days checked in" icon="🌅" max={30} />
-          <StatCard number={totalPrayed} label="Days prayed" icon="🙏" max={30} />
-          <StatCard number={totalJournals} label="Journal entries" icon="📝" max={30} />
-          <StatCard number={totalScripture} label="Days in scripture" icon="📖" max={30} />
+          <StatCard number={totalCheckins} label="Days checked in" icon="sunrise" max={30} />
+          <StatCard number={totalPrayed} label="Days prayed" icon="pray" max={30} />
+          <StatCard number={totalJournals} label="Journal entries" icon="journal" max={30} />
+          <StatCard number={totalScripture} label="Days in scripture" icon="scripture" max={30} />
         </div>
 
         {/* Mood map - last 30 days */}
@@ -191,12 +191,23 @@ export default function InsightsPage() {
   );
 }
 
+const STAT_ICONS: Record<string, React.ReactNode> = {
+  sunrise: <><path d="M12 2v4M4.93 4.93l2.83 2.83M20 12h-4M4 12H0M6.34 17.66l-1.41 1.41M19.07 4.93l-2.83 2.83" /><path d="M17 18a5 5 0 00-10 0" /><path d="M2 22h20" /></>,
+  pray: <><path d="M7 11c0-1.5.5-3 2-4s3-1 4-1 2.5 0 4 1 2 2.5 2 4" /><path d="M7 11v7a2 2 0 004 0v-2a2 2 0 014 0v2a2 2 0 004 0v-7" /></>,
+  journal: <><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" /><path d="M8 7h8M8 11h5" /></>,
+  scripture: <><path d="M2 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1z" /><path d="M12 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1z" /></>,
+};
+
 function StatCard({ number, label, icon, max }: { number: number; label: string; icon: string; max: number }) {
   const percentage = Math.min((number / max) * 100, 100);
   return (
-    <div className="bg-white rounded-2xl border border-cream-dark p-4">
+    <div className="bg-white rounded-2xl border border-cream-dark/80 shadow-[0_1px_3px_rgba(139,126,116,0.04)] p-4">
       <div className="flex items-center justify-between mb-2">
-        <span className="text-lg">{icon}</span>
+        <div className="w-8 h-8 rounded-full bg-sage/8 flex items-center justify-center">
+          <svg className="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+            {STAT_ICONS[icon]}
+          </svg>
+        </div>
         <span className="text-2xl font-light text-charcoal">{number}</span>
       </div>
       <p className="text-xs text-stone-light mb-2">{label}</p>

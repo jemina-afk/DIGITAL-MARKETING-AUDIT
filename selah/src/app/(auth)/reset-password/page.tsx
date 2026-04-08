@@ -37,7 +37,7 @@ export default function ResetPasswordPage() {
     return (
       <Card variant="elevated" className="animate-fade-in text-center">
         <div className="py-4">
-          <p className="text-3xl mb-4">📬</p>
+          
           <h2 className="text-xl text-charcoal mb-2">Check your email</h2>
           <p className="text-sm text-stone-light mb-6">
             We sent a password reset link to <strong>{email}</strong>.

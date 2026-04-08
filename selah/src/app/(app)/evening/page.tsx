@@ -83,7 +83,11 @@ export default function EveningPage() {
     return (
       <div className="min-h-[70vh] flex flex-col items-center justify-center px-6 animate-fade-in">
         <div className="text-center max-w-sm">
-          <p className="text-4xl mb-4">🌙</p>
+          <div className="w-12 h-12 mx-auto mb-4 rounded-full bg-charcoal/10 flex items-center justify-center">
+            <svg className="w-6 h-6 text-charcoal-light" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+            </svg>
+          </div>
           <h2 className="text-xl text-charcoal mb-3">Goodnight</h2>
           <p className="text-sm text-stone leading-relaxed mb-6">
             You are held tonight. God neither slumbers nor sleeps - so you can.
@@ -106,7 +110,7 @@ export default function EveningPage() {
       <div className="animate-slide-up">
         {/* Dark mode header for evening feel */}
         <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-charcoal via-charcoal-light to-charcoal p-6 mb-6">
-          <div className="absolute top-2 right-4 text-2xl opacity-30">🌙</div>
+          <div className="absolute top-3 right-4 opacity-20"><svg className="w-8 h-8 text-cream" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg></div>
           <p className="text-xs tracking-widest text-sage-light/70 uppercase mb-2">Evening prayer</p>
           <h1 className="text-xl text-cream">{selectedPrayer.title}</h1>
         </div>
@@ -153,7 +157,7 @@ export default function EveningPage() {
     <div className="animate-fade-in">
       {/* Header */}
       <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-charcoal via-charcoal-light to-charcoal p-6 mb-6 mt-6">
-        <div className="absolute top-3 right-6 text-3xl opacity-20">🌙</div>
+        <div className="absolute top-4 right-6 opacity-15"><svg className="w-10 h-10 text-cream" fill="none" viewBox="0 0 24 24" strokeWidth={1} stroke="currentColor"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" /></svg></div>
         <div className="absolute bottom-0 left-0 w-32 h-32 bg-lavender/5 rounded-full translate-y-1/2 -translate-x-1/2" />
         <div className="relative">
           <p className="text-xs tracking-widest text-sage-light/70 uppercase mb-2">Wind down</p>
@@ -173,7 +177,9 @@ export default function EveningPage() {
               <div className="flex items-start gap-3">
                 <div className="w-8 h-8 rounded-full bg-charcoal/5 flex items-center justify-center flex-shrink-0 mt-0.5">
                   <span className="text-sm">
-                    {prayer.theme === 'anxiety' ? '🌊' : prayer.theme === 'gratitude' ? '✨' : prayer.theme === 'loneliness' ? '💜' : prayer.theme === 'grace' ? '🤍' : prayer.theme === 'trust' ? '🌅' : prayer.theme === 'protection' ? '🛡️' : '🕊️'}
+                    <svg className="w-4 h-4 text-charcoal-light" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                    </svg>
                   </span>
                 </div>
                 <div>

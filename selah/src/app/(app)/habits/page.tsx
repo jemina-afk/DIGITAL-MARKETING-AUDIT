@@ -8,10 +8,10 @@ import { trackEvent } from '@/lib/analytics';
 import type { Habit } from '@/types/database';
 
 const HABIT_ITEMS = [
-  { key: 'prayed' as const, label: 'Prayed', emoji: '🙏' },
-  { key: 'journaled' as const, label: 'Journaled', emoji: '📝' },
-  { key: 'read_scripture' as const, label: 'Read scripture', emoji: '📖' },
-  { key: 'completed_pathway_day' as const, label: 'Pathway day', emoji: '🗺️' },
+  { key: 'prayed' as const, label: 'Prayed' },
+  { key: 'journaled' as const, label: 'Journaled' },
+  { key: 'read_scripture' as const, label: 'Read scripture' },
+  { key: 'completed_pathway_day' as const, label: 'Pathway day' },
 ];
 
 export default function HabitsPage() {
@@ -104,7 +104,14 @@ export default function HabitsPage() {
         {/* Streak - gentle encouragement */}
         {streak > 0 && (
           <Card variant="soft" className="text-center">
-            <p className="text-3xl mb-1">{streak >= 7 ? '🌟' : '🌱'}</p>
+            <div className="w-10 h-10 mx-auto mb-2 rounded-full bg-sage/10 flex items-center justify-center">
+              <svg className="w-5 h-5 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                {streak >= 7
+                  ? <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+                  : <><path d="M12 22V12" /><path d="M12 12c-3-4-8-3-9-1 0 3 4 5 9 1z" /><path d="M12 12c3-4 8-3 9-1 0 3-4 5-9 1z" /></>
+                }
+              </svg>
+            </div>
             <p className="text-lg text-charcoal">{streak} day streak</p>
             <p className="text-xs text-stone-light mt-1">
               {streak >= 7
@@ -118,7 +125,7 @@ export default function HabitsPage() {
         <div>
           <h3 className="text-sm font-medium text-charcoal-light mb-3">Today</h3>
           <div className="space-y-2">
-            {HABIT_ITEMS.map(({ key, label, emoji }) => {
+            {HABIT_ITEMS.map(({ key, label }) => {
               const isComplete = todayHabit?.[key] ?? false;
               return (
                 <button
@@ -130,7 +137,14 @@ export default function HabitsPage() {
                       : 'border-cream-dark bg-white hover:border-stone-light'
                     }`}
                 >
-                  <span className="text-xl">{emoji}</span>
+                  <span className="w-8 h-8 rounded-full bg-sage/5 flex items-center justify-center">
+                    <svg className={`w-4 h-4 ${isComplete ? 'text-sage' : 'text-stone-light'}`} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                      {key === 'prayed' && <><path d="M7 11c0-1.5.5-3 2-4s3-1 4-1 2.5 0 4 1 2 2.5 2 4" /><path d="M7 11v7a2 2 0 004 0v-2a2 2 0 014 0v2a2 2 0 004 0v-7" /></>}
+                      {key === 'journaled' && <><path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" /><path d="M8 7h8M8 11h5" /></>}
+                      {key === 'read_scripture' && <><path d="M2 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1z" /><path d="M12 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1z" /></>}
+                      {key === 'completed_pathway_day' && <><circle cx="6" cy="6" r="3" /><circle cx="18" cy="18" r="3" /><path d="M6 9v1a6 6 0 006 6h1" /><path d="M18 15v-1a6 6 0 00-6-6h-1" /></>}
+                    </svg>
+                  </span>
                   <span className={`flex-1 text-left text-sm ${isComplete ? 'text-sage-dark' : 'text-charcoal'}`}>
                     {label}
                   </span>

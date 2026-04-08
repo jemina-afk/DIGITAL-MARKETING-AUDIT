@@ -268,15 +268,27 @@ export default function ProfilePage() {
         {/* Quick links */}
         <div className="grid grid-cols-3 gap-3">
           <a href="/prayers" className="rounded-xl bg-blush/5 border border-blush/15 p-4 text-center hover:border-blush/30 transition-colors">
-            <p className="text-lg mb-1">🙏</p>
+            <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-blush/10 flex items-center justify-center">
+              <svg className="w-4 h-4 text-blush-dark" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M7 11c0-1.5.5-3 2-4s3-1 4-1 2.5 0 4 1 2 2.5 2 4" /><path d="M7 11v7a2 2 0 004 0v-2a2 2 0 014 0v2a2 2 0 004 0v-7" />
+              </svg>
+            </div>
             <p className="text-xs font-medium text-charcoal">Prayers</p>
           </a>
           <a href="/insights" className="rounded-xl bg-sage/5 border border-sage/15 p-4 text-center hover:border-sage/30 transition-colors">
-            <p className="text-lg mb-1">📊</p>
+            <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-sage/10 flex items-center justify-center">
+              <svg className="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-8" />
+              </svg>
+            </div>
             <p className="text-xs font-medium text-charcoal">Insights</p>
           </a>
           <a href="/evening" className="rounded-xl bg-charcoal/5 border border-charcoal/10 p-4 text-center hover:border-charcoal/20 transition-colors">
-            <p className="text-lg mb-1">🌙</p>
+            <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-charcoal/10 flex items-center justify-center">
+              <svg className="w-4 h-4 text-charcoal-light" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+              </svg>
+            </div>
             <p className="text-xs font-medium text-charcoal">Evening</p>
           </a>
         </div>

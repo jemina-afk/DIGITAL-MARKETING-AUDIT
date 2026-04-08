@@ -146,7 +146,7 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
   return (
     <div className="animate-fade-in">
       <AppHeader
-        title={`${pathway.cover_emoji} ${pathway.title}`}
+        title={pathway.title}
         subtitle={pathway.description}
       />
 

@@ -255,11 +255,19 @@ export default function HomePage() {
           {/* Quick actions */}
           <div className="grid grid-cols-2 gap-3">
             <a href="/journal/new" className="rounded-xl bg-lavender/5 border border-lavender/15 p-4 text-center hover:border-lavender/30 transition-colors">
-              <p className="text-lg mb-1">📝</p>
+              <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-lavender/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-lavender" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" /><path d="M8 7h8M8 11h5" />
+                </svg>
+              </div>
               <p className="text-xs font-medium text-charcoal">Journal this</p>
             </a>
             <a href="/evening" className="rounded-xl bg-charcoal/5 border border-charcoal/10 p-4 text-center hover:border-charcoal/20 transition-colors">
-              <p className="text-lg mb-1">🌙</p>
+              <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-charcoal/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-charcoal-light" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+              </div>
               <p className="text-xs font-medium text-charcoal">Evening prayer</p>
             </a>
           </div>
@@ -320,7 +328,6 @@ export default function HomePage() {
                 <Tag
                   key={tag.value}
                   label={tag.label}
-                  emoji={tag.emoji}
                   selected={selectedFeelings.includes(tag.value)}
                   onClick={() => toggleTag(tag.value, selectedFeelings, setSelectedFeelings)}
                   size="sm"
@@ -343,7 +350,6 @@ export default function HomePage() {
                   <Tag
                     key={tag.value}
                     label={tag.label}
-                    emoji={tag.emoji}
                     selected={selectedNeeds.includes(tag.value)}
                     onClick={() => toggleTag(tag.value, selectedNeeds, setSelectedNeeds)}
                     size="sm"

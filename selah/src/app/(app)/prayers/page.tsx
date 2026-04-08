@@ -89,7 +89,7 @@ export default function PrayersPage() {
         <div className="space-y-4">
           {dailyPrayers.length === 0 ? (
             <Card variant="soft" className="text-center py-8">
-              <p className="text-3xl mb-3">🙏</p>
+              
               <p className="text-sm text-stone-light">No prayers yet. Complete a daily check-in to receive your first personalised prayer.</p>
             </Card>
           ) : (
@@ -122,7 +122,7 @@ export default function PrayersPage() {
         <div className="space-y-4">
           {savedPrayers.length === 0 ? (
             <Card variant="soft" className="text-center py-8">
-              <p className="text-3xl mb-3">✍️</p>
+              
               <p className="text-sm text-stone-light mb-3">No saved prayers yet.</p>
               <p className="text-xs text-stone-light">When you write a prayer in your journal, it will appear here.</p>
               <a href="/journal/new">

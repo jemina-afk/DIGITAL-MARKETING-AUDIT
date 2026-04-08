@@ -7,6 +7,7 @@ import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import ProgressBar from '@/components/ui/ProgressBar';
+import { PathwayIcon } from '@/components/ui/Icons';
 import { FREE_PATHWAY_LIMIT } from '@/lib/constants';
 import type { Pathway, UserPathwayProgress, Profile } from '@/types/database';
 
@@ -80,7 +81,7 @@ export default function PathwaysPage() {
                   <Link key={prog.id} href={`/pathways/${pathway.id}`}>
                     <Card className="hover:border-sage/30 transition-colors cursor-pointer mb-3">
                       <div className="flex items-center gap-3 mb-2">
-                        <span className="text-2xl">{pathway.cover_emoji}</span>
+                        <span className="w-8 h-8 flex items-center justify-center rounded-full bg-sage/10"><PathwayIcon name={pathway.cover_emoji} className="text-sage" size={18} /></span>
                         <div className="flex-1">
                           <p className="text-sm font-medium text-charcoal">{pathway.title}</p>
                           <p className="text-xs text-stone-light">
@@ -151,7 +152,7 @@ function PathwayCard({
     <Link href={locked ? '/subscribe' : `/pathways/${pathway.id}`}>
       <Card className={`hover:border-sage/30 transition-colors cursor-pointer mb-3 ${locked ? 'opacity-75' : ''}`}>
         <div className="flex items-start gap-3">
-          <span className="text-2xl mt-0.5">{pathway.cover_emoji}</span>
+          <span className="w-10 h-10 flex items-center justify-center rounded-full bg-sage/10 flex-shrink-0"><PathwayIcon name={pathway.cover_emoji} className="text-sage" size={20} /></span>
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <p className="text-sm font-medium text-charcoal">{pathway.title}</p>
