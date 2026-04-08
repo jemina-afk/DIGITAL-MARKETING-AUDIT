@@ -15,18 +15,26 @@ export default function AppNav() {
   const pathname = usePathname();
 
   return (
-    <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-cream-dark z-50 safe-area-bottom">
-      <div className="max-w-lg mx-auto flex items-center justify-around py-2 px-4">
+    <nav className="fixed bottom-0 left-0 right-0 glass border-t border-cream-dark/50 z-50 safe-area-bottom">
+      <div className="max-w-lg mx-auto flex items-center justify-around py-2.5 px-4">
         {navItems.map(({ href, label, icon: Icon }) => {
           const isActive = pathname.startsWith(href);
           return (
             <Link
               key={href}
               href={href}
-              className={`flex flex-col items-center gap-0.5 py-1 px-3 rounded-lg transition-colors
-                ${isActive ? 'text-sage-dark' : 'text-stone-light hover:text-stone'}`}
+              className={`flex flex-col items-center gap-1 py-1.5 px-3 rounded-xl transition-all duration-200
+                ${isActive
+                  ? 'text-sage-dark'
+                  : 'text-stone-light hover:text-stone active:scale-95'
+                }`}
             >
-              <Icon className="w-5 h-5" />
+              <div className="relative">
+                <Icon className="w-5 h-5" />
+                {isActive && (
+                  <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 bg-sage rounded-full" />
+                )}
+              </div>
               <span className="text-[10px] font-medium">{label}</span>
             </Link>
           );

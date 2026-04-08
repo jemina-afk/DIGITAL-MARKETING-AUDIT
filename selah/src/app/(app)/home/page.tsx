@@ -212,17 +212,18 @@ export default function HomePage() {
             </p>
           </Card>
 
-          {/* Scripture — elegant centered card */}
-          <div className="relative overflow-hidden rounded-2xl bg-gradient-to-b from-cream-dark/30 to-cream p-8 border border-cream-dark">
-            <div className="absolute top-4 left-4 text-6xl text-sage/10 font-serif leading-none">&ldquo;</div>
-            <blockquote className="relative text-center pt-4">
-              <p className="text-charcoal italic leading-[1.8] text-[15px] mb-4">
-                {response.bible_verse}
-              </p>
-              <cite className="text-sm text-sage-dark not-italic font-medium tracking-wide">
-                — {response.bible_reference}
-              </cite>
-            </blockquote>
+          {/* Scripture — shareable card (tap to change style, share button) */}
+          <div>
+            <div className="flex items-center justify-between mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-1 h-5 bg-warm rounded-full" />
+                <h3 className="text-xs tracking-widest text-stone uppercase">Scripture</h3>
+              </div>
+            </div>
+            <ShareCard
+              verse={response.bible_verse}
+              reference={response.bible_reference}
+            />
           </div>
 
           {/* Prayer — warm card */}
@@ -249,15 +250,6 @@ export default function HomePage() {
             <p className="text-[15px] text-charcoal leading-[1.7]">
               {response.faith_action}
             </p>
-          </div>
-
-          {/* Shareable verse card */}
-          <div>
-            <p className="text-xs tracking-widest text-stone uppercase mb-3">Save & share</p>
-            <ShareCard
-              verse={response.bible_verse}
-              reference={response.bible_reference}
-            />
           </div>
 
           {/* Quick actions */}
