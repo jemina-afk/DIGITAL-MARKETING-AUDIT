@@ -38,7 +38,7 @@ export default function AudioPlayer({ reflection, verse, verseReference, prayer 
     { label: 'Prayer', sentences: splitIntoSentences(prayer) },
   ];
 
-  // Load voices — some browsers load them async
+  // Load voices - some browsers load them async
   useEffect(() => {
     if (typeof window === 'undefined' || !('speechSynthesis' in window)) return;
     setIsSupported(true);
@@ -49,7 +49,7 @@ export default function AudioPlayer({ reflection, verse, verseReference, prayer 
 
       // Priority list of natural-sounding voices (Mac/iOS/Chrome)
       const priorityNames = [
-        'Samantha',        // macOS — warm, natural
+        'Samantha',        // macOS - warm, natural
         'Zoe (Premium)',   // macOS Premium
         'Samantha (Enhanced)', // macOS Enhanced
         'Ava (Premium)',   // macOS Premium
@@ -114,7 +114,7 @@ export default function AudioPlayer({ reflection, verse, verseReference, prayer 
     const sentence = section.sentences[sentenceIdx];
 
     const utterance = new SpeechSynthesisUtterance(sentence);
-    utterance.rate = 0.78;  // Slower — devotional, meditative pace
+    utterance.rate = 0.78;  // Slower - devotional, meditative pace
     utterance.pitch = 1.05; // Slightly warmer
     utterance.volume = 1.0;
 
@@ -174,7 +174,7 @@ export default function AudioPlayer({ reflection, verse, verseReference, prayer 
       </div>
 
       <div className="relative flex items-center gap-4">
-        {/* Play/Stop — glowing button */}
+        {/* Play/Stop - glowing button */}
         <button
           onClick={() => isPlaying ? stop() : play()}
           className={`w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 active:scale-90

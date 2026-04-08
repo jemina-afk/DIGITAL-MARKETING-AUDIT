@@ -10,14 +10,14 @@ import { trackEvent } from '@/lib/analytics';
 const EVENING_PRAYERS = [
   {
     title: 'Releasing the Day',
-    prayer: 'Lord, I lay this day at Your feet — the moments I\'m proud of and the ones I\'m not. I release every conversation I\'m replaying, every task I didn\'t finish, every worry I\'m carrying into the night. You were sovereign over today, and You are sovereign over tonight. I don\'t need to solve anything before I sleep. I just need to rest in You.',
+    prayer: 'Lord, I lay this day at Your feet - the moments I\'m proud of and the ones I\'m not. I release every conversation I\'m replaying, every task I didn\'t finish, every worry I\'m carrying into the night. You were sovereign over today, and You are sovereign over tonight. I don\'t need to solve anything before I sleep. I just need to rest in You.',
     verse: 'In peace I will lie down and sleep, for you alone, Lord, make me dwell in safety.',
     reference: 'Psalm 4:8 (NIV)',
     theme: 'surrender',
   },
   {
     title: 'When Your Mind Won\'t Quiet',
-    prayer: 'God, my mind is still racing. Thoughts I can\'t stop. Worries I can\'t shake. I need You to do what I cannot — quiet the noise. Place Your peace like a blanket over my thoughts. One by one, I hand each worry to You. I don\'t need answers tonight. I just need Your presence to be louder than my anxiety.',
+    prayer: 'God, my mind is still racing. Thoughts I can\'t stop. Worries I can\'t shake. I need You to do what I cannot - quiet the noise. Place Your peace like a blanket over my thoughts. One by one, I hand each worry to You. I don\'t need answers tonight. I just need Your presence to be louder than my anxiety.',
     verse: 'You will keep in perfect peace those whose minds are steadfast, because they trust in you.',
     reference: 'Isaiah 26:3 (NIV)',
     theme: 'anxiety',
@@ -38,21 +38,21 @@ const EVENING_PRAYERS = [
   },
   {
     title: 'Protection Over the Night',
-    prayer: 'God, I ask for Your protection tonight — not just physical safety, but peace of mind. Guard my dreams. Guard my thoughts. Guard my heart from the fears that creep in when the lights go out. Surround me with Your presence. Let me wake renewed, not depleted. Watch over me and those I love as we sleep.',
+    prayer: 'God, I ask for Your protection tonight - not just physical safety, but peace of mind. Guard my dreams. Guard my thoughts. Guard my heart from the fears that creep in when the lights go out. Surround me with Your presence. Let me wake renewed, not depleted. Watch over me and those I love as we sleep.',
     verse: 'He who watches over Israel will neither slumber nor sleep.',
     reference: 'Psalm 121:4 (NIV)',
     theme: 'protection',
   },
   {
     title: 'Forgiving Myself for Today',
-    prayer: 'Lord, I wasn\'t my best today. I said things I regret. I didn\'t do the things I planned. I fell short of who I want to be. But You don\'t hold a scorecard over my pillow. Your mercies are new every morning — which means tonight I can let go. I forgive myself because You already have. Help me rest without replaying my failures.',
+    prayer: 'Lord, I wasn\'t my best today. I said things I regret. I didn\'t do the things I planned. I fell short of who I want to be. But You don\'t hold a scorecard over my pillow. Your mercies are new every morning - which means tonight I can let go. I forgive myself because You already have. Help me rest without replaying my failures.',
     verse: 'The steadfast love of the Lord never ceases; his mercies never come to an end; they are new every morning.',
     reference: 'Lamentations 3:22-23 (ESV)',
     theme: 'grace',
   },
   {
     title: 'When Loneliness Hits at Night',
-    prayer: 'God, nights are the hardest. The quiet amplifies the loneliness. The empty space beside me, the silence in the house — it all feels louder in the dark. But You promise You are near to the lonely. Fill this room with Your presence. Remind me that being alone in a room is not the same as being alone in the universe. You are here.',
+    prayer: 'God, nights are the hardest. The quiet amplifies the loneliness. The empty space beside me, the silence in the house - it all feels louder in the dark. But You promise You are near to the lonely. Fill this room with Your presence. Remind me that being alone in a room is not the same as being alone in the universe. You are here.',
     verse: 'The Lord himself goes before you and will be with you; he will never leave you nor forsake you.',
     reference: 'Deuteronomy 31:8 (NIV)',
     theme: 'loneliness',
@@ -86,12 +86,12 @@ export default function EveningPage() {
           <p className="text-4xl mb-4">🌙</p>
           <h2 className="text-xl text-charcoal mb-3">Goodnight</h2>
           <p className="text-sm text-stone leading-relaxed mb-6">
-            You are held tonight. God neither slumbers nor sleeps — so you can.
+            You are held tonight. God neither slumbers nor sleeps - so you can.
           </p>
           <p className="text-xs text-stone-light italic mb-8">
             &ldquo;{selectedPrayer.verse}&rdquo;
             <br />
-            <span className="text-sage-dark not-italic">— {selectedPrayer.reference}</span>
+            <span className="text-sage-dark not-italic">- {selectedPrayer.reference}</span>
           </p>
           <Button variant="ghost" onClick={() => { setSelectedPrayer(null); setCompleted(false); }}>
             Back to evening prayers
@@ -133,12 +133,12 @@ export default function EveningPage() {
               &ldquo;{selectedPrayer.verse}&rdquo;
             </p>
             <cite className="text-sm text-sage-dark not-italic font-medium">
-              — {selectedPrayer.reference}
+              - {selectedPrayer.reference}
             </cite>
           </div>
 
           <Button onClick={handleComplete} fullWidth size="lg">
-            Amen — ready to rest
+            Amen - ready to rest
           </Button>
 
           <Button variant="ghost" fullWidth onClick={() => setSelectedPrayer(null)}>

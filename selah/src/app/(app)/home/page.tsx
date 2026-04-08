@@ -18,11 +18,11 @@ type Step = 'checkin' | 'feelings' | 'needs' | 'heart' | 'loading' | 'response';
 
 const SEASON_GREETINGS: Record<string, string> = {
   student: 'Between classes and deadlines, God has a word for you.',
-  early_career: 'Before the day pulls you in every direction — pause here.',
-  new_relationship: 'In this exciting, uncertain season of love — He is steady.',
+  early_career: 'Before the day pulls you in every direction - pause here.',
+  new_relationship: 'In this exciting, uncertain season of love - He is steady.',
   engaged: 'As you prepare for a new chapter, He prepares your heart.',
   newly_married: 'In the beautiful adjustment of building a life together.',
-  new_mom: 'In these tender, exhausting, miraculous days — you are not alone.',
+  new_mom: 'In these tender, exhausting, miraculous days - you are not alone.',
   single_season: 'In this season of learning who you are apart from anyone else.',
   career_transition: 'Between what was and what\'s next, He holds both.',
   healing: 'Healing isn\'t linear, but God meets you at every turn.',
@@ -201,7 +201,7 @@ export default function HomePage() {
             />
           )}
 
-          {/* Reflection — premium card */}
+          {/* Reflection - premium card */}
           <Card variant="elevated" padding="lg">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-1 h-6 bg-sage rounded-full" />
@@ -212,7 +212,7 @@ export default function HomePage() {
             </p>
           </Card>
 
-          {/* Scripture — shareable card (tap to change style, share button) */}
+          {/* Scripture - shareable card (tap to change style, share button) */}
           <div>
             <div className="flex items-center justify-between mb-3">
               <div className="flex items-center gap-2">
@@ -226,7 +226,7 @@ export default function HomePage() {
             />
           </div>
 
-          {/* Prayer — warm card */}
+          {/* Prayer - warm card */}
           <Card padding="lg">
             <div className="flex items-center gap-2 mb-4">
               <div className="w-1 h-6 bg-blush rounded-full" />
@@ -237,7 +237,7 @@ export default function HomePage() {
             </p>
           </Card>
 
-          {/* Faith action — standout card */}
+          {/* Faith action - standout card */}
           <div className="rounded-2xl bg-sage/5 border border-sage/15 p-6">
             <div className="flex items-center gap-3 mb-3">
               <div className="w-8 h-8 rounded-full bg-sage/10 flex items-center justify-center">
@@ -330,7 +330,7 @@ export default function HomePage() {
           </Card>
         </div>
 
-        {/* Step 2: Needs — slides in after feelings selected */}
+        {/* Step 2: Needs - slides in after feelings selected */}
         {selectedFeelings.length > 0 && (
           <div className="animate-slide-up">
             <Card>
@@ -354,7 +354,7 @@ export default function HomePage() {
           </div>
         )}
 
-        {/* Step 3: Free text — slides in after needs selected */}
+        {/* Step 3: Free text - slides in after needs selected */}
         {selectedNeeds.length > 0 && (
           <div className="animate-slide-up">
             <Card>

@@ -111,7 +111,7 @@ export default function InsightsPage() {
           <StatCard number={totalScripture} label="Days in scripture" icon="📖" max={30} />
         </div>
 
-        {/* Mood map — last 30 days */}
+        {/* Mood map - last 30 days */}
         <Card>
           <h3 className="text-sm font-medium text-charcoal mb-4">Your mood over 30 days</h3>
           <div className="grid grid-cols-7 gap-1.5">
@@ -180,9 +180,9 @@ export default function InsightsPage() {
             {totalCheckins >= 20
               ? 'Your consistency is remarkable. God sees every day you showed up.'
               : totalCheckins >= 10
-              ? 'You\'re building a beautiful rhythm. Keep going — it\'s making a difference.'
+              ? 'You\'re building a beautiful rhythm. Keep going - it\'s making a difference.'
               : totalCheckins >= 3
-              ? 'Every check-in is a step closer. There\'s no perfect streak — just faithfulness.'
+              ? 'Every check-in is a step closer. There\'s no perfect streak - just faithfulness.'
               : 'You\'re here, and that matters. Even one moment with God can shift everything.'}
           </p>
         </Card>

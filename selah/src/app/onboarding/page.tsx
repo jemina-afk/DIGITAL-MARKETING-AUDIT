@@ -170,9 +170,9 @@ export default function OnboardingPage() {
               </div>
               <div className="space-y-3">
                 {([
-                  { value: 'short', label: '2-3 minutes', desc: 'Quick and focused — a verse, a thought, a prayer' },
-                  { value: 'medium', label: '5-7 minutes', desc: 'A gentle pause — reflection, scripture, and a step for the day' },
-                  { value: 'long', label: '10-15 minutes', desc: 'A deeper dive — extended reflection, journaling prompts, and prayer' },
+                  { value: 'short', label: '2-3 minutes', desc: 'Quick and focused - a verse, a thought, a prayer' },
+                  { value: 'medium', label: '5-7 minutes', desc: 'A gentle pause - reflection, scripture, and a step for the day' },
+                  { value: 'long', label: '10-15 minutes', desc: 'A deeper dive - extended reflection, journaling prompts, and prayer' },
                 ] as const).map((opt) => (
                   <button
                     key={opt.value}

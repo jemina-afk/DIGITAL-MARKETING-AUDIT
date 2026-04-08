@@ -31,7 +31,7 @@ export const PRAYER_PROMPTS = [
   'God, redeem what was lost. Only You can make beauty from these ashes.',
 
   // Waiting & Patience
-  'Lord, strengthen me for the wait. Not just through it — in it.',
+  'Lord, strengthen me for the wait. Not just through it - in it.',
   'Father, Your timing is not late. Help me believe that today.',
   'God, show me what You\'re building while I\'m waiting.',
   'Jesus, keep me faithful in the boring, quiet, in-between days.',
@@ -39,7 +39,7 @@ export const PRAYER_PROMPTS = [
 
   // Direction & Calling
   'God, I don\'t need the whole map. Just light the next step.',
-  'Lord, use my work as worship today — even the mundane parts.',
+  'Lord, use my work as worship today - even the mundane parts.',
   'Father, align my ambition with Your purpose.',
   'Jesus, show me where You\'re already working and invite me in.',
   'God, I surrender my five-year plan. Give me today\'s assignment.',
@@ -61,14 +61,14 @@ export const PRAYER_PROMPTS = [
   // Strength & Courage
   'Lord, I am afraid. Walk ahead of me into what\'s next.',
   'God, give me courage for the conversation I\'ve been avoiding.',
-  'Father, I choose bold today. Not arrogant — anchored.',
+  'Father, I choose bold today. Not arrogant - anchored.',
   'Jesus, Your strength in my weakness. That\'s the deal. I accept.',
   'God, I\'m not strong enough. And that\'s exactly where You work best.',
 
   // Rest & Renewal
   'Lord, give me permission to stop. I need it from You because I won\'t give it to myself.',
   'Father, renew what burnout has depleted.',
-  'God, teach me that rest is not laziness — it\'s trust.',
+  'God, teach me that rest is not laziness - it\'s trust.',
   'Jesus, carry what I lay down. I\'m too tired to pick it up again.',
-  'Holy Spirit, restore my soul. Not just my energy — my soul.',
+  'Holy Spirit, restore my soul. Not just my energy - my soul.',
 ];

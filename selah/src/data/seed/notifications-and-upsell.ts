@@ -9,7 +9,7 @@ export const PUSH_NOTIFICATIONS = [
   // Morning invitations
   { text: 'Good morning. God has a word for you today.', timing: 'morning', category: 'daily_invite' },
   { text: 'A new day, a new mercy. Ready for yours?', timing: 'morning', category: 'daily_invite' },
-  { text: 'Before the noise starts — take a moment with God.', timing: 'morning', category: 'daily_invite' },
+  { text: 'Before the noise starts - take a moment with God.', timing: 'morning', category: 'daily_invite' },
   { text: 'Your daily reflection is ready. It was made for today.', timing: 'morning', category: 'daily_invite' },
   { text: 'You don\'t need to have it together to open this app. Come as you are.', timing: 'morning', category: 'daily_invite' },
 
@@ -20,12 +20,12 @@ export const PUSH_NOTIFICATIONS = [
 
   // Journal nudges
   { text: 'Sometimes you don\'t know what you feel until you write it. Your journal is waiting.', timing: 'evening', category: 'journal' },
-  { text: 'A new journaling prompt is ready — this one might surprise you.', timing: 'evening', category: 'journal' },
+  { text: 'A new journaling prompt is ready - this one might surprise you.', timing: 'evening', category: 'journal' },
   { text: 'Processing your day with God is one of the kindest things you can do for yourself.', timing: 'evening', category: 'journal' },
 
   // Pathway encouragement
   { text: 'Day 3 of your pathway is ready. You\'re building something beautiful.', timing: 'morning', category: 'pathway' },
-  { text: 'You\'re halfway through your pathway. Keep going — the best is ahead.', timing: 'morning', category: 'pathway' },
+  { text: 'You\'re halfway through your pathway. Keep going - the best is ahead.', timing: 'morning', category: 'pathway' },
 
   // Streak encouragement (grace-based)
   { text: 'You\'ve shown up for 7 days straight. That consistency is worship.', timing: 'morning', category: 'streak' },
@@ -36,7 +36,7 @@ export const PUSH_NOTIFICATIONS = [
   { text: 'No agenda. Just presence. God is available whenever you are.', timing: 'morning', category: 'weekend' },
 
   // Scripture teasers
-  { text: '"Be still, and know that I am God." — There\'s a reflection waiting for you.', timing: 'morning', category: 'verse' },
+  { text: '"Be still, and know that I am God." - There\'s a reflection waiting for you.', timing: 'morning', category: 'verse' },
   { text: '"His mercies are new every morning." Today\'s mercy has your name on it.', timing: 'morning', category: 'verse' },
   { text: 'There\'s a verse today that feels like it was written for exactly what you\'re going through.', timing: 'morning', category: 'verse' },
 ];
@@ -46,7 +46,7 @@ export const PUSH_NOTIFICATIONS = [
 // 10 PREMIUM UPSELL LINES
 // ============================================================
 // Tone: calm, elegant, never pushy. Should feel like an invitation,
-// not a sales pitch. The free tier is generous — premium is for
+// not a sales pitch. The free tier is generous - premium is for
 // the woman who wants to go deeper.
 
 export const PREMIUM_UPSELL_LINES = [
@@ -57,7 +57,7 @@ export const PREMIUM_UPSELL_LINES = [
   },
   {
     headline: 'Your faith journey deserves more room',
-    body: 'With Selah Premium, there are no limits on how deep you can go — in journaling, in pathways, or in personalised scripture.',
+    body: 'With Selah Premium, there are no limits on how deep you can go - in journaling, in pathways, or in personalised scripture.',
     context: 'journal_limit',
   },
   {
@@ -67,12 +67,12 @@ export const PREMIUM_UPSELL_LINES = [
   },
   {
     headline: 'Keep writing. Keep healing.',
-    body: 'Your journal is sacred space. With Premium, it\'s unlimited — no cap on entries, no cap on growth.',
+    body: 'Your journal is sacred space. With Premium, it\'s unlimited - no cap on entries, no cap on growth.',
     context: 'journal_limit',
   },
   {
     headline: 'A fuller experience, at your pace',
-    body: 'Premium gives you access to everything Selah offers — deeper reflections, saved prayers, and every pathway. Cancel anytime.',
+    body: 'Premium gives you access to everything Selah offers - deeper reflections, saved prayers, and every pathway. Cancel anytime.',
     context: 'general',
   },
   {
@@ -87,7 +87,7 @@ export const PREMIUM_UPSELL_LINES = [
   },
   {
     headline: 'Your soul is worth the investment',
-    body: 'Premium unlocks the full Selah experience — because spiritual growth shouldn\'t have a paywall, but quality content needs your support.',
+    body: 'Premium unlocks the full Selah experience - because spiritual growth shouldn\'t have a paywall, but quality content needs your support.',
     context: 'general',
   },
   {
@@ -97,7 +97,7 @@ export const PREMIUM_UPSELL_LINES = [
   },
   {
     headline: 'Ready for the full journey?',
-    body: 'You\'ve tasted what Selah can do. Premium takes it further — with content designed to meet you in every season of faith and life.',
+    body: 'You\'ve tasted what Selah can do. Premium takes it further - with content designed to meet you in every season of faith and life.',
     context: 'post_pathway',
   },
 ];

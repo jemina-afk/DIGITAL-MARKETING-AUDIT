@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Selah — A moment with God, just for you',
+  title: 'Selah - A moment with God, just for you',
   description: 'A premium faith companion for Christian women. Daily scripture, guided prayer, reflective journaling, and gentle habit support.',
 };
 

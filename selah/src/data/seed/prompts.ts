@@ -17,7 +17,7 @@ export const JOURNAL_PROMPTS_SEED = [
   { prompt_text: 'What does it mean to you that God calls you beloved?', category: 'identity', mood_context: ['lonely', 'hurt', 'reflective'], sort_order: 15 },
   { prompt_text: 'What is one thing you need to let go of this week?', category: 'surrender', mood_context: ['overwhelmed', 'restless', 'weary'], sort_order: 16 },
   { prompt_text: 'How can you be kind to yourself today in a way that honours God?', category: 'rest', mood_context: ['weary', 'hurt', 'anxious'], sort_order: 17 },
-  { prompt_text: 'Write down 5 things — big or small — that made you smile this week.', category: 'gratitude', mood_context: ['grateful', 'joyful', 'peaceful'], sort_order: 18 },
+  { prompt_text: 'Write down 5 things - big or small - that made you smile this week.', category: 'gratitude', mood_context: ['grateful', 'joyful', 'peaceful'], sort_order: 18 },
   { prompt_text: 'What does "Be still, and know that I am God" mean for your life today?', category: 'reflection', mood_context: ['anxious', 'restless', 'overwhelmed'], sort_order: 19 },
   { prompt_text: 'If God wrote you a letter today, what do you think He would say?', category: 'identity', mood_context: ['lonely', 'hurt', 'reflective'], sort_order: 20 },
 ];

@@ -27,15 +27,15 @@ function createMockClient() {
       getSession: () => Promise.resolve({ data: { session: null }, error: null }),
       signInWithPassword: () => Promise.resolve({
         data: { user: null, session: null },
-        error: { message: 'Preview mode — connect Supabase to enable sign in. See README for setup instructions.', status: 0 },
+        error: { message: 'Preview mode - connect Supabase to enable sign in. See README for setup instructions.', status: 0 },
       }),
       signUp: () => Promise.resolve({
         data: { user: null, session: null },
-        error: { message: 'Preview mode — connect Supabase to enable sign up. See README for setup instructions.', status: 0 },
+        error: { message: 'Preview mode - connect Supabase to enable sign up. See README for setup instructions.', status: 0 },
       }),
       resetPasswordForEmail: () => Promise.resolve({
         data: null,
-        error: { message: 'Preview mode — connect Supabase to enable password reset.', status: 0 },
+        error: { message: 'Preview mode - connect Supabase to enable password reset.', status: 0 },
       }),
       signOut: () => Promise.resolve({ error: null }),
       onAuthStateChange: () => ({ data: { subscription: { unsubscribe: () => {} } } }),

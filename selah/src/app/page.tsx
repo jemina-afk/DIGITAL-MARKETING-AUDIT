@@ -14,7 +14,7 @@ export default function LandingPage() {
           </h1>
           <p className="text-lg text-stone leading-relaxed mb-8">
             A daily companion for the woman who wants to grow closer to God
-            — through scripture, prayer, and gentle reflection.
+            - through scripture, prayer, and gentle reflection.
           </p>
 
           <div className="flex flex-col gap-3 max-w-xs mx-auto">

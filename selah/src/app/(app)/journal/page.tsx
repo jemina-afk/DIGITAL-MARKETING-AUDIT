@@ -86,7 +86,7 @@ export default function JournalPage() {
           <Card variant="soft" className="text-center py-8">
             <p className="text-stone-light text-sm mb-2">No entries yet</p>
             <p className="text-xs text-stone-light">
-              Start writing — this is your safe space with God.
+              Start writing - this is your safe space with God.
             </p>
           </Card>
         ) : (

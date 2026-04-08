@@ -302,7 +302,7 @@ export default function ProfilePage() {
           </div>
         </Card>
 
-        {/* Dev/testing toggle — remove before production */}
+        {/* Dev/testing toggle - remove before production */}
         <Card variant="soft" padding="sm">
           <div className="flex items-center justify-between">
             <div>

@@ -63,7 +63,7 @@ export default function ShareCard({ verse, reference }: ShareCardProps) {
   }
 
   async function handleShare() {
-    const shareText = `"${verse}"\n— ${reference}\n\nvia Selah`;
+    const shareText = `"${verse}"\n- ${reference}\n\nvia Selah`;
     if (navigator.share) {
       try {
         await navigator.share({ text: shareText });
@@ -97,7 +97,7 @@ export default function ShareCard({ verse, reference }: ShareCardProps) {
             {verse}
           </p>
           <p className={`${style.accent} text-sm font-medium tracking-wide`}>
-            — {reference}
+            - {reference}
           </p>
         </div>
 
@@ -107,7 +107,7 @@ export default function ShareCard({ verse, reference }: ShareCardProps) {
         </p>
       </div>
 
-      {/* Actions — minimal, elegant */}
+      {/* Actions - minimal, elegant */}
       <div className="flex items-center justify-between px-1">
         <button
           onClick={cycleStyle}

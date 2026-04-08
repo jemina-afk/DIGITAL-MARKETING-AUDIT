@@ -3,7 +3,7 @@ export const PATHWAYS_SEED = [
   {
     title: 'Anxiety & Peace',
     slug: 'anxiety-and-peace',
-    description: 'A 7-day journey from worry to rest. Learn to release anxiety and receive the peace God promises — not the absence of trouble, but His presence in it.',
+    description: 'A 7-day journey from worry to rest. Learn to release anxiety and receive the peace God promises - not the absence of trouble, but His presence in it.',
     category: 'emotional_health',
     cover_emoji: '🕊️',
     total_days: 7,
@@ -33,7 +33,7 @@ export const PATHWAYS_SEED = [
   {
     title: 'Healing After Heartbreak',
     slug: 'healing-after-heartbreak',
-    description: 'Whether it\'s a breakup, betrayal, or loss — God is close to the brokenhearted. 7 days of comfort, truth, and gentle steps toward healing.',
+    description: 'Whether it\'s a breakup, betrayal, or loss - God is close to the brokenhearted. 7 days of comfort, truth, and gentle steps toward healing.',
     category: 'healing',
     cover_emoji: '💛',
     total_days: 7,

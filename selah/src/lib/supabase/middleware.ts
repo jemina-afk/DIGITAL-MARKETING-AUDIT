@@ -10,7 +10,7 @@ const isConfigured =
   !SUPABASE_KEY.includes('placeholder');
 
 export async function updateSession(request: NextRequest) {
-  // Skip all auth checks in preview mode — let every page render
+  // Skip all auth checks in preview mode - let every page render
   if (!isConfigured) {
     return NextResponse.next({ request });
   }
