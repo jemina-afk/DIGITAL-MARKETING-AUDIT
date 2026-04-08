@@ -1,5 +1,6 @@
 import { NextRequest } from 'next/server';
 import { createClient } from '@/lib/supabase/server';
+import { findMatchingVerses, pickDiverseVerse } from '@/data/seed/verse-database';
 
 // Each mood has SHORT, MEDIUM, and LONG reflections
 const RESPONSE_DATABASE: Record<string, {
@@ -449,7 +450,8 @@ function generateResponse(
     season?: string;
     length?: string;
     format?: string;
-  }
+  },
+  recentVerseReferences: string[] = [],
 ) {
   const primaryFeeling = feelings[0] || 'default';
   const data = RESPONSE_DATABASE[primaryFeeling] || RESPONSE_DATABASE.default;
@@ -475,15 +477,13 @@ function generateResponse(
     reflection = `${name}, ${reflection.charAt(0).toLowerCase()}${reflection.slice(1)}`;
   }
 
-  // 4. Pick verse - prefer struggle-specific if available, with fallback to mood
-  let verse;
-  const struggleVerses = profile.struggle ? STRUGGLE_VERSES[profile.struggle] : null;
-  if (struggleVerses && Math.random() > 0.4) {
-    // 60% chance to use struggle-specific verse
-    verse = pickRandom(struggleVerses);
-  } else {
-    verse = pickRandom(data.verses);
-  }
+  // 4. Pick verse using comprehensive database with deduplication
+  const matchingVerses = findMatchingVerses(feelings, needs, profile.struggle || null);
+  const recentRefs = recentVerseReferences || [];
+  const selectedVerse = matchingVerses.length > 0
+    ? pickDiverseVerse(matchingVerses, recentRefs)
+    : pickRandom(data.verses);
+  const verse = { text: selectedVerse.text || (selectedVerse as { text: string }).text, reference: selectedVerse.reference || (selectedVerse as { reference: string }).reference };
 
   // 5. Build personalised prayer
   const prayerPool = length === 'short' ? data.prayers.short : data.prayers.long;
@@ -518,8 +518,21 @@ export async function POST(request: NextRequest) {
       return Response.json({ error: 'Unauthorized' }, { status: 401 });
     }
 
-    const responseContent = generateResponse(feelings, needs, freeText, userProfile);
     const today = new Date().toISOString().split('T')[0];
+
+    // Fetch recent verse references to avoid repeats (last 7 days)
+    const sevenDaysAgo = new Date();
+    sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
+    const { data: recentResponses } = await supabase
+      .from('daily_responses')
+      .select('bible_reference')
+      .eq('user_id', user.id)
+      .gte('response_date', sevenDaysAgo.toISOString().split('T')[0])
+      .order('response_date', { ascending: false });
+
+    const recentRefs = (recentResponses || []).map((r: { bible_reference: string }) => r.bible_reference);
+
+    const responseContent = generateResponse(feelings, needs, freeText, userProfile, recentRefs);
 
     const { data: saved } = await supabase
       .from('daily_responses')
