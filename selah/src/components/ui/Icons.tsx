@@ -10,7 +10,7 @@ interface IconProps {
 
 function svgWrap(children: React.ReactNode, { className = '', size = 24 }: IconProps) {
   return (
-    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+    <svg className={className} width={size} height={size} viewBox="0 0 24 24" fill="none" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       {children}
     </svg>
   );

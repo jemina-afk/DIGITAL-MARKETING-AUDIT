@@ -9,7 +9,6 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  maximumScale: 1,
   themeColor: '#FDF8F4',
 };
 
@@ -21,6 +20,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="min-h-screen bg-cream text-charcoal antialiased">
+        <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-sage focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:text-sm">
+          Skip to content
+        </a>
         {children}
       </body>
     </html>

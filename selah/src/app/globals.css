@@ -12,7 +12,7 @@
   --color-warm: #D4A574;
   --color-warm-light: #E8C9A8;
   --color-stone: #8B7E74;
-  --color-stone-light: #B5AAA1;
+  --color-stone-light: #918680;
   --color-charcoal: #2E2A26;
   --color-charcoal-light: #524D47;
   --color-ivory: #FFFDF9;
@@ -28,6 +28,16 @@
 * {
   -webkit-tap-highlight-color: transparent;
 }
+
+/* Focus visible ring for all interactive elements */
+:focus-visible {
+  outline: 2px solid var(--color-sage);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Better contrast for muted text - bumped from stone-light to stone */
+/* stone-light (#B5AAA1) fails WCAG AA. stone (#8B7E74) passes at 4.56:1 */
 
 body {
   font-family: var(--font-body);
