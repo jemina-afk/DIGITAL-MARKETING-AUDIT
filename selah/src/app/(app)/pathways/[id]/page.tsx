@@ -19,6 +19,7 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
   const [progress, setProgress] = useState<UserPathwayProgress | null>(null);
   const [activeDay, setActiveDay] = useState<PathwayDay | null>(null);
   const [loading, setLoading] = useState(true);
+  const [showCompletion, setShowCompletion] = useState<'day' | 'pathway' | null>(null);
   const router = useRouter();
   const supabase = createClient();
 
@@ -110,12 +111,9 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
 
     if (isPathwayComplete) {
       await trackEvent('pathway_completed', { pathway_id: id });
-    }
-
-    // Move to next day
-    if (!isPathwayComplete) {
-      const nextDayContent = days.find((d) => d.day_number === nextDay);
-      if (nextDayContent) setActiveDay(nextDayContent);
+      setShowCompletion('pathway');
+    } else {
+      setShowCompletion('day');
     }
   }
 
@@ -139,6 +137,114 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
         <Button variant="ghost" onClick={() => router.push('/pathways')}>
           Back to pathways
         </Button>
+      </div>
+    );
+  }
+
+  // ===== DAY COMPLETION SCREEN =====
+  if (showCompletion === 'day' && activeDay) {
+    const completedCount = progress?.completed_days.length || 0;
+    const totalDays = pathway.total_days;
+    const nextDayNum = Math.min(activeDay.day_number + 1, totalDays);
+    const nextDayContent = days.find((d) => d.day_number === nextDayNum);
+
+    return (
+      <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 animate-scale-in">
+        <div className="text-center max-w-sm">
+          {/* Animated circle with checkmark */}
+          <div className="relative w-20 h-20 mx-auto mb-6">
+            <svg className="w-20 h-20" viewBox="0 0 80 80">
+              <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="2" className="text-cream-dark" />
+              <circle cx="40" cy="40" r="36" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-sage"
+                strokeDasharray={`${(completedCount / totalDays) * 226} 226`}
+                strokeLinecap="round"
+                transform="rotate(-90 40 40)"
+              />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg className="w-8 h-8 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M20 6L9 17l-5-5" />
+              </svg>
+            </div>
+          </div>
+
+          <h2 className="text-xl text-charcoal mb-2">Day {activeDay.day_number} complete</h2>
+          <p className="text-sm text-stone leading-relaxed mb-2">
+            {completedCount} of {totalDays} days done
+          </p>
+          <p className="text-xs text-stone-light leading-relaxed mb-8">
+            {completedCount <= 2
+              ? 'You\'re building something beautiful. Keep going.'
+              : completedCount <= 5
+              ? 'You\'re over halfway there. God is doing something in you.'
+              : 'Almost there. What a journey this has been.'}
+          </p>
+
+          <div className="space-y-3">
+            <Button
+              onClick={() => {
+                setShowCompletion(null);
+                if (nextDayContent) setActiveDay(nextDayContent);
+              }}
+              fullWidth
+              size="lg"
+            >
+              Continue to Day {nextDayNum}
+            </Button>
+            <div className="flex gap-3">
+              <a href="/journal/new" className="flex-1">
+                <Button variant="outline" fullWidth>Journal this</Button>
+              </a>
+              <Button
+                variant="ghost"
+                onClick={() => {
+                  setShowCompletion(null);
+                  router.push('/pathways');
+                }}
+                className="flex-1"
+              >
+                Done for today
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  // ===== PATHWAY COMPLETION SCREEN =====
+  if (showCompletion === 'pathway') {
+    return (
+      <div className="min-h-[80vh] flex flex-col items-center justify-center px-6 animate-scale-in">
+        <div className="text-center max-w-sm">
+          {/* Full circle with star */}
+          <div className="relative w-24 h-24 mx-auto mb-6">
+            <svg className="w-24 h-24" viewBox="0 0 96 96">
+              <circle cx="48" cy="48" r="42" fill="none" stroke="currentColor" strokeWidth="2.5" className="text-sage" />
+            </svg>
+            <div className="absolute inset-0 flex items-center justify-center">
+              <svg className="w-10 h-10 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z" />
+              </svg>
+            </div>
+          </div>
+
+          <p className="text-xs tracking-widest text-sage uppercase mb-3">Pathway complete</p>
+          <h2 className="text-2xl text-charcoal mb-3">{pathway.title}</h2>
+          <p className="text-sm text-stone leading-relaxed mb-8">
+            You finished all {pathway.total_days} days. The seeds planted here will continue to grow
+            long after this pathway ends. Well done.
+          </p>
+
+          <div className="space-y-3">
+            <Button onClick={() => router.push('/pathways')} fullWidth size="lg">
+              Explore more pathways
+            </Button>
+            <a href="/journal/new">
+              <Button variant="outline" fullWidth>Reflect in your journal</Button>
+            </a>
+          </div>
+        </div>
       </div>
     );
   }
