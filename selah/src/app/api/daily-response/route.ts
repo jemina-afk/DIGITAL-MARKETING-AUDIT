@@ -462,19 +462,25 @@ function generateResponse(
   const reflectionPool = data.reflections[length as keyof typeof data.reflections] || data.reflections.medium;
   let reflection = pickRandom(reflectionPool);
 
-  // 2. Add season-specific opening if available
+  // 2. Add varied season-specific opening if available
   const seasonCtx = profile.season ? SEASON_CONTEXT[profile.season] : null;
   if (seasonCtx && length !== 'short') {
-    reflection = `${seasonCtx.opener}, what you\'re feeling today makes sense.\n\n${reflection}`;
+    const seasonBridges = [
+      'what you are feeling today makes complete sense.',
+      'God sees exactly where you are right now.',
+      'this is real, and it matters.',
+      'you are not carrying this alone.',
+      'there is grace here for you today.',
+      'God is already in this moment with you.',
+    ];
+    const bridge = pickRandom(seasonBridges);
+    reflection = `${seasonCtx.opener}, ${bridge}\n\n${reflection}`;
   }
 
   // 3. Add free text acknowledgment if provided
   if (freeText && freeText.trim().length > 10) {
     const ack = buildFreeTextAcknowledgment(name, freeText);
     reflection = `${ack}\n\n${reflection}`;
-  } else if (length !== 'short') {
-    // Add name to the beginning even without free text
-    reflection = `${name}, ${reflection.charAt(0).toLowerCase()}${reflection.slice(1)}`;
   }
 
   // 4. Pick verse using comprehensive database with deduplication
@@ -489,9 +495,10 @@ function generateResponse(
   const prayerPool = length === 'short' ? data.prayers.short : data.prayers.long;
   let prayer = pickRandom(prayerPool);
 
-  // Add season-specific prayer line
+  // Remove name injection from prayers - keep them universal
+  // Add season context without naming the user
   if (seasonCtx) {
-    prayer = prayer.replace('Amen.', `Be with ${name} ${seasonCtx.prayerLine}. Amen.`);
+    prayer = prayer.replace('Amen.', `Be near in this season. Amen.`);
   }
 
   // 6. Pick action
