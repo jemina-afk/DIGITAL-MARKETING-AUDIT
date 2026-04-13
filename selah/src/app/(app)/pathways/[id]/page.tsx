@@ -9,6 +9,7 @@ import Button from '@/components/ui/Button';
 import ProgressBar from '@/components/ui/ProgressBar';
 import Disclaimer from '@/components/ui/Disclaimer';
 import AudioPlayer from '@/components/ui/AudioPlayer';
+import ContentCarousel from '@/components/ui/ContentCarousel';
 import { trackEvent } from '@/lib/analytics';
 import type { Pathway, PathwayDay, UserPathwayProgress } from '@/types/database';
 
@@ -296,12 +297,13 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
       {/* Day content */}
       {activeDay && (
         <div className="space-y-4">
-          <Card>
-            <h3 className="text-lg text-charcoal mb-1">{activeDay.theme}</h3>
-            <p className="text-xs text-stone-light">Day {activeDay.day_number}</p>
-          </Card>
+          {/* Day header */}
+          <div className="text-center py-2">
+            <p className="text-xs text-stone-light mb-1">Day {activeDay.day_number}</p>
+            <h3 className="text-lg text-charcoal">{activeDay.theme}</h3>
+          </div>
 
-          {/* Audio player for pathway day */}
+          {/* Audio player */}
           <AudioPlayer
             reflection={activeDay.reflection}
             verse={activeDay.scripture_text}
@@ -309,37 +311,61 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
             prayer={activeDay.prayer_prompt}
           />
 
-          <Card variant="soft">
-            <blockquote className="text-center">
-              <p className="text-charcoal italic leading-relaxed mb-3">
-                &ldquo;{activeDay.scripture_text}&rdquo;
-              </p>
-              <cite className="text-sm text-sage-dark not-italic font-medium">
-                {activeDay.scripture_reference}
-              </cite>
-            </blockquote>
-          </Card>
-
-          <Card>
-            <h4 className="text-sm font-medium text-charcoal mb-2">Reflection</h4>
-            <p className="text-sm text-charcoal-light leading-relaxed">
-              {activeDay.reflection}
-            </p>
-          </Card>
-
-          <Card className="border-lavender/30 bg-lavender/5">
-            <h4 className="text-sm font-medium text-charcoal mb-2">Journal prompt</h4>
-            <p className="text-sm text-charcoal-light italic">
-              {activeDay.journal_prompt}
-            </p>
-          </Card>
-
-          <Card className="border-blush/30 bg-blush/5">
-            <h4 className="text-sm font-medium text-charcoal mb-2">Prayer</h4>
-            <p className="text-sm text-charcoal-light italic leading-relaxed">
-              {activeDay.prayer_prompt}
-            </p>
-          </Card>
+          {/* Carousel content - swipeable sections */}
+          <ContentCarousel
+            slides={[
+              {
+                id: 'scripture',
+                label: 'Scripture',
+                accentColor: 'bg-warm',
+                content: (
+                  <blockquote className="text-center py-2">
+                    <p className="text-charcoal italic leading-[1.8] text-[15px] mb-4">
+                      &ldquo;{activeDay.scripture_text}&rdquo;
+                    </p>
+                    <cite className="text-sm text-sage-dark not-italic font-medium tracking-wide">
+                      - {activeDay.scripture_reference}
+                    </cite>
+                  </blockquote>
+                ),
+              },
+              {
+                id: 'reflection',
+                label: 'Reflection',
+                accentColor: 'bg-sage',
+                content: (
+                  <p className="text-[15px] text-charcoal leading-[1.8] whitespace-pre-line">
+                    {activeDay.reflection}
+                  </p>
+                ),
+              },
+              {
+                id: 'journal',
+                label: 'Journal',
+                accentColor: 'bg-lavender',
+                content: (
+                  <div>
+                    <p className="text-[15px] text-charcoal-light italic leading-[1.7] mb-4">
+                      {activeDay.journal_prompt}
+                    </p>
+                    <a href="/journal/new" className="text-xs text-sage font-medium hover:text-sage-dark transition-colors">
+                      Open journal to write &rarr;
+                    </a>
+                  </div>
+                ),
+              },
+              {
+                id: 'prayer',
+                label: 'Prayer',
+                accentColor: 'bg-blush',
+                content: (
+                  <p className="text-[15px] text-charcoal-light italic leading-[1.8]">
+                    {activeDay.prayer_prompt}
+                  </p>
+                ),
+              },
+            ]}
+          />
 
           {!progress ? (
             <Button onClick={handleStart} fullWidth size="lg">

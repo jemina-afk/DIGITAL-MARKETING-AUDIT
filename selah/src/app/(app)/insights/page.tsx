@@ -6,6 +6,7 @@ import { createClient } from '@/lib/supabase/client';
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import MoodGraph from '@/components/ui/MoodGraph';
 import type { DailyCheckin, Habit, JournalEntry, Profile } from '@/types/database';
 
 const MOOD_COLORS: Record<string, string> = {
@@ -130,35 +131,12 @@ export default function InsightsPage() {
           </Card>
         )}
 
-        {/* Mood map - last 30 days (premium only) */}
+        {/* Mood graph - weekly view (premium only) */}
         {profile?.subscription_tier === 'premium' && (<>
-        {/* Mood map */}
-        <Card>
-          <h3 className="text-sm font-medium text-charcoal mb-4">Your mood over 30 days</h3>
-          <div className="grid grid-cols-7 gap-1.5">
-            {getLast30Days().map((date) => {
-              const checkin = checkins.find(c => c.checked_in_at === date);
-              const primaryMood = checkin?.feeling_tags[0];
-              const colorClass = primaryMood ? (MOOD_COLORS[primaryMood] || 'bg-sage/30') : 'bg-cream-dark';
-              const isToday = date === new Date().toISOString().split('T')[0];
-
-              return (
-                <div key={date} className="flex flex-col items-center gap-0.5">
-                  <div
-                    className={`w-full aspect-square rounded-lg ${colorClass} ${isToday ? 'ring-2 ring-sage/40' : ''} transition-all`}
-                    title={primaryMood ? `${date}: ${primaryMood}` : date}
-                  />
-                </div>
-              );
-            })}
-          </div>
-          <div className="flex items-center gap-4 mt-3 text-[10px] text-stone-light">
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-sage/60" /> Peaceful</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-blush/60" /> Anxious</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-lavender/60" /> Reflective</span>
-            <span className="flex items-center gap-1"><span className="w-2.5 h-2.5 rounded bg-cream-dark" /> No data</span>
-          </div>
-        </Card>
+        <div>
+          <h3 className="text-sm font-medium text-charcoal mb-3">Your mood this week</h3>
+          <MoodGraph checkins={checkins} />
+        </div>
 
         {/* Top moods */}
         {topMoods.length > 0 && (
