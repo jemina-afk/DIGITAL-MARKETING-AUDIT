@@ -115,18 +115,40 @@ export default function AskSelahPage() {
   const [response, setResponse] = useState<typeof WISDOM_DATABASE.default | null>(null);
   const [loading, setLoading] = useState(false);
 
-  function handleAsk(q?: string) {
+  async function handleAsk(q?: string) {
     const text = q || question;
     if (!text.trim()) return;
     setLoading(true);
     setQuestion(text);
 
-    // Simulate brief thinking delay
-    setTimeout(() => {
-      const topic = detectTopic(text);
-      setResponse(WISDOM_DATABASE[topic] || WISDOM_DATABASE.default);
-      setLoading(false);
-    }, 800);
+    try {
+      // Try AI-powered response first
+      const res = await fetch('/api/ask', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question: text }),
+      });
+
+      const data = await res.json();
+
+      if (data.verses && data.reflection && data.prayer) {
+        // AI response succeeded
+        setResponse({
+          verses: data.verses.map((v: { text: string; ref: string }) => ({ text: v.text, ref: v.ref })),
+          reflection: data.reflection,
+          prayer: data.prayer,
+        });
+        setLoading(false);
+        return;
+      }
+    } catch {
+      // AI failed, fall through to template
+    }
+
+    // Fallback to template matching
+    const topic = detectTopic(text);
+    setResponse(WISDOM_DATABASE[topic] || WISDOM_DATABASE.default);
+    setLoading(false);
   }
 
   if (loading) {
