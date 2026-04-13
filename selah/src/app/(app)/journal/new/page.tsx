@@ -117,34 +117,37 @@ export default function NewJournalPage() {
           ))}
         </div>
 
-        {/* Prompt selection for guided */}
-        {entryType === 'prompted' && (
+        {/* Prompt selection - collapsible dropdown */}
+        {entryType === 'prompted' && !selectedPrompt && (
           <Card variant="soft" padding="sm">
-            <p className="text-xs font-medium text-charcoal-light mb-2">Choose a prompt</p>
-            <div className="space-y-2">
-              {displayPrompts.map((prompt) => (
-                <button
-                  key={prompt}
-                  onClick={() => {
-                    setSelectedPrompt(prompt);
-                    setEntryType('prompted');
-                  }}
-                  className={`w-full text-left text-sm p-3 rounded-xl transition-all
-                    ${selectedPrompt === prompt
-                      ? 'bg-sage/10 text-sage-dark border border-sage/20'
-                      : 'bg-white text-charcoal-light hover:bg-white/80 border border-transparent'
-                    }`}
-                >
-                  {prompt}
-                </button>
+            <p className="text-xs font-medium text-charcoal-light mb-2">Choose a prompt to get started</p>
+            <select
+              value=""
+              onChange={(e) => {
+                if (e.target.value) setSelectedPrompt(e.target.value);
+              }}
+              className="w-full text-sm text-charcoal bg-white border-2 border-cream-dark rounded-xl px-4 py-3 focus:outline-none focus:border-sage appearance-none cursor-pointer"
+              style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%238B7E74' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 12px center' }}
+            >
+              <option value="">Select a prompt...</option>
+              {displayPrompts.map((prompt, i) => (
+                <option key={i} value={prompt}>{prompt}</option>
               ))}
-            </div>
+            </select>
           </Card>
         )}
 
         {selectedPrompt && entryType === 'prompted' && (
           <Card variant="soft" padding="sm">
-            <p className="text-sm text-sage-dark italic">{selectedPrompt}</p>
+            <div className="flex items-start justify-between gap-2">
+              <p className="text-sm text-sage-dark italic flex-1">{selectedPrompt}</p>
+              <button
+                onClick={() => setSelectedPrompt('')}
+                className="text-xs text-stone-light hover:text-stone flex-shrink-0 mt-0.5"
+              >
+                Change
+              </button>
+            </div>
           </Card>
         )}
 

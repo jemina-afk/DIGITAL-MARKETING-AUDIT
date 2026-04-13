@@ -90,20 +90,31 @@ export default function ContentCarousel({ slides }: ContentCarouselProps) {
         ))}
       </div>
 
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-1.5 mt-4">
-        {slides.map((_, i) => (
+      {/* Dot indicators + swipe hint */}
+      <div className="flex flex-col items-center gap-1.5 mt-3">
+        <div className="flex gap-1.5">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => scrollToSlide(i)}
+              className={`transition-all duration-300 rounded-full ${
+                i === activeIndex
+                  ? 'w-6 h-1.5 bg-sage'
+                  : 'w-1.5 h-1.5 bg-stone-light/30'
+              }`}
+              aria-label={`Go to slide ${i + 1}`}
+            />
+          ))}
+        </div>
+        {activeIndex < slides.length - 1 && (
           <button
-            key={i}
-            onClick={() => scrollToSlide(i)}
-            className={`transition-all duration-300 rounded-full ${
-              i === activeIndex
-                ? 'w-6 h-1.5 bg-sage'
-                : 'w-1.5 h-1.5 bg-stone-light/30'
-            }`}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
+            onClick={() => scrollToSlide(activeIndex + 1)}
+            className="flex items-center gap-1 text-[10px] text-stone-light hover:text-stone transition-colors"
+          >
+            Swipe for {slides[activeIndex + 1]?.label}
+            <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+          </button>
+        )}
       </div>
     </div>
   );

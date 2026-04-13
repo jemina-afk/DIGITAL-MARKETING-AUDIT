@@ -296,9 +296,9 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
 
       {/* Day content */}
       {activeDay && (
-        <div className="space-y-4">
+        <div className="space-y-3">
           {/* Day header */}
-          <div className="text-center py-2">
+          <div className="text-center py-1">
             <p className="text-xs text-stone-light mb-1">Day {activeDay.day_number}</p>
             <h3 className="text-lg text-charcoal">{activeDay.theme}</h3>
           </div>
@@ -311,7 +311,7 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
             prayer={activeDay.prayer_prompt}
           />
 
-          {/* Carousel content - swipeable sections */}
+          {/* Carousel content - swipe through sections */}
           <ContentCarousel
             slides={[
               {
@@ -340,21 +340,6 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
                 ),
               },
               {
-                id: 'journal',
-                label: 'Journal',
-                accentColor: 'bg-lavender',
-                content: (
-                  <div>
-                    <p className="text-[15px] text-charcoal-light italic leading-[1.7] mb-4">
-                      {activeDay.journal_prompt}
-                    </p>
-                    <a href="/journal/new" className="text-xs text-sage font-medium hover:text-sage-dark transition-colors">
-                      Open journal to write &rarr;
-                    </a>
-                  </div>
-                ),
-              },
-              {
                 id: 'prayer',
                 label: 'Prayer',
                 accentColor: 'bg-blush',
@@ -364,15 +349,32 @@ export default function PathwayDetailPage({ params }: { params: Promise<{ id: st
                   </p>
                 ),
               },
+              {
+                id: 'journal',
+                label: 'Journal',
+                accentColor: 'bg-lavender',
+                content: (
+                  <div>
+                    <p className="text-[15px] text-charcoal-light italic leading-[1.7] mb-4">
+                      {activeDay.journal_prompt}
+                    </p>
+                    <a href="/journal/new" className="inline-flex items-center gap-1.5 text-sm text-sage font-medium hover:text-sage-dark transition-colors bg-sage/5 px-4 py-2.5 rounded-xl">
+                      Open journal to write
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" /></svg>
+                    </a>
+                  </div>
+                ),
+              },
             ]}
           />
 
+          {/* Complete / Start button */}
           {!progress ? (
             <Button onClick={handleStart} fullWidth size="lg">
               Start this pathway
             </Button>
           ) : progress.completed_days.includes(activeDay.day_number) ? (
-            <div className="text-center py-3">
+            <div className="text-center py-1">
               <p className="text-sm text-sage">Day completed</p>
             </div>
           ) : (
