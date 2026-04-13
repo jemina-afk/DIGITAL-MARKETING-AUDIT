@@ -13,10 +13,10 @@ export default function Card({
   ...props
 }: CardProps) {
   const variants = {
-    default: 'bg-white border border-cream-dark/80 shadow-[0_1px_3px_rgba(139,126,116,0.04)]',
-    elevated: 'bg-white shadow-[0_2px_12px_rgba(139,126,116,0.08),0_1px_3px_rgba(139,126,116,0.04)]',
-    soft: 'bg-cream-dark/40 border border-cream-dark/50',
-    glass: 'glass border border-white/50 shadow-[0_2px_12px_rgba(139,126,116,0.06)]',
+    default: 'bg-white/80 border border-lavender-light/50 shadow-[0_2px_16px_rgba(184,168,216,0.08)]',
+    elevated: 'bg-white shadow-[0_4px_24px_rgba(184,168,216,0.12),0_1px_4px_rgba(184,168,216,0.06)]',
+    soft: 'bg-lavender-light/30 border border-lavender-light/40',
+    glass: 'backdrop-blur-xl bg-white/60 border border-white/50 shadow-[0_4px_24px_rgba(184,168,216,0.1)]',
   };
 
   const paddings = {

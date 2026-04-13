@@ -165,22 +165,18 @@ export default function AudioPlayer({ reflection, verse, verseReference, prayer 
   if (!isSupported) return null;
 
   return (
-    <div className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-charcoal to-charcoal-light p-5">
-      {/* Decorative wave */}
-      <div className="absolute inset-0 opacity-5">
-        <svg viewBox="0 0 400 80" className="w-full h-full" preserveAspectRatio="none">
-          <path d="M0,40 C100,10 200,70 300,30 C350,15 380,45 400,35 L400,80 L0,80 Z" fill="currentColor" className="text-white" />
-        </svg>
-      </div>
+    <div className="relative overflow-hidden rounded-2xl bg-white border border-lavender-light/50 shadow-[0_4px_24px_rgba(184,168,216,0.12)] p-4">
+      {/* Subtle gradient accent */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-sage via-lavender to-blush rounded-t-2xl" />
 
       <div className="relative flex items-center gap-4">
-        {/* Play/Stop - glowing button */}
+        {/* Play/Stop button - purple gradient */}
         <button
           onClick={() => isPlaying ? stop() : play()}
           className={`w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 active:scale-90
             ${isPlaying
-              ? 'bg-white/20 hover:bg-white/30 shadow-[0_0_20px_rgba(255,255,255,0.1)]'
-              : 'bg-sage hover:bg-sage-dark shadow-[0_0_20px_rgba(139,168,136,0.3)]'
+              ? 'bg-lavender/20 hover:bg-lavender/30 shadow-[0_0_20px_rgba(184,168,216,0.2)]'
+              : 'bg-gradient-to-br from-sage to-sage-dark hover:shadow-lg hover:shadow-sage/25'
             }`}
         >
           {isPlaying ? (
@@ -196,19 +192,19 @@ export default function AudioPlayer({ reflection, verse, verseReference, prayer 
         </button>
 
         <div className="flex-1 min-w-0">
-          <p className="text-sm font-medium text-cream">
+          <p className="text-sm font-medium text-charcoal">
             {isPlaying ? currentSection : 'Listen'}
           </p>
-          <p className="text-xs text-cream/50 mt-0.5">
+          <p className="text-xs text-stone-light mt-0.5">
             {isPlaying
               ? 'Playing...'
               : `${Math.ceil(estimatedDuration / 60)} min · Reflection, scripture & prayer`}
           </p>
 
           {/* Progress bar */}
-          <div className="w-full h-1 bg-white/10 rounded-full mt-3 overflow-hidden">
+          <div className="w-full h-1.5 bg-cream-dark rounded-full mt-3 overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-sage to-sage-light rounded-full transition-all duration-500"
+              className="h-full bg-gradient-to-r from-sage to-lavender rounded-full transition-all duration-500"
               style={{ width: `${progress}%` }}
             />
           </div>

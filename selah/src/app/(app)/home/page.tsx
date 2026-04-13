@@ -7,6 +7,7 @@ import AudioPlayer from '@/components/ui/AudioPlayer';
 import ShareCard from '@/components/ui/ShareCard';
 import Card from '@/components/ui/Card';
 import Tag from '@/components/ui/Tag';
+import MoodCard from '@/components/ui/MoodCard';
 import Button from '@/components/ui/Button';
 import TextArea from '@/components/ui/TextArea';
 import Disclaimer from '@/components/ui/Disclaimer';
@@ -350,25 +351,25 @@ export default function HomePage() {
       </div>
 
       <div className="space-y-6 mt-4">
-        {/* Step 1: Feelings */}
+        {/* Step 1: Feelings - gradient mood cards */}
         <div className="animate-fade-in">
-          <Card>
-            <div className="flex items-center gap-2 mb-4">
+          <div className="mb-4">
+            <div className="flex items-center gap-2 mb-3">
               <span className="w-6 h-6 rounded-full bg-sage/10 flex items-center justify-center text-xs font-medium text-sage">1</span>
-              <h3 className="text-sm font-medium text-charcoal">I&apos;m feeling...</h3>
+              <h3 className="text-sm font-medium text-charcoal">Your mood</h3>
             </div>
-            <div className="flex flex-wrap gap-2">
+            <div className="grid grid-cols-4 gap-2.5">
               {FEELING_TAGS.map((tag) => (
-                <Tag
+                <MoodCard
                   key={tag.value}
                   label={tag.label}
+                  value={tag.value}
                   selected={selectedFeelings.includes(tag.value)}
                   onClick={() => toggleTag(tag.value, selectedFeelings, setSelectedFeelings)}
-                  size="sm"
                 />
               ))}
             </div>
-          </Card>
+          </div>
         </div>
 
         {/* Step 2: Needs - slides in after feelings selected */}

@@ -20,7 +20,7 @@ export default function LandingPage() {
           <div className="flex flex-col gap-3 max-w-xs mx-auto">
             <Link
               href="/signup"
-              className="inline-flex items-center justify-center rounded-xl bg-sage text-white font-medium text-sm px-8 py-4 hover:bg-sage-dark transition-all duration-200 active:scale-[0.98]"
+              className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-sage to-sage-dark text-white font-medium text-sm px-8 py-4 hover:shadow-lg hover:shadow-sage/25 transition-all duration-200 active:scale-[0.98]"
             >
               Begin your journey
             </Link>
