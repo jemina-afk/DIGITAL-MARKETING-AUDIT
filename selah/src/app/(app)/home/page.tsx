@@ -274,13 +274,13 @@ export default function HomePage() {
 
           {/* Quick actions */}
           <div className="grid grid-cols-2 gap-3">
-            <a href="/journal/new" className="rounded-xl bg-lavender/5 border border-lavender/15 p-4 text-center hover:border-lavender/30 transition-colors">
-              <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-lavender/10 flex items-center justify-center">
-                <svg className="w-4 h-4 text-lavender" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M4 19.5v-15A2.5 2.5 0 016.5 2H20v20H6.5a2.5 2.5 0 010-5H20" /><path d="M8 7h8M8 11h5" />
+            <a href="/ask" className="rounded-xl bg-sage/5 border border-sage/15 p-4 text-center hover:border-sage/30 transition-colors">
+              <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-sage/10 flex items-center justify-center">
+                <svg className="w-4 h-4 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <p className="text-xs font-medium text-charcoal">Journal this</p>
+              <p className="text-xs font-medium text-charcoal">Ask Selah</p>
             </a>
             <a href="/evening" className="rounded-xl bg-charcoal/5 border border-charcoal/10 p-4 text-center hover:border-charcoal/20 transition-colors">
               <div className="w-8 h-8 mx-auto mb-1.5 rounded-full bg-charcoal/10 flex items-center justify-center">
@@ -290,6 +290,49 @@ export default function HomePage() {
               </div>
               <p className="text-xs font-medium text-charcoal">Evening prayer</p>
             </a>
+          </div>
+
+          {/* Explore section - discover premium features */}
+          <div>
+            <p className="text-xs tracking-widest text-stone uppercase mb-3">Explore</p>
+            <div className="grid grid-cols-3 gap-2.5">
+              <a href="/memorise" className="rounded-xl bg-gradient-to-br from-[#C8B6FF]/20 to-[#B8D0EB]/20 border border-lavender-light/30 p-3.5 text-center hover:border-sage/30 transition-colors">
+                <svg className="w-5 h-5 text-sage mx-auto mb-1.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342" />
+                </svg>
+                <p className="text-[10px] font-medium text-charcoal">Memorise</p>
+              </a>
+              <a href="/verse-packs" className="rounded-xl bg-gradient-to-br from-[#E8B4D4]/20 to-[#C8A8E8]/20 border border-lavender-light/30 p-3.5 text-center hover:border-sage/30 transition-colors">
+                <svg className="w-5 h-5 text-sage mx-auto mb-1.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M2 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1z" /><path d="M12 6s1.5-2 5-2 5 2 5 2v14s-1.5-1-5-1-5 1-5 1z" />
+                </svg>
+                <p className="text-[10px] font-medium text-charcoal">Verse Packs</p>
+              </a>
+              <a href="/worship" className="rounded-xl bg-gradient-to-br from-[#B8D0EB]/20 to-[#A8E6CF]/20 border border-lavender-light/30 p-3.5 text-center hover:border-sage/30 transition-colors">
+                <svg className="w-5 h-5 text-sage mx-auto mb-1.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z" />
+                </svg>
+                <p className="text-[10px] font-medium text-charcoal">Worship</p>
+              </a>
+              <a href="/studies" className="rounded-xl bg-gradient-to-br from-[#F0D6EA]/20 to-[#FFE8D0]/20 border border-lavender-light/30 p-3.5 text-center hover:border-sage/30 transition-colors">
+                <svg className="w-5 h-5 text-sage mx-auto mb-1.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+                <p className="text-[10px] font-medium text-charcoal">Studies</p>
+              </a>
+              <a href="/evening" className="rounded-xl bg-gradient-to-br from-[#2A2640]/10 to-[#4A4566]/10 border border-lavender-light/30 p-3.5 text-center hover:border-sage/30 transition-colors">
+                <svg className="w-5 h-5 text-sage mx-auto mb-1.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z" />
+                </svg>
+                <p className="text-[10px] font-medium text-charcoal">Evening</p>
+              </a>
+              <a href="/insights" className="rounded-xl bg-gradient-to-br from-[#C8B6FF]/20 to-[#E8B4D4]/20 border border-lavender-light/30 p-3.5 text-center hover:border-sage/30 transition-colors">
+                <svg className="w-5 h-5 text-sage mx-auto mb-1.5" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M3 3v18h18" /><path d="M7 16l4-8 4 4 4-8" />
+                </svg>
+                <p className="text-[10px] font-medium text-charcoal">Insights</p>
+              </a>
+            </div>
           </div>
 
           {/* Evening prayer teaser - shows after 6pm for all users */}
