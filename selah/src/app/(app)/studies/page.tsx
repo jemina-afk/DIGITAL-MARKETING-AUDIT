@@ -1,5 +1,7 @@
 'use client';
 
+import PremiumGate from '@/components/ui/PremiumGate';
+
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
 import Link from 'next/link';
@@ -40,7 +42,15 @@ const STUDIES = [
   },
 ];
 
-export default function StudiesPage() {
+export default function StudiesWrapper() {
+  return (
+    <PremiumGate feature="Selah Studies" description="Multi-week guided Bible studies that go deeper than a daily devotional.">
+      <StudiesContent />
+    </PremiumGate>
+  );
+}
+
+function StudiesContent() {
   return (
     <div className="animate-fade-in">
       <AppHeader title="Selah Studies" subtitle="Go deeper with guided Bible studies" />

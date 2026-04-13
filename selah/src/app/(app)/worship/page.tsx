@@ -1,5 +1,7 @@
 'use client';
 
+import PremiumGate from '@/components/ui/PremiumGate';
+
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
 
@@ -49,7 +51,15 @@ const PLAYLISTS = [
   },
 ];
 
-export default function WorshipPage() {
+export default function WorshipWrapper() {
+  return (
+    <PremiumGate feature="Worship Playlists" description="Mood-matched worship playlists to set the atmosphere for prayer, journaling, or rest.">
+      <WorshipContent />
+    </PremiumGate>
+  );
+}
+
+function WorshipContent() {
   return (
     <div className="animate-fade-in">
       <AppHeader title="Worship" subtitle="Curated playlists for every season of your heart" />

@@ -1,5 +1,7 @@
 'use client';
 
+import PremiumGate from '@/components/ui/PremiumGate';
+
 import { useState } from 'react';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
@@ -110,7 +112,15 @@ const SUGGESTED_QUESTIONS = [
   'I feel so alone right now',
 ];
 
-export default function AskSelahPage() {
+export default function AskSelahPageWrapper() {
+  return (
+    <PremiumGate feature="Ask Selah" description="AI-powered scripture guidance that speaks directly to your question. Every answer is uniquely generated with relevant verses, a reflection, and a prayer.">
+      <AskSelahContent />
+    </PremiumGate>
+  );
+}
+
+function AskSelahContent() {
   const [question, setQuestion] = useState('');
   const [response, setResponse] = useState<typeof WISDOM_DATABASE.default | null>(null);
   const [loading, setLoading] = useState(false);

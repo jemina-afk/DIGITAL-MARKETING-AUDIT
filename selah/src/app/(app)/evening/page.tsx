@@ -1,5 +1,7 @@
 'use client';
 
+import PremiumGate from '@/components/ui/PremiumGate';
+
 import { useState } from 'react';
 import { createClient } from '@/lib/supabase/client';
 import Card from '@/components/ui/Card';
@@ -59,7 +61,15 @@ const EVENING_PRAYERS = [
   },
 ];
 
-export default function EveningPage() {
+export default function EveningWrapper() {
+  return (
+    <PremiumGate feature="Evening Prayers" description="Seven themed bedtime prayers for when your mind will not quiet. End the day held, not haunted.">
+      <EveningContent />
+    </PremiumGate>
+  );
+}
+
+function EveningContent() {
   const [selectedPrayer, setSelectedPrayer] = useState<typeof EVENING_PRAYERS[0] | null>(null);
   const [completed, setCompleted] = useState(false);
   const supabase = createClient();

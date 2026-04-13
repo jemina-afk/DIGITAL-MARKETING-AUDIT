@@ -1,5 +1,7 @@
 'use client';
 
+import PremiumGate from '@/components/ui/PremiumGate';
+
 import { useState } from 'react';
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
@@ -27,7 +29,15 @@ function hideWords(text: string, hidePercent: number): { display: string; blanks
   return { display, blanks: totalToHide };
 }
 
-export default function MemorisePage() {
+export default function MemoriseWrapper() {
+  return (
+    <PremiumGate feature="Scripture Memory" description="Learn verses by heart with our progressive memory system. Read, fill gaps, then recite from memory.">
+      <MemoriseContent />
+    </PremiumGate>
+  );
+}
+
+function MemoriseContent() {
   const [selectedVerse, setSelectedVerse] = useState<typeof MEMORY_VERSES[0] | null>(null);
   const [level, setLevel] = useState(0); // 0=full, 1=25%, 2=50%, 3=75%, 4=test
   const [userInput, setUserInput] = useState('');

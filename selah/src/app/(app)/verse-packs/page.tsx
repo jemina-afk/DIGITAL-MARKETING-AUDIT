@@ -1,5 +1,7 @@
 'use client';
 
+import PremiumGate from '@/components/ui/PremiumGate';
+
 import { useState } from 'react';
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
@@ -68,7 +70,15 @@ const VERSE_PACKS = [
   },
 ];
 
-export default function VersePacksPage() {
+export default function VersePacksWrapper() {
+  return (
+    <PremiumGate feature="Verse Packs" description="Curated scripture collections for anxiety, identity, hard days, and more.">
+      <VersePacksContent />
+    </PremiumGate>
+  );
+}
+
+function VersePacksContent() {
   const [selectedPack, setSelectedPack] = useState<typeof VERSE_PACKS[0] | null>(null);
 
   if (selectedPack) {
