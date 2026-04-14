@@ -49,6 +49,34 @@ const PLAYLISTS = [
     gradient: 'from-[#2A2640] via-[#4A4566] to-[#2A2640]',
     darkText: true,
   },
+  {
+    title: 'Gospel Classics',
+    desc: 'Soul-stirring gospel for when you need to feel every word.',
+    moods: ['weary', 'hopeful', 'joyful'],
+    tracks: ['Take Me to the King - Tamela Mann', 'Break Every Chain - Tasha Cobbs Leonard', 'I Smile - Kirk Franklin', 'Total Praise - Richard Smallwood', 'Stand - Donnie McClurkin'],
+    gradient: 'from-[#D4A574] via-[#E8C9A8] to-[#F0D6EA]',
+  },
+  {
+    title: 'Black Gospel Anointed',
+    desc: 'Spirit-filled worship that meets you in the deep places.',
+    moods: ['hurt', 'grateful', 'surrendered'],
+    tracks: ['Goodness of God - CeCe Winans', 'Alabaster Box - CeCe Winans', 'He\'s Able - Deitrick Haddon', 'Jesus Will - Anita Wilson', 'You Know My Name - Tasha Cobbs Leonard'],
+    gradient: 'from-[#8B7EC8] via-[#C4A0D4] to-[#E8B4D4]',
+  },
+  {
+    title: 'Gospel Joy & Celebration',
+    desc: 'When gratitude needs to move your whole body.',
+    moods: ['joyful', 'grateful', 'confident'],
+    tracks: ['Melodies from Heaven - Kirk Franklin', 'Joy - Maverick City x Kirk Franklin', 'Stomp - Kirk Franklin', 'Victory - Yolanda Adams', 'Encourage Yourself - Donald Lawrence'],
+    gradient: 'from-[#FFD6E0] via-[#F0D6EA] to-[#E8C9A8]',
+  },
+  {
+    title: 'Maverick City & New Gospel',
+    desc: 'Modern gospel for the woman who loves a bridge.',
+    moods: ['grateful', 'peaceful', 'hopeful'],
+    tracks: ['Jireh - Maverick City x Elevation Worship', 'Promises - Maverick City', 'Old Church Basement - Maverick City', 'Million Little Miracles - Maverick City', 'Yes and Amen - Housefires'],
+    gradient: 'from-[#B8A8D8] via-[#DCC8E8] to-[#F0D6EA]',
+  },
 ];
 
 export default function WorshipWrapper() {
