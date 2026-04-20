@@ -9,6 +9,8 @@ import Button from '@/components/ui/Button';
 import TextArea from '@/components/ui/TextArea';
 import Input from '@/components/ui/Input';
 import Tag from '@/components/ui/Tag';
+import EncryptionLock from '@/components/ui/EncryptionLock';
+import { useEncryption } from '@/hooks/useEncryption';
 import { MOOD_TAGS, TOPIC_TAGS } from '@/lib/constants';
 import { trackEvent } from '@/lib/analytics';
 import type { EntryType, JournalPrompt } from '@/types/database';
@@ -35,6 +37,7 @@ export default function NewJournalPage() {
   const [saving, setSaving] = useState(false);
   const router = useRouter();
   const supabase = createClient();
+  const encryption = useEncryption();
 
   useEffect(() => {
     async function loadPrompts() {
@@ -66,10 +69,15 @@ export default function NewJournalPage() {
     const { data: { user } } = await supabase.auth.getUser();
     if (!user) return;
 
+    let finalContent = content;
+    if (encryption.status === 'unlocked') {
+      finalContent = await encryption.encryptText(content);
+    }
+
     await supabase.from('journal_entries').insert({
       user_id: user.id,
       title: title || null,
-      content,
+      content: finalContent,
       entry_type: entryType,
       prompt_text: selectedPrompt || null,
       mood_tags: moodTags,
@@ -77,7 +85,6 @@ export default function NewJournalPage() {
       is_saved_prayer: entryType === 'prayer',
     });
 
-    // Update habit
     const today = new Date().toISOString().split('T')[0];
     await supabase.from('habits').upsert({
       user_id: user.id,
@@ -92,6 +99,32 @@ export default function NewJournalPage() {
 
     router.push('/journal');
     router.refresh();
+  }
+
+  if (encryption.status === 'loading') {
+    return (
+      <div className="flex items-center justify-center min-h-[40vh]">
+        <div className="w-8 h-8 rounded-full border-2 border-sage border-t-transparent animate-spin" />
+      </div>
+    );
+  }
+
+  if (encryption.status === 'needs_setup') {
+    return (
+      <div>
+        <AppHeader title="New entry" />
+        <EncryptionLock mode="setup" onSetup={encryption.setupEncryption} />
+      </div>
+    );
+  }
+
+  if (encryption.status === 'locked') {
+    return (
+      <div>
+        <AppHeader title="New entry" />
+        <EncryptionLock mode="unlock" onUnlock={encryption.unlock} />
+      </div>
+    );
   }
 
   return (
@@ -218,6 +251,15 @@ export default function NewJournalPage() {
             Save entry
           </Button>
         </div>
+
+        {encryption.status === 'unlocked' && (
+          <p className="text-xs text-stone-light text-center flex items-center justify-center gap-1.5">
+            <svg className="w-3 h-3 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            End-to-end encrypted
+          </p>
+        )}
       </div>
     </div>
   );

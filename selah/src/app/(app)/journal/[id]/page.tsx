@@ -6,14 +6,19 @@ import { createClient } from '@/lib/supabase/client';
 import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
+import EncryptionLock from '@/components/ui/EncryptionLock';
+import { useEncryption } from '@/hooks/useEncryption';
+import { isEncrypted } from '@/lib/encryption';
 import type { JournalEntry } from '@/types/database';
 
 export default function JournalEntryPage({ params }: { params: Promise<{ id: string }> }) {
   const { id } = use(params);
   const [entry, setEntry] = useState<JournalEntry | null>(null);
+  const [decryptedContent, setDecryptedContent] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const router = useRouter();
   const supabase = createClient();
+  const encryption = useEncryption();
 
   useEffect(() => {
     async function load() {
@@ -29,6 +34,24 @@ export default function JournalEntryPage({ params }: { params: Promise<{ id: str
     load();
   }, [id, supabase]);
 
+  useEffect(() => {
+    if (!entry || encryption.status !== 'unlocked') return;
+    if (!isEncrypted(entry.content)) {
+      setDecryptedContent(entry.content);
+      return;
+    }
+
+    async function decryptEntry() {
+      try {
+        const plain = await encryption.decryptText(entry!.content);
+        setDecryptedContent(plain);
+      } catch {
+        setDecryptedContent(null);
+      }
+    }
+    decryptEntry();
+  }, [entry, encryption]);
+
   async function handleDelete() {
     if (!confirm('Are you sure you want to delete this entry?')) return;
 
@@ -37,7 +60,7 @@ export default function JournalEntryPage({ params }: { params: Promise<{ id: str
     router.refresh();
   }
 
-  if (loading) {
+  if (loading || encryption.status === 'loading') {
     return (
       <div className="animate-fade-in">
         <AppHeader title="Loading..." />
@@ -48,6 +71,24 @@ export default function JournalEntryPage({ params }: { params: Promise<{ id: str
             <div className="h-3 bg-cream-dark rounded w-2/3" />
           </div>
         </div>
+      </div>
+    );
+  }
+
+  if (encryption.status === 'needs_setup') {
+    return (
+      <div>
+        <AppHeader title="Journal entry" />
+        <EncryptionLock mode="setup" onSetup={encryption.setupEncryption} />
+      </div>
+    );
+  }
+
+  if (encryption.status === 'locked') {
+    return (
+      <div>
+        <AppHeader title="Journal entry" />
+        <EncryptionLock mode="unlock" onUnlock={encryption.unlock} />
       </div>
     );
   }
@@ -70,6 +111,8 @@ export default function JournalEntryPage({ params }: { params: Promise<{ id: str
     gratitude: 'Gratitude',
   };
 
+  const displayContent = decryptedContent ?? (isEncrypted(entry.content) ? 'Unable to decrypt this entry.' : entry.content);
+
   return (
     <div className="animate-fade-in">
       <AppHeader
@@ -91,7 +134,7 @@ export default function JournalEntryPage({ params }: { params: Promise<{ id: str
 
         <Card>
           <p className="text-sm text-charcoal leading-relaxed whitespace-pre-wrap">
-            {entry.content}
+            {displayContent}
           </p>
         </Card>
 
@@ -108,6 +151,15 @@ export default function JournalEntryPage({ params }: { params: Promise<{ id: str
               </span>
             ))}
           </div>
+        )}
+
+        {isEncrypted(entry.content) && (
+          <p className="text-xs text-stone-light flex items-center gap-1.5">
+            <svg className="w-3 h-3 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            End-to-end encrypted
+          </p>
         )}
 
         <div className="flex gap-3 pt-4">

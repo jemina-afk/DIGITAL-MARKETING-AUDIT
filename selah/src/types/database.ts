@@ -28,6 +28,8 @@ export interface Profile {
   subscription_tier: SubscriptionTier;
   stripe_customer_id: string | null;
   stripe_subscription_id: string | null;
+  journal_encryption_salt: string | null;
+  journal_encryption_test: string | null;
   created_at: string;
   updated_at: string;
 }

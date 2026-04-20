@@ -7,14 +7,19 @@ import AppHeader from '@/components/layout/AppHeader';
 import Card from '@/components/ui/Card';
 import Button from '@/components/ui/Button';
 import Tag from '@/components/ui/Tag';
+import EncryptionLock from '@/components/ui/EncryptionLock';
+import { useEncryption } from '@/hooks/useEncryption';
+import { isEncrypted } from '@/lib/encryption';
 import type { JournalEntry, Profile } from '@/types/database';
 import { FREE_JOURNAL_LIMIT } from '@/lib/constants';
 
 export default function JournalPage() {
   const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [decryptedPreviews, setDecryptedPreviews] = useState<Record<string, string>>({});
   const [profile, setProfile] = useState<Profile | null>(null);
   const [loading, setLoading] = useState(true);
   const supabase = createClient();
+  const encryption = useEncryption();
 
   useEffect(() => {
     async function load() {
@@ -41,10 +46,42 @@ export default function JournalPage() {
     load();
   }, [supabase]);
 
+  useEffect(() => {
+    if (encryption.status !== 'unlocked' || entries.length === 0) return;
+
+    async function decryptPreviews() {
+      const previews: Record<string, string> = {};
+      for (const entry of entries) {
+        if (isEncrypted(entry.content)) {
+          try {
+            const plain = await encryption.decryptText(entry.content);
+            previews[entry.id] = plain.slice(0, 120);
+          } catch {
+            previews[entry.id] = '[encrypted]';
+          }
+        }
+      }
+      setDecryptedPreviews(previews);
+    }
+    decryptPreviews();
+  }, [encryption, entries]);
+
   const isPremium = profile?.subscription_tier === 'premium';
   const isAtLimit = !isPremium && entries.length >= FREE_JOURNAL_LIMIT;
 
-  if (loading) {
+  function getPreview(entry: JournalEntry) {
+    if (isEncrypted(entry.content)) {
+      if (encryption.status === 'unlocked' && decryptedPreviews[entry.id]) {
+        const text = decryptedPreviews[entry.id];
+        return text.length >= 120 ? text + '...' : text;
+      }
+      return 'Encrypted entry - unlock to read';
+    }
+    const text = entry.content.slice(0, 120);
+    return text.length >= 120 ? text + '...' : text;
+  }
+
+  if (loading || encryption.status === 'loading') {
     return (
       <div className="animate-fade-in">
         <AppHeader title="Journal" subtitle="Your sacred space to process and grow" />
@@ -56,6 +93,24 @@ export default function JournalPage() {
             </div>
           ))}
         </div>
+      </div>
+    );
+  }
+
+  if (encryption.status === 'needs_setup') {
+    return (
+      <div className="animate-fade-in">
+        <AppHeader title="Journal" subtitle="Your sacred space to process and grow" />
+        <EncryptionLock mode="setup" onSetup={encryption.setupEncryption} />
+      </div>
+    );
+  }
+
+  if (encryption.status === 'locked') {
+    return (
+      <div className="animate-fade-in">
+        <AppHeader title="Journal" subtitle="Your sacred space to process and grow" />
+        <EncryptionLock mode="unlock" onUnlock={encryption.unlock} />
       </div>
     );
   }
@@ -84,7 +139,6 @@ export default function JournalPage() {
                 New journal entry
               </Button>
             </Link>
-            {/* Soft warning at 8-9 entries */}
             {!isPremium && entries.length >= 8 && (
               <p className="text-xs text-stone text-center">
                 {FREE_JOURNAL_LIMIT - entries.length} free {FREE_JOURNAL_LIMIT - entries.length === 1 ? 'entry' : 'entries'} remaining.{' '}
@@ -112,13 +166,19 @@ export default function JournalPage() {
                         {entry.title || formatEntryType(entry.entry_type)}
                       </p>
                       <p className="text-xs text-stone-light mt-1 line-clamp-2">
-                        {entry.content.slice(0, 120)}
-                        {entry.content.length > 120 ? '...' : ''}
+                        {getPreview(entry)}
                       </p>
                     </div>
-                    <p className="text-xs text-stone-light whitespace-nowrap">
-                      {formatDate(entry.created_at)}
-                    </p>
+                    <div className="flex items-center gap-1.5 flex-shrink-0">
+                      {isEncrypted(entry.content) && (
+                        <svg className="w-3 h-3 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                        </svg>
+                      )}
+                      <p className="text-xs text-stone-light whitespace-nowrap">
+                        {formatDate(entry.created_at)}
+                      </p>
+                    </div>
                   </div>
                   {(entry.mood_tags.length > 0 || entry.topic_tags.length > 0) && (
                     <div className="flex flex-wrap gap-1.5 mt-3">
@@ -138,6 +198,15 @@ export default function JournalPage() {
               </Link>
             ))}
           </div>
+        )}
+
+        {encryption.status === 'unlocked' && entries.length > 0 && (
+          <p className="text-xs text-stone-light text-center flex items-center justify-center gap-1.5 pb-4">
+            <svg className="w-3 h-3 text-sage" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+            </svg>
+            End-to-end encrypted
+          </p>
         )}
       </div>
     </div>
