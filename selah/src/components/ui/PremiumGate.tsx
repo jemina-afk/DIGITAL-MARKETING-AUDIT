@@ -14,7 +14,7 @@ const COMPARISON = [
   { label: 'Daily check-in', free: true, premium: true },
   { label: 'Personalised daily devotional', free: true, premium: true },
   { label: 'Habit tracker with streaks', free: true, premium: true },
-  { label: 'Pathways', free: '3 free', premium: 'All 7' },
+  { label: 'Pathways', free: 'All 7', premium: 'All 7' },
   { label: 'Journal entries', free: '10 total', premium: 'Unlimited' },
   { label: 'Ask Selah (AI guidance)', free: false, premium: true },
   { label: 'Scripture memory system', free: false, premium: true },

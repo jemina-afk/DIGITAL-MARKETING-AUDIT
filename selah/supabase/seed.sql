@@ -33,10 +33,10 @@ INSERT INTO public.pathways (title, slug, description, category, cover_emoji, to
 ('Anxiety & Peace', 'anxiety-and-peace', 'A 7-day journey from worry to rest. Learn to release anxiety and receive the peace God promises — not the absence of trouble, but His presence in it.', 'emotional_health', '🕊️', 7, true, 1),
 ('Identity in Christ', 'identity-in-christ', 'Rediscover who God says you are. Over 7 days, replace the lies of comparison, rejection, and not-enoughness with the truth of your belovedness.', 'identity', '🪞', 7, true, 2),
 ('Waiting Well', 'waiting-well', 'When God is silent and the waiting feels endless. 7 days of encouragement to trust His timing and find purpose in the pause.', 'faith', '⏳', 7, true, 3),
-('Healing After Heartbreak', 'healing-after-heartbreak', 'Whether it''s a breakup, betrayal, or loss — God is close to the brokenhearted. 7 days of comfort, truth, and gentle steps toward healing.', 'healing', '💛', 7, false, 4),
-('Confidence & Self-Worth', 'confidence-and-self-worth', 'Stop shrinking. 7 days of scripture and reflection to help you walk boldly in the confidence that comes from knowing whose you are.', 'identity', '👑', 7, false, 5),
-('Discipline with Grace', 'discipline-with-grace', 'Build holy habits without burnout or shame. 7 days of learning to steward your time, energy, and calling with grace.', 'growth', '🌿', 7, false, 6),
-('Career & Calling', 'career-and-calling', 'When you''re unsure what you''re meant to do. 7 days to explore purpose, surrender ambition, and trust God with your work.', 'purpose', '🧭', 7, false, 7);
+('Healing After Heartbreak', 'healing-after-heartbreak', 'Whether it''s a breakup, betrayal, or loss — God is close to the brokenhearted. 7 days of comfort, truth, and gentle steps toward healing.', 'healing', '💛', 7, true, 4),
+('Confidence & Self-Worth', 'confidence-and-self-worth', 'Stop shrinking. 7 days of scripture and reflection to help you walk boldly in the confidence that comes from knowing whose you are.', 'identity', '👑', 7, true, 5),
+('Discipline with Grace', 'discipline-with-grace', 'Build holy habits without burnout or shame. 7 days of learning to steward your time, energy, and calling with grace.', 'growth', '🌿', 7, true, 6),
+('Career & Calling', 'career-and-calling', 'When you''re unsure what you''re meant to do. 7 days to explore purpose, surrender ambition, and trust God with your work.', 'purpose', '🧭', 7, true, 7);
 
 -- ============================================================
 -- PATHWAY DAYS: Anxiety & Peace

@@ -37,7 +37,7 @@ export const PATHWAYS_SEED = [
     category: 'healing',
     cover_emoji: 'heart',
     total_days: 7,
-    is_free: false,
+    is_free: true,
     sort_order: 4,
   },
   {
@@ -47,7 +47,7 @@ export const PATHWAYS_SEED = [
     category: 'identity',
     cover_emoji: 'crown',
     total_days: 7,
-    is_free: false,
+    is_free: true,
     sort_order: 5,
   },
   {
@@ -57,7 +57,7 @@ export const PATHWAYS_SEED = [
     category: 'growth',
     cover_emoji: 'seedling',
     total_days: 7,
-    is_free: false,
+    is_free: true,
     sort_order: 6,
   },
   {
@@ -67,7 +67,7 @@ export const PATHWAYS_SEED = [
     category: 'purpose',
     cover_emoji: 'compass',
     total_days: 7,
-    is_free: false,
+    is_free: true,
     sort_order: 7,
   },
 ];
